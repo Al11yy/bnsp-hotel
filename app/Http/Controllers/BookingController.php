@@ -2,109 +2,83 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreBookingRequest;
 use App\Models\Booking;
 use App\Models\RoomType;
-use Illuminate\Contracts\View\View;
-use Illuminate\Http\JsonResponse;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
-/**
- * Controller  : BookingController
- * Deskripsi   : Mengelola transaksi reservasi kamar hotel (Formulir, Kalkulasi, Penyimpanan, dan Invoice)
- * Initial State : Permintaan transaksi pemesanan dari pengguna
- * Final State   : Data transaksi tervalidasi, dihitung dengan benar, disimpan di SQLite, dan ditampilkan
- * Author      : Peserta Sertifikasi BNSP - Junior Web Developer
- * Versi       : 1.0.0
- * Tanggal     : 2026-11-02
- */
 class BookingController extends Controller
 {
     /**
-     * Menampilkan daftar semua transaksi pemesanan yang tersimpan di database.
+     * Menampilkan daftar semua transaksi pemesanan (index).
      */
-    public function index(): View
+    public function index()
     {
         $bookings = Booking::with('roomType')->latest()->paginate(10);
 
-        return view('pages.booking-list', [
-            'bookings' => $bookings,
-            'title' => 'Daftar Riwayat Pemesanan - Hotel Grand Harmoni BNSP',
-        ]);
+        return view('booking.index', compact('bookings'));
     }
 
     /**
-     * Menampilkan formulir pemesanan kamar hotel (Butir 2).
+     * Menampilkan formulir pemesanan kamar hotel (create).
      */
-    public function create(Request $request): View
+    public function create(Request $request)
     {
         $roomTypes = RoomType::orderBy('price', 'asc')->get();
         $selectedRoomId = $request->query('room_id');
 
-        return view('pages.booking', [
-            'roomTypes' => $roomTypes,
-            'selectedRoomId' => $selectedRoomId,
-            'title' => 'Form Pemesanan Kamar - Hotel Grand Harmoni BNSP',
-        ]);
+        return view('booking.create', compact('roomTypes', 'selectedRoomId'));
     }
 
     /**
-     * Endpoint API JSON untuk kalkulasi simulasi biaya sewa (opsional untuk fetch/AJAX).
+     * Menyimpan transaksi pemesanan kamar hotel ke database SQLite (store).
      */
-    public function calculate(Request $request): JsonResponse
+    public function store(Request $request)
     {
-        $validated = $request->validate([
+        // Validasi input form sesuai ketentuan lembar uji BNSP FR.IA.02
+        $request->validate([
+            'customer_name' => 'required|string|min:3|max:150',
+            'gender' => 'required|in:Laki-laki,Perempuan',
+            'identity_number' => ['required', 'regex:/^[0-9]{16}$/'],
             'room_type_id' => 'required|exists:room_types,id',
+            'booking_date' => 'required|date',
             'stay_duration' => 'required|integer|min:1',
             'include_breakfast' => 'nullable|boolean',
+        ], [
+            'customer_name.required' => 'Nama Pemesan wajib diisi.',
+            'customer_name.min' => 'Nama Pemesan minimal 3 karakter.',
+            'gender.required' => 'Pilih jenis kelamin (Laki-laki atau Perempuan).',
+            'gender.in' => 'Pilihan jenis kelamin tidak valid.',
+            'identity_number.required' => 'Nomor Identitas wajib diisi.',
+            'identity_number.regex' => 'isian salah..data harus 16 digit',
+            'room_type_id.required' => 'Pilih tipe kamar yang ingin dipesan.',
+            'room_type_id.exists' => 'Tipe kamar yang dipilih tidak terdaftar di sistem.',
+            'booking_date.required' => 'Tanggal pesan wajib diisi.',
+            'booking_date.date' => 'Format tanggal pesan tidak valid.',
+            'stay_duration.required' => 'harus isi angka',
+            'stay_duration.integer' => 'harus isi angka',
+            'stay_duration.min' => 'harus isi angka (minimal 1 hari)',
         ]);
 
-        $roomType = RoomType::findOrFail($validated['room_type_id']);
-        $calculation = Booking::calculateTotal(
-            $roomType->price,
-            (int) $validated['stay_duration'],
-            (bool) ($validated['include_breakfast'] ?? false)
-        );
+        $roomType = RoomType::findOrFail($request->room_type_id);
 
-        return response()->json([
-            'status' => 'success',
-            'room_name' => $roomType->name,
-            'room_price' => $roomType->price,
-            'formatted_room_price' => 'Rp '.number_format($roomType->price, 0, ',', '.'),
-            'data' => $calculation,
-            'formatted' => [
-                'subtotal' => 'Rp '.number_format($calculation['subtotal'], 0, ',', '.'),
-                'discount_amount' => 'Rp '.number_format($calculation['discount_amount'], 0, ',', '.'),
-                'breakfast_fee' => 'Rp '.number_format($calculation['breakfast_fee'], 0, ',', '.'),
-                'total_payment' => 'Rp '.number_format($calculation['total_payment'], 0, ',', '.'),
-            ],
-        ]);
-    }
-
-    /**
-     * Menyimpan data pemesanan kamar hotel ke database SQLite setelah divalidasi.
-     */
-    public function store(StoreBookingRequest $request): RedirectResponse
-    {
-        $validated = $request->validated();
-
-        $roomType = RoomType::findOrFail($validated['room_type_id']);
-
-        // Kalkulasi ulang di server untuk integritas data (prinsip Senior Backend Security)
-        $duration = (int) $validated['stay_duration'];
-        $includeBreakfast = (bool) ($validated['include_breakfast'] ?? false);
+        // Kalkulasi biaya sewa, diskon 10% jika menginap > 3 hari, dan sarapan (+Rp 80.000)
+        $duration = (int) $request->stay_duration;
+        $includeBreakfast = (bool) ($request->include_breakfast ?? false);
         $calc = Booking::calculateTotal($roomType->price, $duration, $includeBreakfast);
 
+        // Generate kode pemesanan unik
+        $bookingCode = 'BK-'.date('Ymd').'-'.strtoupper(Str::random(5));
+
+        // Simpan data ke tabel bookings
         $booking = Booking::create([
-            'booking_code' => 'BK-'.date('Ymd').'-'.strtoupper(Str::random(5)),
-            'customer_name' => trim($validated['customer_name']),
-            'gender' => $validated['gender'],
-            'identity_number' => $validated['identity_number'],
+            'booking_code' => $bookingCode,
+            'customer_name' => trim($request->customer_name),
+            'gender' => $request->gender,
+            'identity_number' => $request->identity_number,
             'room_type_id' => $roomType->id,
             'room_price' => $roomType->price,
-            'booking_date' => $validated['booking_date'],
+            'booking_date' => $request->booking_date,
             'stay_duration' => $duration,
             'include_breakfast' => $includeBreakfast,
             'breakfast_fee' => $calc['breakfast_fee'],
@@ -113,21 +87,59 @@ class BookingController extends Controller
             'total_payment' => $calc['total_payment'],
         ]);
 
-        return redirect()->route('booking.show', $booking)->with([
-            'success' => 'Pemesanan kamar hotel berhasil disimpan ke database!',
-        ]);
+        return redirect()->route('booking.show', $booking)
+            ->with('success', 'Pemesanan kamar hotel berhasil disimpan ke database!');
     }
 
     /**
-     * Menampilkan bukti pemesanan / invoice sesuai format lembar soal BNSP (halaman 3 butir b).
+     * Menampilkan bukti pemesanan / invoice voucher tamu (show).
      */
-    public function show(Booking $booking): View
+    public function show(Booking $booking)
     {
         $booking->load('roomType');
 
-        return view('pages.booking-success', [
-            'booking' => $booking,
-            'title' => 'Bukti Pemesanan Kamar #'.$booking->booking_code.' - Hotel Grand Harmoni BNSP',
+        return view('booking.show', compact('booking'));
+    }
+
+    /**
+     * Menghapus transaksi pemesanan dari database (destroy).
+     */
+    public function destroy(Booking $booking)
+    {
+        $booking->delete();
+
+        return redirect()->route('booking.index')
+            ->with('success', 'Data pemesanan berhasil dihapus.');
+    }
+
+    /**
+     * API simulasi hitung total bayar kamar secara dinamis (AJAX / Fetch).
+     */
+    public function calculate(Request $request)
+    {
+        $request->validate([
+            'room_type_id' => 'required|exists:room_types,id',
+            'stay_duration' => 'required|integer|min:1',
+            'include_breakfast' => 'nullable|boolean',
+        ]);
+
+        $roomType = RoomType::findOrFail($request->room_type_id);
+        $duration = (int) $request->stay_duration;
+        $includeBreakfast = (bool) ($request->include_breakfast ?? false);
+        $calc = Booking::calculateTotal($roomType->price, $duration, $includeBreakfast);
+
+        return response()->json([
+            'status' => 'success',
+            'room_name' => $roomType->name,
+            'room_price' => $roomType->price,
+            'formatted_room_price' => 'Rp '.number_format($roomType->price, 0, ',', '.'),
+            'data' => $calc,
+            'formatted' => [
+                'subtotal' => 'Rp '.number_format($calc['subtotal'], 0, ',', '.'),
+                'discount_amount' => 'Rp '.number_format($calc['discount_amount'], 0, ',', '.'),
+                'breakfast_fee' => 'Rp '.number_format($calc['breakfast_fee'], 0, ',', '.'),
+                'total_payment' => 'Rp '.number_format($calc['total_payment'], 0, ',', '.'),
+            ],
         ]);
     }
 }

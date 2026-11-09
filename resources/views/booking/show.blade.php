@@ -18,7 +18,16 @@
 
 <!-- SECTION TAMPILAN SESUAI FORMAT LEMBAR SOAL BNSP (HALAMAN 3 BUTIR B) -->
 <section class="py-20 bg-[#F7F5F0] text-[#141312] min-h-[calc(100vh-25rem)]">
-    <div class="max-w-2xl mx-auto px-6 sm:px-8">
+    <div class="max-w-2xl mx-auto px-6 sm:px-8 space-y-6">
+        
+        @if (session('success'))
+            <div class="p-4 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-2xl flex items-center gap-3 text-xs sm:text-sm font-medium print:hidden">
+                <svg class="w-5 h-5 flex-shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
         
         <!-- KARTU VOUCHER INVOICE EDITORIAL -->
         <div id="invoice-card" class="bg-white rounded-3xl border border-stone-300 shadow-2xl overflow-hidden print:shadow-none print:border-none print:rounded-none">

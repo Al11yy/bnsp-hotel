@@ -27,7 +27,16 @@
 
 <!-- SECTION TABEL LEDGER DATABASE BOOKINGS -->
 <section class="py-24 bg-[#F7F5F0] text-[#141312] min-h-[calc(100vh-25rem)]">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-10">
+    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-8">
+        
+        @if (session('success'))
+            <div class="p-4 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-2xl flex items-center gap-3 text-xs sm:text-sm font-medium">
+                <svg class="w-5 h-5 flex-shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <span>{{ session('success') }}</span>
+            </div>
+        @endif
         
         <div class="flex items-center justify-between pb-4 border-b border-stone-300 text-xs">
             <span class="text-stone-500 font-light">
@@ -111,10 +120,20 @@
                             </td>
 
                             <td class="py-5 px-4 text-center whitespace-nowrap">
-                                <a href="{{ route('booking.show', $b) }}" 
-                                   class="pressable inline-block px-4 py-2 rounded-full text-[11px] font-semibold tracking-wider uppercase bg-[#141312] text-white hover:bg-[#B85D3E] transition-all">
-                                    Invoice →
-                                </a>
+                                <div class="flex items-center justify-center gap-2">
+                                    <a href="{{ route('booking.show', $b) }}" 
+                                       class="pressable inline-block px-3 py-1.5 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-[#141312] text-white hover:bg-[#B85D3E] transition-all">
+                                        Invoice
+                                    </a>
+                                    <form action="{{ route('booking.destroy', $b) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data pemesanan ini?')" class="inline-block">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit" 
+                                                class="pressable px-3 py-1.5 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-rose-100 text-rose-700 hover:bg-rose-600 hover:text-white transition-all">
+                                            Hapus
+                                        </button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @empty

@@ -8,9 +8,9 @@
     
     <!-- Full Bleed Architectural Background Image -->
     <div class="absolute inset-0 z-0">
-        <img src="{{ asset('assets/images/rooms/hero.jpg') }}" 
-             alt="Grand Harmoni Architectural Sanctuary" 
-             class="w-full h-full object-cover object-center filter brightness-[0.86] contrast-[1.08]">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/915036143.jpg?k=6c2ee8fed39b4a400bfa5c7a5f81972bb7719d0b0c8d407ca79346d3b25fdb90&o=" 
+            alt="Grand Harmoni Architectural Sanctuary" 
+            class="w-full h-full object-cover object-center filter brightness-[0.86] contrast-[1.08]">
         <!-- Subtle Vignette & Gradient Overlays for High Legibility -->
         <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-black/80 pointer-events-none"></div>
     </div>
