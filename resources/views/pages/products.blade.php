@@ -13,12 +13,12 @@
                 Koleksi Kamar & Video Tur
             </h1>
             <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
-                Menampilkan tiga pilihan akomodasi unggulan — Standar, Deluxe, dan Family — lengkap dengan dokumentasi video interaktif sesuai spesifikasi standar sertifikasi BNSP.
+                Menampilkan tiga pilihan akomodasi unggulan JW Marriott Hotel Jakarta — Standar, Deluxe, dan Family — lengkap dengan kasur signature Marriott, interior elegan berpanorama kota, dan dokumentasi video tur virtual.
             </p>
         </div>
     </section>
 
-    <!-- Interactive Video Tour Section (Mellow Clean Presentation) -->
+    <!-- Interactive Video Tour Section (JW Marriott Jakarta Walkthrough) -->
     <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
         <div class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 border border-[#f4e2d8] shadow-sm space-y-8">
             
@@ -28,7 +28,7 @@
                         Video Tur Virtual Kamar
                     </h2>
                     <p class="text-xs text-[#737373] mt-1 font-light">
-                        Pilih tipe kamar di bawah untuk memuat tayangan video tur secara langsung
+                        Pilih tipe kamar di bawah untuk memutar cuplikan tur suasana kamar secara langsung
                     </p>
                 </div>
 
@@ -59,24 +59,24 @@
                 </video>
                 
                 <div id="video-caption" class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/60 text-xs font-mono text-[#1a1a1a]">
-                    Tur Video: Kamar {{ $roomTypes->first()->name ?? 'Hotel' }}
+                    Tur Video: Kamar {{ $roomTypes->first()->name ?? 'Hotel' }} — JW Marriott Jakarta
                 </div>
             </div>
 
         </div>
     </section>
 
-    <!-- Detail 3 Tipe Kamar (Clean Mellow Showcase) -->
+    <!-- Detail 3 Tipe Kamar (JW Marriott Jakarta Rooms) -->
     <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
         <div class="space-y-16">
             @foreach($roomTypes as $index => $room)
                 <div id="kamar-{{ $room->slug }}" class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 border border-[#f4e2d8] shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     
-                    <!-- Foto Kamar -->
+                    <!-- Foto Kamar (Authentic JW Marriott Photography) -->
                     <div class="lg:col-span-6">
                         <div class="rounded-[20px] overflow-hidden aspect-[4/3] bg-[#f9f6f3] shadow-inner">
                             <img src="{{ asset($room->image_url) }}" 
-                                 alt="Kamar {{ $room->name }}" 
+                                 alt="Kamar {{ $room->name }} JW Marriott Jakarta" 
                                  class="w-full h-full object-cover">
                         </div>
                     </div>
@@ -118,7 +118,7 @@
 
                         <!-- Amenities List -->
                         <div class="space-y-2.5">
-                            <span class="text-xs font-medium uppercase tracking-wider text-[#1a1a1a] block">Fasilitas Termasuk:</span>
+                            <span class="text-xs font-medium uppercase tracking-wider text-[#1a1a1a] block">Fasilitas Kamar:</span>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#606060]">
                                 @foreach($room->facilities ?? [] as $facility)
                                     <div class="flex items-center gap-2">
@@ -176,7 +176,7 @@
 
                     videoSource.setAttribute('src', newSrc);
                     if (poster) player.setAttribute('poster', poster);
-                    if (caption) caption.textContent = 'Tur Video: Kamar ' + roomName;
+                    if (caption) caption.textContent = 'Tur Video: Kamar ' + roomName + ' — JW Marriott Jakarta';
 
                     player.load();
                     player.play().catch(() => {});

@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'Hotel Mellow — Grand Harmoni Sanctuary' }}</title>
+    <title>{{ $title ?? 'JW Marriott Hotel Jakarta — Grand Harmoni Luxury Sanctuary' }}</title>
     
-    <meta name="description" content="Hotel Mellow — Peristirahatan berarsitektur tenang, material alami, dan kenyamanan tak lekang waktu di Jakarta.">
-    <meta name="author" content="Peserta Sertifikasi BNSP">
+    <meta name="description" content="JW Marriott Hotel Jakarta — Peristirahatan berarsitektur mewah, keramahan bintang lima tak lekang waktu, dan kenyamanan istimewa di Jakarta.">
+    <meta name="author" content="JW Marriott Hotel Jakarta">
 
     <!-- Google Fonts: Cormorant Upright & Cormorant Infant (Serif) + Sora (Clean Sans) + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -37,7 +37,7 @@
 <body class="min-h-full flex flex-col bg-[#f9f6f3] text-[#1a1a1a] antialiased selection:bg-[#d16806] selection:text-white">
 
     <!-- ==========================================
-         TOP CONTACT BAR (Mellow Figma Reference 1:298)
+         TOP CONTACT BAR (Mellow & Luxury Hotel Reference)
          ========================================== -->
     <div class="border-b border-[#e9e9e9] bg-[#f9f6f3] text-[#606060] text-xs py-2 px-4 sm:px-8 lg:px-14">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
@@ -58,9 +58,9 @@
                 </a>
             </div>
 
-            <!-- Social Share & Coordinates -->
+            <!-- Luxury Location & Social Icons -->
             <div class="flex items-center gap-4 text-xs">
-                <span class="text-[#999] tracking-wider uppercase text-[11px] hidden md:inline">Jakarta Sanctuary</span>
+                <span class="text-[#999] tracking-wider uppercase text-[11px] hidden md:inline">JW Marriott Jakarta • Mega Kuningan</span>
                 <div class="flex items-center gap-3 text-[#737373]">
                     <a href="#" class="hover:text-[#d16806] transition-colors" title="Instagram">
                         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
@@ -74,31 +74,31 @@
     </div>
 
     <!-- ==========================================
-         MAIN NAVBAR (Mellow Figma Reference 1:268)
+         MAIN NAVBAR (JW Marriott & Mellow Aesthetic)
          ========================================== -->
     <header class="sticky top-0 z-40 bg-[#f9f6f3]/95 backdrop-blur-md border-b border-[#e9e9e9]">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 py-4 flex items-center justify-between gap-4">
             
-            <!-- Left: Logo Mellow with Signature Terracotta Accent -->
-            <a href="{{ route('home') }}" class="flex items-center gap-2 group">
-                <div class="relative w-9 h-7 flex items-center justify-center">
-                    <!-- Stylized Geometric 'M' SVG -->
-                    <svg class="w-8 h-7 text-[#d16806]" viewBox="0 0 44 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left: Logo JW Marriott x Grand Harmoni -->
+            <a href="{{ route('home') }}" class="flex items-center gap-3 group">
+                <div class="relative w-9 h-8 flex items-center justify-center">
+                    <!-- Stylized Marriott Griffin / M-Emblem SVG -->
+                    <svg class="w-8 h-8 text-[#d16806]" viewBox="0 0 44 34" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M4 30V4L22 22L40 4V30" stroke="#d16806" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
                         <circle cx="22" cy="7" r="3.5" fill="#d16806" />
                     </svg>
                 </div>
                 <div class="flex flex-col">
                     <span class="font-serif italic font-bold text-2xl tracking-[0.14em] text-[#1a1a1a] uppercase leading-none group-hover:text-[#d16806] transition-colors">
-                        mellow
+                        JW MARRIOTT
                     </span>
-                    <span class="text-[9px] font-sans font-medium tracking-[0.2em] text-[#737373] uppercase">
-                        Grand Harmoni
+                    <span class="text-[9px] font-sans font-medium tracking-[0.25em] text-[#737373] uppercase">
+                        Jakarta • Grand Harmoni
                     </span>
                 </div>
             </a>
 
-            <!-- Center: Navigation Links (Clean Mellow Aesthetics) -->
+            <!-- Center: Navigation Links -->
             <nav class="hidden md:flex items-center gap-8 text-[14px] font-normal tracking-[0.04em] text-[#353535]" aria-label="Navigasi Utama">
                 <a href="{{ route('home') }}" 
                    class="hover:text-[#d16806] transition-colors {{ request()->routeIs('home') ? 'text-[#d16806] font-medium' : '' }}">
@@ -198,7 +198,7 @@
     </main>
 
     <!-- ==========================================
-         FOOTER (Mellow Figma Reference 1:360)
+         FOOTER (Luxury Hospitality Standard)
          ========================================== -->
     <footer class="bg-white border-t border-[#e9e9e9] pt-20 pb-12 text-[#606060]">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
@@ -213,22 +213,22 @@
                             <circle cx="22" cy="7" r="3.5" fill="#d16806" />
                         </svg>
                         <span class="font-serif italic font-bold text-2xl tracking-[0.14em] text-[#1a1a1a] uppercase">
-                            mellow
+                            JW MARRIOTT
                         </span>
                     </a>
                     <p class="text-xs text-[#606060] leading-relaxed max-w-sm font-light">
-                        Selamat datang di Hotel Mellow — Grand Harmoni. Tempat di mana kenyamanan berpadu dengan ketenangan alami di tengah kota Jakarta.
+                        Selamat datang di JW Marriott Hotel Jakarta — Grand Harmoni. Kenyamanan mewah bertaraf bintang lima di kawasan prestisius Mega Kuningan, Jakarta.
                     </p>
                     <div class="pt-2 text-xs font-mono text-[#8c867e]">
-                        <span>JAKARTA RESIDENCE • EST. 2026</span>
+                        <span>MEGA KUNINGAN, JAKARTA • EST. 2026</span>
                     </div>
                 </div>
 
                 <!-- Col 2: Newsletter Subscription (3 cols) -->
                 <div class="lg:col-span-3 space-y-4">
-                    <h3 class="font-serif text-xl font-normal text-[#1a1a1a]">Buletin & Berita</h3>
+                    <h3 class="font-serif text-xl font-normal text-[#1a1a1a]">Buletin & Penawaran Eksklusif</h3>
                     <p class="text-xs text-[#737373] leading-relaxed">
-                        Dapatkan informasi penawaran istimewa dan agenda acara terbaru kami.
+                        Dapatkan informasi promosi musim liburan dan penawaran kamar terbaik langsung di email Anda.
                     </p>
                     <form onsubmit="event.preventDefault(); alert('Terima kasih telah mendaftar buletin!');" class="space-y-2">
                         <input type="email" placeholder="Alamat email Anda" required
@@ -251,8 +251,8 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
                             <p class="leading-relaxed text-[#353535]">
-                                Jl. Boulevard Sudirman No. 88<br>
-                                Jakarta Pusat, DKI Jakarta 10220
+                                Jl. Boulevard Sudirman No. 88, Kawasan Mega Kuningan<br>
+                                Jakarta Pusat & Selatan, DKI Jakarta 10220
                             </p>
                         </div>
                         <div class="flex items-center gap-3">
@@ -284,11 +284,11 @@
 
             </div>
 
-            <!-- Bottom Sub-footer -->
+            <!-- Bottom Sub-footer (Customer-facing clean imprint) -->
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#8c867e] gap-4">
-                <p>© {{ date('Y') }} HOTEL MELLOW — GRAND HARMONI. ALL RIGHTS RESERVED.</p>
+                <p>© {{ date('Y') }} JW MARRIOTT HOTEL JAKARTA — GRAND HARMONI. ALL RIGHTS RESERVED.</p>
                 <p>
-                    SERTIFIKASI BNSP: <span class="text-[#1a1a1a] font-medium">JUNIOR WEB DEVELOPER (FR.IA.02)</span>
+                    LAYANAN RESERVASI RESMI HOTEL • <span class="text-[#1a1a1a] font-medium">24/7 CONCIERGE DESK</span>
                 </p>
             </div>
 

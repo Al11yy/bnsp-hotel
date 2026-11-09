@@ -13,7 +13,7 @@
                 Tentang Hotel Grand Harmoni
             </h1>
             <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
-                Hotel Mellow — Grand Harmoni menghadirkan perpaduan estetika ketenangan, kejujuran material alami, serta layanan keramahan prima di jantung Jakarta.
+                JW Marriott Hotel Jakarta — Grand Harmoni menghadirkan perpaduan estetika ketenangan, standar kemewahan bintang lima, serta dedikasi keramahan legendaris di jantung Jakarta.
             </p>
         </div>
     </section>
@@ -39,7 +39,7 @@
                         {{ $hotelInfo['description'] }}
                     </p>
                     <p>
-                        Setiap detail arsitektur dirancang dengan prinsip kejujuran material: dinding pasir bertekstur, batu kapur travertine, dan kayu oak mentah yang menyejukkan. Suasana tenang yang kami hadirkan menjadikan Hotel Mellow pilihan ideal bagi para pelancong bisnis dan liburan keluarga yang mendambakan kenyamanan bermutu.
+                        Berlokasi di kawasan diplomatik dan bisnis terkemuka Mega Kuningan, hotel kami dirancang untuk memanjakan tamu dengan kamar luas berpemandangan skyline Jakarta, tempat tidur mewah signature Marriott, serta fasilitas kuliner Sailendra Restaurant dan Pearl Chinese Restaurant yang terkenal.
                     </p>
                 </div>
 
@@ -47,29 +47,29 @@
                 <div class="pt-6 border-t border-[#e9e9e9] grid grid-cols-1 sm:grid-cols-3 gap-6">
                     <div class="space-y-1">
                         <span class="text-xs font-mono text-[#d16806]">01</span>
-                        <h4 class="font-serif text-lg text-[#1a1a1a] font-normal">Standar Bintang 4</h4>
-                        <p class="text-xs text-[#737373] font-light">Kenyamanan & higienitas bersertifikasi internasional.</p>
+                        <h4 class="font-serif text-lg text-[#1a1a1a] font-normal">Standar Bintang 5</h4>
+                        <p class="text-xs text-[#737373] font-light">Kenyamanan & higienitas bersertifikasi internasional Marriott.</p>
                     </div>
                     <div class="space-y-1">
                         <span class="text-xs font-mono text-[#d16806]">02</span>
-                        <h4 class="font-serif text-lg text-[#1a1a1a] font-normal">Material Alami</h4>
-                        <p class="text-xs text-[#737373] font-light">Batu travertine, kayu oak, dan linen katun organik.</p>
+                        <h4 class="font-serif text-lg text-[#1a1a1a] font-normal">Desain Elegan</h4>
+                        <p class="text-xs text-[#737373] font-light">Marmer mewah, kayu bernuansa hangat, dan interior timeless.</p>
                     </div>
                     <div class="space-y-1">
                         <span class="text-xs font-mono text-[#d16806]">03</span>
                         <h4 class="font-serif text-lg text-[#1a1a1a] font-normal">Pelayanan Prima</h4>
-                        <p class="text-xs text-[#737373] font-light">Resepsionis ramah & tanggap 24 jam sehari.</p>
+                        <p class="text-xs text-[#737373] font-light">Concierge & resepsionis ramah bertaraf global 24 jam sehari.</p>
                     </div>
                 </div>
 
-                <!-- Image Banner -->
+                <!-- Image Banner (Lobby of JW Marriott Jakarta) -->
                 <div class="rounded-[20px] overflow-hidden aspect-[16/9] shadow-sm border border-[#f4e2d8]">
-                    <img src="{{ asset('assets/images/rooms/detail.jpg') }}" alt="Mellow Hotel Ambience" class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/rooms/detail.jpg') }}" alt="JW Marriott Jakarta Grand Lobby" class="w-full h-full object-cover">
                 </div>
 
             </div>
 
-            <!-- Right: Official Contact Card (5 cols) (BNSP Requirement) -->
+            <!-- Right: Official Contact Card (5 cols) -->
             <div class="lg:col-span-5 space-y-6">
                 
                 <div class="bg-white rounded-[24px] sm:rounded-[32px] p-8 sm:p-10 border border-[#f4e2d8] shadow-sm space-y-6">
@@ -79,7 +79,7 @@
                             Kontak & Lokasi Resmi
                         </h3>
                         <p class="text-xs text-[#737373] mt-1 font-light">
-                            Layanan Front Desk & Reservasi 24 Jam
+                            Layanan Front Desk & Concierge 24 Jam
                         </p>
                     </div>
 

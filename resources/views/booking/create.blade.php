@@ -13,7 +13,7 @@
                 Form Pemesanan
             </h1>
             <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
-                Silakan lengkapi formulir reservasi kamar berikut sesuai standar sertifikasi BNSP FR.IA.02. Klik tombol <strong>Hitung Total Bayar</strong> untuk memvalidasi isian dan mengaktifkan tombol Simpan.
+                Silakan lengkapi formulir reservasi kamar berikut untuk memastikan ketersediaan akomodasi pilihan Anda di JW Marriott Hotel Jakarta. Klik tombol <strong>Hitung Total Bayar</strong> untuk memeriksa rincian biaya sebelum menyimpan pemesanan.
             </p>
         </div>
     </section>
@@ -30,9 +30,8 @@
                         <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#1a1a1a]">
                             Data Tamu & Detail Menginap
                         </h2>
-                        <p class="text-xs text-[#737373] mt-1 font-light">Pastikan data identitas KTP/NIK sesuai dokumen resmi</p>
+                        <p class="text-xs text-[#737373] mt-1 font-light">Pastikan data identitas KTP/NIK sesuai dokumen resmi Anda</p>
                     </div>
-                    <span class="text-xs font-mono text-[#8c867e] hidden sm:inline">SKEMA FR.IA.02</span>
                 </div>
 
                 <form id="booking-form" action="{{ route('booking.store') }}" method="POST" class="space-y-6">
@@ -223,7 +222,7 @@
                                     Termasuk Breakfast (+ Rp 80.000)
                                 </span>
                                 <span class="text-[11px] text-[#737373] font-light block">
-                                    Centang untuk menyertakan sarapan prasmanan harian selama durasi menginap.
+                                    Centang untuk menyertakan sarapan prasmanan harian di Sailendra Restaurant selama durasi menginap.
                                 </span>
                             </div>
                         </label>
@@ -309,9 +308,9 @@
                     </div>
 
                     <div class="p-4 rounded-[12px] bg-[#f9f6f3] border border-[#e9e9e9] text-[11px] text-[#737373] space-y-1.5 leading-relaxed">
-                        <p class="font-medium text-[#1a1a1a]">Ketentuan Biaya & Diskon:</p>
-                        <p>• Menginap &gt; 3 hari otomatis mendapat diskon 10% dari tarif sewa kamar.</p>
-                        <p>• Sarapan buffet opsional Rp 80.000 per hari.</p>
+                        <p class="font-medium text-[#1a1a1a]">Layanan Istimewa Tamu:</p>
+                        <p>• Diskon otomatis 10% untuk masa menginap lebih dari 3 hari.</p>
+                        <p>• Jaminan kamar bersih & steril berstandar Marriott Global Cleanliness Council.</p>
                     </div>
                 </div>
 

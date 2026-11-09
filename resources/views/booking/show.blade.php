@@ -13,7 +13,7 @@
                 Bukti Transaksi Pemesanan
             </h1>
             <p class="text-xs sm:text-sm text-[#606060] font-light">
-                Data pemesanan telah tersimpan aman di database SQLite. Dokumen ini sah dan dapat langsung dicetak sebagai voucher reservasi resmi.
+                Reservasi kamar Anda telah terkonfirmasi secara resmi. Dokumen ini sah dan dapat langsung dicetak sebagai voucher bukti pemesanan hotel.
             </p>
         </div>
     </section>
@@ -41,8 +41,8 @@
                     </svg>
                     <div>
                         <span class="text-[10px] font-mono tracking-wider uppercase text-[#8c867e] block">VOUCHER RESMI</span>
-                        <h2 class="font-serif italic font-bold text-2xl text-[#1a1a1a] uppercase leading-none">HOTEL MELLOW</h2>
-                        <span class="text-[10px] text-[#737373] font-light">Grand Harmoni Sanctuary</span>
+                        <h2 class="font-serif italic font-bold text-2xl text-[#1a1a1a] uppercase leading-none">JW MARRIOTT</h2>
+                        <span class="text-[10px] text-[#737373] font-light">Jakarta • Grand Harmoni</span>
                     </div>
                 </div>
                 <div class="text-right">
@@ -57,7 +57,7 @@
                 <div class="flex items-center justify-between pb-4 border-b border-[#e9e9e9] text-xs">
                     <div>
                         <span class="text-[#8c867e] block text-[10px] uppercase tracking-wider font-semibold">Status Transaksi</span>
-                        <span class="text-emerald-700 font-medium">Tersimpan di Database SQLite</span>
+                        <span class="text-emerald-700 font-medium">Terkonfirmasi & Terverifikasi</span>
                     </div>
                     <div class="text-right">
                         <span class="text-[#8c867e] block text-[10px] uppercase tracking-wider font-semibold">Tanggal Pemesanan</span>
@@ -123,7 +123,7 @@
                         <p class="font-bold underline">({{ $booking->customer_name }})</p>
                     </div>
                     <div>
-                        <p>Front Office Hotel Mellow,</p>
+                        <p>Front Office JW Marriott,</p>
                         <br><br><br>
                         <p class="font-bold underline">(Petugas Reservasi)</p>
                     </div>

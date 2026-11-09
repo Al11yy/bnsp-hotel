@@ -14,7 +14,7 @@
                     Data Pemesanan Kamar
                 </h1>
                 <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
-                    Daftar seluruh transaksi pemesanan tamu yang tercatat pada basis data SQLite (Tabel <code>bookings</code>).
+                    Daftar seluruh transaksi pemesanan tamu yang terkonfirmasi pada sistem reservasi JW Marriott Hotel Jakarta.
                 </p>
             </div>
 
@@ -27,7 +27,7 @@
         </div>
     </section>
 
-    <!-- Table Section (Mellow Warm Card Style) -->
+    <!-- Table Section (JW Marriott Card Style) -->
     <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
         <div class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 border border-[#f4e2d8] shadow-sm space-y-6">
             
@@ -35,8 +35,9 @@
                 <span>
                     Total <strong class="text-[#1a1a1a] font-semibold">{{ $bookings->total() }}</strong> transaksi tercatat
                 </span>
-                <span class="font-mono text-[11px] text-[#8c867e]">
-                    Penyimpanan: SQLite Active
+                <span class="font-mono text-[11px] text-emerald-700 flex items-center gap-1.5 font-medium">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    Sistem Reservasi: Terhubung & Aktif
                 </span>
             </div>
 
@@ -126,7 +127,7 @@
                         @empty
                             <tr>
                                 <td colspan="10" class="py-16 text-center text-[#737373]">
-                                    <p class="font-serif text-2xl font-normal text-[#1a1a1a]">Belum ada data pemesanan di database SQLite.</p>
+                                    <p class="font-serif text-2xl font-normal text-[#1a1a1a]">Belum ada riwayat reservasi yang tercatat saat ini.</p>
                                     <p class="text-xs mt-1.5 font-light">Silakan membuat reservasi kamar baru terlebih dahulu.</p>
                                     <a href="{{ route('booking.create') }}" class="pressable inline-block mt-4 px-6 py-2.5 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm">
                                         Buat Reservasi Sekarang

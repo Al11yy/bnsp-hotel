@@ -13,12 +13,12 @@
                 Daftar Harga Sewa Kamar Hotel
             </h1>
             <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
-                Struktur tarif resmi sewa kamar per malam untuk seluruh tipe akomodasi di Hotel Mellow — Grand Harmoni, lengkap dengan perhitungan diskon durasi dan sarapan.
+                Struktur tarif resmi sewa kamar per malam untuk seluruh tipe akomodasi di JW Marriott Hotel Jakarta — Grand Harmoni, lengkap dengan perhitungan diskon durasi dan sarapan.
             </p>
         </div>
     </section>
 
-    <!-- Price Table (Mellow Warm Card Style) -->
+    <!-- Price Table (JW Marriott Card Style) -->
     <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
         <div class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 border border-[#f4e2d8] shadow-sm space-y-8">
             
@@ -42,7 +42,7 @@
                                 
                                 <td class="py-5 px-3">
                                     <div class="w-24 h-16 rounded-[10px] overflow-hidden bg-[#f0ece7] border border-[#e9e9e9]">
-                                        <img src="{{ asset($room->image_url) }}" alt="{{ $room->name }}" class="w-full h-full object-cover">
+                                        <img src="{{ asset($room->image_url) }}" alt="{{ $room->name }} JW Marriott" class="w-full h-full object-cover">
                                     </div>
                                 </td>
 
@@ -82,7 +82,7 @@
                 </table>
             </div>
 
-            <!-- Two Informational Cards: Diskon & Sarapan (BNSP Provisions) -->
+            <!-- Two Informational Cards: Diskon & Sarapan -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-[#e9e9e9]">
                 
                 <div class="p-6 rounded-[16px] bg-[#f9f6f3] border border-[#e9e9e9] space-y-3">
@@ -93,7 +93,7 @@
                         Potongan 10% untuk Durasi > 3 Hari
                     </h3>
                     <p class="text-xs text-[#606060] leading-relaxed font-light">
-                        Sesuai pedoman sertifikasi BNSP, pemesanan dengan durasi lebih dari 3 hari (4 hari ke atas) berhak atas diskon 10% dari total tarif sewa kamar sebelum sarapan.
+                        Pemesanan dengan durasi menginap lebih dari 3 hari (4 hari ke atas) secara otomatis memperoleh potongan harga sebesar 10% dari total tarif sewa kamar sebelum sarapan.
                     </p>
                     <div class="p-3.5 rounded-[9px] bg-white border border-[#e9e9e9] text-xs font-mono text-[#353535] tabular-nums">
                         Simulasi: 4 malam Kamar Standar (4 × Rp 500.000 = Rp 2.000.000). Diskon 10% (-Rp 200.000) = Subtotal Rp 1.800.000.
@@ -105,10 +105,10 @@
                         Layanan Sarapan Pagi
                     </span>
                     <h3 class="font-serif text-2xl font-normal text-[#1a1a1a]">
-                        Tambahan Paket Sarapan (+Rp 80.000)
+                        Tambahan Paket Sarapan Buffet (+Rp 80.000)
                     </h3>
                     <p class="text-xs text-[#606060] leading-relaxed font-light">
-                        Pilihan buffet sarapan lezat nusantara & continental tersedia dengan biaya tambahan Rp 80.000 per hari yang dikalikan dengan seluruh durasi menginap Anda.
+                        Pilihan buffet sarapan lezat nusantara & continental di Sailendra Restaurant tersedia dengan biaya tambahan Rp 80.000 per hari yang dikalikan dengan seluruh durasi menginap Anda.
                     </p>
                     <div class="p-3.5 rounded-[9px] bg-white border border-[#e9e9e9] text-xs font-mono text-[#353535] tabular-nums">
                         Simulasi Sarapan: 3 hari × Rp 80.000/hari = Total tambahan sarapan Rp 240.000.

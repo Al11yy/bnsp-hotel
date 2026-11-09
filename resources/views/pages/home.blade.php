@@ -4,32 +4,32 @@
 <div class="space-y-24 sm:space-y-32 py-8 sm:py-12">
 
     <!-- ==========================================
-         SECTION 1: BILLBOARD / HERO (Mellow Figma 1:227)
+         SECTION 1: BILLBOARD / HERO (JW Marriott & Mellow 1:227)
          ========================================== -->
     <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
         <div class="relative rounded-[28px] sm:rounded-[36px] overflow-hidden min-h-[640px] lg:min-h-[700px] flex items-center shadow-lg">
             
-            <!-- Real-World Photographic Backdrop (Zero AI Imagery) -->
+            <!-- Real-World JW Marriott Jakarta Exterior Photo -->
             <img src="{{ asset('assets/images/rooms/hero.jpg') }}" 
-                 alt="Hotel Mellow Grand Harmoni Architectural Sanctuary" 
+                 alt="JW Marriott Hotel Jakarta Grand Harmoni Luxury Hotel" 
                  class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.05]">
             
             <!-- Ambient Vignette Gradient -->
-            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-black/75 via-black/45 to-transparent"></div>
 
             <!-- Hero Grid: Headline on Left, Floating Availability Card on Right -->
             <div class="relative z-10 w-full p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
                 
                 <!-- Left: Headline & Button (7 cols) -->
                 <div class="lg:col-span-7 space-y-6 text-white max-w-xl">
-                    <span class="text-xs font-sans tracking-[0.2em] uppercase text-[#e2ded9]">
-                        Sanctuary in Jakarta • Grand Harmoni
+                    <span class="text-xs font-sans tracking-[0.25em] uppercase text-[#e2ded9]">
+                        JW Marriott Jakarta • Grand Harmoni
                     </span>
                     <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] capitalize text-white">
-                        Hotel Mellow Your Gateway to Serenity.
+                        JW Marriott Hotel Jakarta Your Gateway to Serenity.
                     </h1>
                     <p class="text-sm sm:text-base text-white/90 font-light leading-relaxed">
-                        Sebuah peristirahatan berarsitektur tenang, memadukan kehangatan material alami dengan kenyamanan modern di pusat Jakarta.
+                        Kemewahan bintang lima di kawasan Mega Kuningan. Nikmati keramahan berkelas dunia, kamar berpanorama kota, dan fasilitas rekreasi premium.
                     </p>
                     <div class="pt-4">
                         <a href="#rooms" 
@@ -106,15 +106,15 @@
 
 
     <!-- ==========================================
-         SECTION 2: ABOUT / SANCTUARY STORY (Mellow Figma 1:216)
+         SECTION 2: ABOUT / JW MARRIOTT STORY (Mellow Figma 1:216)
          ========================================== -->
     <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
         <div class="text-center max-w-3xl mx-auto space-y-4">
             <h2 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] leading-tight capitalize">
-                Mellow: Your Gateway to Serenity
+                JW Marriott: Your Gateway to Serenity
             </h2>
             <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
-                Welcome to Hotel Mellow, where comfort meets tranquility. Nestled in the heart of a bustling city, our hotel offers a peaceful retreat for both business and leisure travelers. With modern amenities and a warm, inviting atmosphere, we strive to make your stay memorable.
+                Selamat datang di JW Marriott Hotel Jakarta. Berlokasi di kawasan bisnis strategis Mega Kuningan, hotel kami menghadirkan suaka ketenangan berbalut kemewahan klasik, pelayanan berdedikasi, serta fasilitas kuliner dan kebugaran legendaris untuk memastikan setiap momen menginap Anda berkesan mendalam.
             </p>
             <div class="pt-2">
                 <a href="{{ route('about') }}" class="pressable inline-flex items-center gap-2 text-sm font-medium text-[#353535] hover:text-[#d16806] transition-colors">
@@ -126,19 +126,19 @@
             </div>
         </div>
 
-        <!-- Asymmetric 3-Image Composition (Exact from Mellow 1:217, 1:218, 1:219) -->
+        <!-- Asymmetric 3-Image Composition (Photos of JW Marriott Jakarta) -->
         <div class="mt-14 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             <div class="md:col-span-6">
                 <div class="rounded-[20px] overflow-hidden aspect-[4/3] shadow-md border border-[#f4e2d8]">
-                    <img src="{{ asset('assets/images/rooms/detail.jpg') }}" alt="Mellow Interior Ambience" class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/rooms/detail.jpg') }}" alt="JW Marriott Jakarta Grand Lobby" class="w-full h-full object-cover">
                 </div>
             </div>
             <div class="md:col-span-6 space-y-6">
                 <div class="rounded-[20px] overflow-hidden aspect-[16/9] shadow-md border border-[#f4e2d8]">
-                    <img src="{{ asset('assets/images/rooms/standar.jpg') }}" alt="Standar Room Suite" class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/rooms/standar.jpg') }}" alt="JW Marriott Deluxe Twin Room" class="w-full h-full object-cover">
                 </div>
                 <div class="rounded-[20px] overflow-hidden aspect-[16/9] shadow-md border border-[#f4e2d8]">
-                    <img src="{{ asset('assets/images/rooms/deluxe.jpg') }}" alt="Deluxe Room Sanctuary" class="w-full h-full object-cover">
+                    <img src="{{ asset('assets/images/rooms/deluxe.jpg') }}" alt="JW Marriott King Deluxe Room" class="w-full h-full object-cover">
                 </div>
             </div>
         </div>
@@ -176,7 +176,7 @@
 
 
     <!-- ==========================================
-         SECTION 4: EXPLORE OUR ROOMS (Mellow Figma 1:166)
+         SECTION 4: EXPLORE OUR ROOMS (JW Marriott Rooms)
          ========================================== -->
     <section id="rooms" class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
         
@@ -185,7 +185,7 @@
                 <h2 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] capitalize">
                     Explore our rooms
                 </h2>
-                <p class="text-xs sm:text-sm text-[#737373] mt-2 font-light">Tiga pilihan akomodasi eksklusif dengan kenyamanan terbaik</p>
+                <p class="text-xs sm:text-sm text-[#737373] mt-2 font-light">Tiga pilihan akomodasi mewah dengan kasur signature Marriott dan kenyamanan tertinggi</p>
             </div>
             <a href="{{ route('products') }}" 
                class="pressable inline-flex items-center gap-2 px-6 py-3 rounded-[9px] bg-white border border-[#e9e9e9] text-[#353535] hover:border-[#d16806] hover:text-[#d16806] text-xs font-medium tracking-wide shadow-sm transition-all">
@@ -201,10 +201,10 @@
             @foreach($roomTypes as $room)
                 <div class="bg-white rounded-[20px] overflow-hidden border border-[#f4e2d8] shadow-sm flex flex-col group hover:shadow-md transition-shadow">
                     
-                    <!-- Room Image -->
+                    <!-- Room Image (Official JW Marriott Photography) -->
                     <div class="aspect-[4/3] overflow-hidden relative bg-[#f0ece7]">
                         <img src="{{ asset('assets/images/rooms/' . strtolower($room->name) . '.jpg') }}" 
-                             alt="{{ $room->name }} Suite" 
+                             alt="JW Marriott {{ $room->name }} Room" 
                              class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500">
                         <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-medium text-[#1a1a1a] uppercase tracking-wider">
                             {{ $room->name }}
@@ -256,7 +256,7 @@
 
 
     <!-- ==========================================
-         SECTION 5: VIDEO WALKTHROUGH TOUR (BNSP Mandatory)
+         SECTION 5: VIDEO WALKTHROUGH TOUR
          ========================================== -->
     <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
         <div class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 lg:p-12 border border-[#f4e2d8] shadow-sm">
@@ -279,10 +279,10 @@
                         Visual Sanctuary Tour
                     </span>
                     <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#1a1a1a] leading-tight">
-                        Jelajahi Suasana Hotel Mellow Secara Virtual
+                        Jelajahi Suasana JW Marriott Jakarta
                     </h2>
                     <p class="text-xs sm:text-sm text-[#606060] leading-relaxed font-light">
-                        Simak rekaman video asli yang menampilkan arsitektur lobby, lanskap tropis, serta interior kamar yang tertata rapi untuk memastikan pengalaman menginap berkelas.
+                        Saksikan tayangan tur visual yang memperlihatkan keanggunan lobby, kamar berinterior mewah, dan kenyamanan fasilitas hotel berbintang lima di jantung Jakarta.
                     </p>
                     
                     <div class="pt-2">
@@ -302,7 +302,7 @@
 
 
     <!-- ==========================================
-         SECTION 6: SERVICES & FACILITIES (Mellow Figma 1:72)
+         SECTION 6: SERVICES & FACILITIES (JW Marriott Jakarta Amenities)
          ========================================== -->
     <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
         
@@ -318,68 +318,68 @@
         <!-- 6 Cards Grid (Exact from Mellow Template 1:72) -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             
-            <!-- 1. Yoga & Meditation -->
+            <!-- 1. Spa by JW & Wellness -->
             <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
                 <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                     </svg>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Yoga & Meditation</h3>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Spa by JW & Wellness</h3>
                 <p class="text-xs text-[#606060] font-light leading-relaxed">
-                    Segarkan tubuh dan pikiran melalui sesi relaksasi dan meditasi dengan bimbingan instruktur profesional di paviliun terbuka.
+                    Manjakan diri Anda dengan perawatan tubuh dan terapi relaksasi khas Spa by JW untuk memulihkan kesegaran jiwa dan raga.
                 </p>
             </div>
 
-            <!-- 2. Dining & Culinary -->
+            <!-- 2. Sailendra & Pearl Dining -->
             <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
                 <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
                     </svg>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Dining & Restaurant</h3>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Sailendra Restaurant</h3>
                 <p class="text-xs text-[#606060] font-light leading-relaxed">
-                    Nikmati sajian kuliner nusantara dan internasional yang disiapkan dengan bahan segar pilihan oleh koki berpengalaman kami.
+                    Restoran prasmanan terbaik di Jakarta dengan stasiun dapur terbuka, hidangan nusantara, asia, dan barat yang menggugah selera.
                 </p>
             </div>
 
-            <!-- 3. Rooftop Pool -->
+            <!-- 3. Resort Swimming Pool -->
             <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
                 <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 15a4 4 0 004 4h10a4 4 0 004-4M3 15a4 4 0 014-4h10a4 4 0 014 4M7 7h10M9 3h6"/>
                     </svg>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Rooftop Pool</h3>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Outdoor Pool & Oasis</h3>
                 <p class="text-xs text-[#606060] font-light leading-relaxed">
-                    Kolam renang tanpa batas di lantai teratas dengan pemandangan cakrawala kota Jakarta yang menawan untuk relaksasi sore hari.
+                    Kolam renang bernuansa resor tropis di tengah kota Jakarta yang asri untuk bersantai sore bersama minuman segar.
                 </p>
             </div>
 
-            <!-- 4. Fitness Center -->
+            <!-- 4. 24-Hour Fitness Center -->
             <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
                 <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 8h16M4 16h16M8 4v16m8-16v16"/>
                     </svg>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Fitness Center</h3>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">JW Fitness Center</h3>
                 <p class="text-xs text-[#606060] font-light leading-relaxed">
-                    Peralatan kardio dan beban mutakhir yang lengkap untuk menjaga kebugaran fisik Anda selama berlibur maupun perjalanan bisnis.
+                    Pusat kebugaran lengkap dengan peralatan kardio dan beban mutakhir serta instruktur berpengalaman yang beroperasi 24 jam.
                 </p>
             </div>
 
-            <!-- 5. Event Spaces -->
+            <!-- 5. Grand Ballroom & Event Spaces -->
             <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
                 <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
                     <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
                     </svg>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Event Spaces</h3>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Grand Ballroom & Events</h3>
                 <p class="text-xs text-[#606060] font-light leading-relaxed">
-                    Ruang rapat serbaguna dan aula elegan berkapasitas fleksibel dengan dukungan teknologi audio-visual termutakhir.
+                    Grand Mutiara Ballroom elegan tanpa pilar untuk konferensi internasional, pertemuan bisnis berkelas, hingga pernikahan mewah.
                 </p>
             </div>
 
@@ -390,7 +390,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
                     </svg>
                 </div>
-                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Free High-Speed Wi-Fi</h3>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">High-Speed Executive Wi-Fi</h3>
                 <p class="text-xs text-[#606060] font-light leading-relaxed">
                     Koneksi internet serat optik berkecepatan tinggi tanpa hambatan di seluruh area hotel dan kamar tidur tamu.
                 </p>
