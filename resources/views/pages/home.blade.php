@@ -11,7 +11,7 @@
             
             <!-- Real-World JW Marriott Jakarta Exterior Photo -->
             <img src="{{ asset('assets/images/rooms/hero.jpg') }}" 
-                 alt="JW Marriott Hotel Jakarta 5-Star Luxury Hotel" 
+                 alt="JW Marriott Hotel Jakarta Grand Harmoni Luxury Hotel" 
                  class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.05]">
             
             <!-- Ambient Vignette Gradient -->
@@ -23,7 +23,7 @@
                 <!-- Left: Headline & Button (7 cols) -->
                 <div class="lg:col-span-7 space-y-6 text-white max-w-xl">
                     <span class="text-xs font-sans tracking-[0.25em] uppercase text-[#e2ded9]">
-                        JW Marriott Hotel Jakarta • Mega Kuningan (Grand Harmoni)
+                        JW Marriott Jakarta • Grand Harmoni
                     </span>
                     <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] capitalize text-white">
                         JW Marriott Hotel Jakarta Your Gateway to Serenity.

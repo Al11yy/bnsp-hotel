@@ -27,7 +27,7 @@
             Konfirmasi Reservasi Kamar
         </h1>
         <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
-            Terima kasih. Reservasi Anda di JW Marriott Hotel Jakarta telah resmi tercatat. Dokumen konfirmasi ini sah sebagai bukti reservasi resmi.
+            Terima kasih. Reservasi Anda di JW Marriott Hotel Jakarta — Grand Harmoni telah resmi tercatat. Dokumen konfirmasi ini sah sebagai bukti reservasi resmi.
         </p>
     </header>
 
@@ -141,7 +141,7 @@
             <h3 class="font-serif text-lg text-[#1a1a1a] font-normal">Petunjuk Kedatangan</h3>
             <p>• Waktu Check-in resmi dimulai pukul <strong>14.00 WIB</strong>, dan waktu Check-out maksimal pukul <strong>12.00 WIB</strong>.</p>
             <p>• Tunjukkan konfirmasi pemesanan ini beserta kartu identitas fisik asli (KTP / Paspor) yang didaftarkan ke meja resepsionis Concierge.</p>
-            <p>• Layanan Front Desk beroperasi penuh selama 24 jam untuk melayani kedatangan Anda di Jl. DR. Ide Anak Agung Gde Agung Kav. E.1.2 No. 1 & 2, Kawasan Mega Kuningan (Akses: Jl. Boulevard Sudirman No. 88), Jakarta Selatan 12950.</p>
+            <p>• Layanan Front Desk beroperasi penuh selama 24 jam untuk melayani kedatangan Anda di Jl. Boulevard Sudirman No. 88, Kav. 12, Jakarta.</p>
         </section>
 
         <!-- Signature for Print Only -->
