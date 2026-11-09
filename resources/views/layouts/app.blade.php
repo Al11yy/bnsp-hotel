@@ -93,12 +93,12 @@
                         JW MARRIOTT
                     </span>
                     <span class="text-[9px] font-sans font-medium tracking-[0.25em] text-[#737373] uppercase">
-                        Jakarta • Grand Harmoni
+                        Jakarta • Mega Kuningan
                     </span>
                 </div>
             </a>
 
-            <!-- Center: Navigation Links (Clean 4-Item Nav) -->
+            <!-- Center: Navigation Links (Clean 3-Item Nav) -->
             <nav class="hidden md:flex items-center gap-8 text-[14px] font-normal tracking-[0.04em] text-[#353535]" aria-label="Navigasi Utama">
                 <a href="{{ route('home') }}" 
                    class="hover:text-[#d16806] transition-colors {{ request()->routeIs('home') ? 'text-[#d16806] font-medium' : '' }}">
@@ -111,10 +111,6 @@
                 <a href="{{ route('products') }}" 
                    class="hover:text-[#d16806] transition-colors {{ request()->routeIs('products') ? 'text-[#d16806] font-medium' : '' }}">
                     Koleksi Kamar
-                </a>
-                <a href="{{ route('prices') }}" 
-                   class="hover:text-[#d16806] transition-colors {{ request()->routeIs('prices') ? 'text-[#d16806] font-medium' : '' }}">
-                    Daftar Harga
                 </a>
             </nav>
 
@@ -150,7 +146,6 @@
                 <a href="{{ route('home') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Beranda</a>
                 <a href="{{ route('about') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Tentang Kami</a>
                 <a href="{{ route('products') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Koleksi Kamar</a>
-                <a href="{{ route('prices') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Daftar Harga</a>
                 <a href="{{ route('booking.create') }}" class="py-3 mt-2 text-center rounded-[9px] bg-[#d16806] text-white font-medium text-xs uppercase tracking-wider">
                     Pesan Kamar Sekarang →
                 </a>
@@ -246,21 +241,22 @@
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                             </svg>
                             <p class="leading-relaxed text-[#353535]">
-                                Jl. Boulevard Sudirman No. 88, Kawasan Mega Kuningan<br>
-                                Jakarta Pusat & Selatan, DKI Jakarta 10220
+                                Jl. DR. Ide Anak Agung Gde Agung Kav. E.1.2 No. 1 & 2<br>
+                                Kawasan Mega Kuningan (Akses: Jl. Boulevard Sudirman No. 88)<br>
+                                Jakarta Selatan, DKI Jakarta 12950
                             </p>
                         </div>
                         <div class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-[#d16806] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                             </svg>
-                            <span class="text-[#353535]">(021) 555-8989</span>
+                            <span class="text-[#353535]">(021) 5798-8888 / (021) 555-8989</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-[#d16806] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
-                            <span class="text-[#353535] break-all">reservation@grandharmonihotel.co.id</span>
+                            <span class="text-[#353535] break-all">reservation@jwmarriottjakarta.com / reservation@grandharmonihotel.co.id</span>
                         </div>
                     </div>
                 </div>
@@ -272,7 +268,6 @@
                         <li><a href="{{ route('home') }}" class="hover:text-[#d16806] transition-colors">Beranda</a></li>
                         <li><a href="{{ route('about') }}" class="hover:text-[#d16806] transition-colors">Tentang Kami</a></li>
                         <li><a href="{{ route('products') }}" class="hover:text-[#d16806] transition-colors">Koleksi Kamar</a></li>
-                        <li><a href="{{ route('prices') }}" class="hover:text-[#d16806] transition-colors">Daftar Harga</a></li>
                     </ul>
                 </div>
 
@@ -280,7 +275,7 @@
 
             <!-- Bottom Sub-footer (Customer-facing clean imprint) -->
             <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#8c867e] gap-4">
-                <p>© {{ date('Y') }} JW MARRIOTT HOTEL JAKARTA — GRAND HARMONI. ALL RIGHTS RESERVED.</p>
+                <p>© {{ date('Y') }} JW MARRIOTT HOTEL JAKARTA. ALL RIGHTS RESERVED.</p>
                 <p>
                     LAYANAN RESERVASI RESMI HOTEL • <span class="text-[#1a1a1a] font-medium">24/7 CONCIERGE DESK</span>
                 </p>

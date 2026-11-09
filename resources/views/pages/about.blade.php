@@ -9,10 +9,10 @@
             Profil & Keramahan Bintang Lima
         </span>
         <h1 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] tracking-tight">
-            Tentang Hotel Grand Harmoni
+            Tentang Hotel Grand Harmoni — JW Marriott Hotel Jakarta
         </h1>
         <p class="text-base sm:text-lg text-[#606060] font-light leading-relaxed pt-2">
-            JW Marriott Hotel Jakarta — Grand Harmoni menghadirkan perpaduan estetika ketenangan, standar kemewahan bintang lima, serta dedikasi keramahan legendaris di jantung Jakarta.
+            JW Marriott Hotel Jakarta menghadirkan perpaduan estetika ketenangan, standar kemewahan bintang lima, serta dedikasi keramahan legendaris di jantung kawasan bisnis Mega Kuningan, Jakarta.
         </p>
     </header>
 

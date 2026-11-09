@@ -31,14 +31,14 @@ class HotelPagesTest extends TestCase
         $response = $this->get(route('home'));
 
         $response->assertStatus(200);
-        $response->assertSee('GRAND HARMONI');
+        $response->assertSee('JW Marriott');
         $response->assertSee('Standar');
         $response->assertSee('Deluxe');
         $response->assertSee('Family');
     }
 
     /**
-     * Halaman produk menampilkan 3 jenis kamar beserta video tour.
+     * Halaman produk menampilkan 3 jenis kamar beserta video tour dan daftar tarif resmi terintegrasi.
      */
     public function test_products_page_is_accessible_and_shows_rooms_and_video(): void
     {
@@ -50,6 +50,7 @@ class HotelPagesTest extends TestCase
         $response->assertSee('Deluxe');
         $response->assertSee('Family');
         $response->assertSee('video-source');
+        $response->assertSee('Daftar Tarif Kamar');
     }
 
     /**
@@ -67,17 +68,12 @@ class HotelPagesTest extends TestCase
     }
 
     /**
-     * Halaman daftar harga dapat diakses dan menampilkan tarif 3 jenis kamar serta ketentuan sarapan per hari.
+     * Halaman daftar harga dialihkan ke koleksi kamar yang kini memuat daftar tarif resmi terpadu.
      */
-    public function test_prices_page_is_accessible_and_shows_price_list(): void
+    public function test_prices_page_redirects_to_products(): void
     {
         $response = $this->get(route('prices'));
 
-        $response->assertStatus(200);
-        $response->assertSee('Daftar Harga Kamar Hotel');
-        $response->assertSee('Standar');
-        $response->assertSee('Deluxe');
-        $response->assertSee('Family');
-        $response->assertSee('Rp 80.000');
+        $response->assertRedirect(route('products'));
     }
 }
