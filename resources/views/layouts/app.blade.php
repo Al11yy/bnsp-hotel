@@ -123,10 +123,6 @@
                    class="hover:text-[#d16806] transition-colors {{ request()->routeIs('prices') ? 'text-[#d16806] font-medium' : '' }}">
                     Daftar Harga
                 </a>
-                <a href="{{ route('booking.index') }}" 
-                   class="hover:text-[#d16806] transition-colors {{ request()->routeIs('booking.index') ? 'text-[#d16806] font-medium' : '' }}">
-                    Riwayat Pemesanan
-                </a>
             </nav>
 
             <!-- Right: Action CTA & Mobile Toggle -->
@@ -162,7 +158,6 @@
                 <a href="{{ route('about') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Tentang Kami</a>
                 <a href="{{ route('products') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Koleksi Kamar</a>
                 <a href="{{ route('prices') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Daftar Harga</a>
-                <a href="{{ route('booking.index') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Riwayat Pemesanan</a>
                 <a href="{{ route('booking.create') }}" class="py-3 mt-2 text-center rounded-[9px] bg-[#d16806] text-white font-medium text-xs uppercase tracking-wider">
                     Pesan Kamar Sekarang →
                 </a>
@@ -299,7 +294,6 @@
                         <li><a href="{{ route('about') }}" class="hover:text-[#d16806] transition-colors">Tentang Kami</a></li>
                         <li><a href="{{ route('products') }}" class="hover:text-[#d16806] transition-colors">Koleksi Kamar</a></li>
                         <li><a href="{{ route('prices') }}" class="hover:text-[#d16806] transition-colors">Daftar Harga</a></li>
-                        <li><a href="{{ route('booking.index') }}" class="hover:text-[#d16806] transition-colors">Riwayat Pemesanan</a></li>
                     </ul>
                 </div>
 

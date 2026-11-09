@@ -253,7 +253,130 @@
             </div>
         </div>
 
-        <!-- Integrated Call to Action -->
+    </section>
+
+    <!-- Riwayat Pemesanan Kamar Hotel -->
+    <section id="riwayat" class="border-t border-[#e9e9e9] pt-12 sm:pt-16 space-y-8">
+        
+        <div class="border-b border-[#1a1a1a] pb-3 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+            <div>
+                <span class="text-xs font-sans tracking-[0.2em] uppercase text-[#d16806] font-medium block">
+                    Catatan Transaksi Resmi
+                </span>
+                <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#1a1a1a]">
+                    Riwayat Pemesanan Kamar
+                </h2>
+            </div>
+            <span class="text-xs font-mono text-[#737373]">
+                Total: <strong class="text-[#1a1a1a] font-semibold">{{ $bookings->count() }} Reservasi</strong>
+            </span>
+        </div>
+
+        @if($bookings->isEmpty())
+            <!-- Empty State -->
+            <div class="py-16 text-center space-y-4 border-b border-[#e9e9e9]">
+                <div class="w-12 h-12 mx-auto rounded-full bg-[#f0ece7] flex items-center justify-center text-[#8c867e]">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                    </svg>
+                </div>
+                <div class="space-y-1">
+                    <h3 class="font-serif text-2xl font-normal text-[#1a1a1a]">
+                        Belum Ada Riwayat Pemesanan
+                    </h3>
+                    <p class="text-xs sm:text-sm text-[#737373] font-light max-w-md mx-auto leading-relaxed">
+                        Saat ini belum ada data transaksi pemesanan kamar yang tersimpan. Silakan pilih tipe kamar di atas atau klik tombol untuk membuat reservasi pertama Anda.
+                    </p>
+                </div>
+                <div class="pt-2">
+                    <a href="{{ route('booking.create') }}" 
+                       class="pressable inline-flex items-center gap-2 px-6 py-2.5 rounded-[8px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-medium tracking-wider uppercase shadow-sm transition-colors">
+                        <span>Buat Reservasi Sekarang</span>
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        @else
+            <!-- Flat Responsive Reservation List -->
+            <div class="divide-y divide-[#e9e9e9] border-b border-[#e9e9e9]">
+                @foreach($bookings as $booking)
+                    <div class="py-5 sm:py-6 flex flex-col lg:flex-row lg:items-center justify-between gap-6 hover:bg-[#f4efe9]/30 transition-colors px-2 rounded-[8px]">
+                        
+                        <!-- Left Block: Kode & Info Tamu -->
+                        <div class="space-y-2 max-w-md">
+                            <div class="flex items-center gap-3">
+                                <span class="font-mono text-xs font-medium text-[#1a1a1a] tracking-wider">
+                                    {{ $booking->booking_code }}
+                                </span>
+                                <span class="px-2 py-0.5 rounded-[4px] bg-emerald-50 text-emerald-700 text-[10px] font-mono uppercase tracking-wider font-medium border border-emerald-200/60">
+                                    Terkonfirmasi
+                                </span>
+                            </div>
+                            
+                            <div>
+                                <h3 class="font-serif text-lg sm:text-xl font-normal text-[#1a1a1a]">
+                                    {{ $booking->customer_name }}
+                                </h3>
+                                <p class="text-xs text-[#737373] font-light mt-0.5">
+                                    NIK: <span class="font-mono text-[#353535]">{{ $booking->identity_number }}</span> • {{ $booking->gender }}
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Middle Block: Detail Kamar & Jadwal -->
+                        <div class="space-y-1 text-xs text-[#606060] font-light min-w-[200px]">
+                            <div class="flex items-center gap-2">
+                                <span class="font-medium text-[#1a1a1a]">Kamar {{ $booking->roomType->name }}</span>
+                                <span class="text-[#c8c2bc]">•</span>
+                                <span class="font-mono">{{ $booking->formatted_room_price }} / malam</span>
+                            </div>
+                            <div class="flex items-center gap-2 text-[#737373]">
+                                <span>Check-in: <strong class="font-mono text-[#1a1a1a] font-medium">{{ $booking->formatted_booking_date }}</strong></span>
+                                <span class="text-[#c8c2bc]">•</span>
+                                <span>{{ $booking->stay_duration }} Hari</span>
+                            </div>
+                            <div>
+                                @if($booking->include_breakfast)
+                                    <span class="inline-flex items-center gap-1 text-[#d16806] font-medium">
+                                        <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
+                                        Termasuk Sarapan (+ Rp {{ number_format($booking->breakfast_fee, 0, ',', '.') }})
+                                    </span>
+                                @else
+                                    <span class="text-[#8c867e]">Tanpa Fasilitas Sarapan</span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <!-- Right Block: Total Bayar & Aksi -->
+                        <div class="flex items-center justify-between lg:justify-end gap-6 pt-3 lg:pt-0 border-t lg:border-t-0 border-[#f0ece7]">
+                            <div class="text-left lg:text-right">
+                                <span class="text-[11px] font-sans font-light text-[#737373] block uppercase tracking-wider">Total Pembayaran</span>
+                                <span class="font-mono font-bold text-lg sm:text-xl text-[#1a1a1a]">
+                                    Rp {{ number_format($booking->total_payment, 0, ',', '.') }}
+                                </span>
+                            </div>
+                            
+                            <a href="{{ route('booking.show', $booking) }}" 
+                               class="pressable inline-flex items-center gap-1.5 px-4 py-2.5 rounded-[8px] bg-white hover:bg-[#f0ece7] border border-[#e9e9e9] text-[#1a1a1a] text-xs font-medium tracking-wider uppercase transition-colors shrink-0 shadow-xs">
+                                <span>Lihat Detail</span>
+                                <svg class="w-3 h-3 text-[#d16806]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </a>
+                        </div>
+
+                    </div>
+                @endforeach
+            </div>
+        @endif
+
+    </section>
+
+    <!-- Integrated Call to Action -->
         <div class="pt-10 border-t border-[#e9e9e9] flex flex-col sm:flex-row sm:items-center justify-between gap-6">
             <div class="space-y-1">
                 <p class="font-serif text-2xl text-[#1a1a1a] font-normal">

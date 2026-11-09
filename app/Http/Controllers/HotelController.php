@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\RoomType;
 
 class HotelController extends Controller
@@ -27,13 +28,14 @@ class HotelController extends Controller
     }
 
     /**
-     * Menampilkan halaman daftar harga: tarif resmi 3 tipe kamar & ketentuan sewa.
+     * Menampilkan halaman daftar harga: tarif resmi 3 tipe kamar, simulasi, & riwayat pemesanan.
      */
     public function prices()
     {
         $roomTypes = RoomType::orderBy('price', 'asc')->get();
+        $bookings = Booking::with('roomType')->orderBy('created_at', 'desc')->get();
 
-        return view('pages.prices', compact('roomTypes'));
+        return view('pages.prices', compact('roomTypes', 'bookings'));
     }
 
     /**
