@@ -1,36 +1,38 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- BANNER FORM PEMESANAN -->
-<section class="pt-36 pb-16 px-6 sm:px-8 lg:px-12 bg-[#0D0C0B] text-white border-b border-white/10">
-    <div class="max-w-7xl mx-auto space-y-3">
-        <span class="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#8C867E] block">
-            — RESERVASI RESMI
-        </span>
-        <h1 class="font-serif text-4xl sm:text-6xl font-normal text-white">
-            Form Pemesanan Kamar.
-        </h1>
-        <p class="text-xs sm:text-sm text-[#8C867E] max-w-xl leading-relaxed font-light">
-            Silakan lengkapi formulir reservasi di bawah ini sesuai petunjuk uji kompetensi BNSP FR.IA.02. Tekan tombol <strong>Hitung Total Bayar</strong> untuk memvalidasi dan mengaktifkan tombol simpan.
-        </p>
-    </div>
-</section>
+<div class="py-12 sm:py-16 space-y-12">
 
-<!-- SECTION FORMULIR RESERVASI EDITORIAL -->
-<section class="py-20 bg-[#F7F5F0] text-[#141312]">
-    <div class="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12">
-        
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+    <!-- Header Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        <div class="max-w-3xl space-y-4">
+            <span class="text-xs font-sans tracking-[0.2em] uppercase text-[#d16806] font-medium">
+                Reservasi Kamar Resmi
+            </span>
+            <h1 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] capitalize">
+                Form Pemesanan
+            </h1>
+            <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
+                Silakan lengkapi formulir reservasi kamar berikut sesuai standar sertifikasi BNSP FR.IA.02. Klik tombol <strong>Hitung Total Bayar</strong> untuk memvalidasi isian dan mengaktifkan tombol Simpan.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Booking Form & Estimation Summary -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
             
-            <!-- FORMULIR INPUT UTAMA (8 KOLOM) -->
-            <div class="lg:col-span-8 bg-white p-8 sm:p-12 rounded-3xl border border-stone-300 shadow-xl space-y-8">
+            <!-- Left: Main Form (8 cols) -->
+            <div class="lg:col-span-8 bg-white p-6 sm:p-10 rounded-[24px] sm:rounded-[32px] border border-[#f4e2d8] shadow-sm space-y-8">
                 
-                <div class="flex items-center justify-between pb-6 border-b border-stone-200">
+                <div class="flex items-center justify-between pb-6 border-b border-[#e9e9e9]">
                     <div>
-                        <span class="text-[10px] font-bold tracking-widest uppercase text-[#B85D3E] block">RESERVASI SUITE</span>
-                        <h2 class="font-serif text-2xl sm:text-3xl font-normal text-stone-900 mt-1">Isian Data Pemesan</h2>
+                        <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#1a1a1a]">
+                            Data Tamu & Detail Menginap
+                        </h2>
+                        <p class="text-xs text-[#737373] mt-1 font-light">Pastikan data identitas KTP/NIK sesuai dokumen resmi</p>
                     </div>
-                    <span class="text-xs font-mono text-stone-400">SKEMA FR.IA.02</span>
+                    <span class="text-xs font-mono text-[#8c867e] hidden sm:inline">SKEMA FR.IA.02</span>
                 </div>
 
                 <form id="booking-form" action="{{ route('booking.store') }}" method="POST" class="space-y-6">
@@ -38,8 +40,8 @@
 
                     <!-- 1. Nama Pemesan (Auto-Focus) -->
                     <div class="space-y-2">
-                        <label for="customer_name" class="block text-xs font-semibold uppercase tracking-wider text-stone-700">
-                            Nama Pemesan <span class="text-[#B85D3E]">*</span>
+                        <label for="customer_name" class="block text-xs font-medium uppercase tracking-wider text-[#353535]">
+                            Nama Pemesan <span class="text-[#d16806]">*</span>
                         </label>
                         <input type="text" 
                                id="customer_name" 
@@ -47,47 +49,47 @@
                                value="{{ old('customer_name') }}"
                                placeholder="Masukkan nama lengkap pemesan (cth: Andri Santosa)" 
                                required
-                               class="w-full px-5 py-3.5 rounded-2xl border border-stone-300 bg-stone-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B85D3E]/40 focus:border-[#B85D3E] text-sm text-stone-900 transition-all font-light @error('customer_name') border-rose-400 bg-rose-50/40 @enderror">
-                        <p id="error-customer_name" class="hidden text-xs font-semibold text-rose-600">
+                               class="w-full px-4 py-3 rounded-[9px] border border-[#e9e9e9] bg-[#f9f6f3] text-sm text-[#1a1a1a] focus:outline-none focus:border-[#d16806] transition-colors @error('customer_name') border-red-400 bg-red-50/40 @enderror">
+                        <p id="error-customer_name" class="hidden text-xs font-medium text-red-600">
                             Nama pemesan wajib diisi.
                         </p>
                         @error('customer_name')
-                            <p class="text-xs font-semibold text-rose-600">{{ $message }}</p>
+                            <p class="text-xs font-medium text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <!-- 2. Jenis Kelamin (Radio Button) -->
                     <div class="space-y-2">
-                        <span class="block text-xs font-semibold uppercase tracking-wider text-stone-700">
-                            Jenis Kelamin <span class="text-[#B85D3E]">*</span>
+                        <span class="block text-xs font-medium uppercase tracking-wider text-[#353535]">
+                            Jenis Kelamin <span class="text-[#d16806]">*</span>
                         </span>
-                        <div class="flex items-center gap-8 p-4 rounded-2xl bg-stone-50 border border-stone-200">
-                            <label class="flex items-center gap-3 cursor-pointer text-xs sm:text-sm font-medium text-stone-700 hover:text-stone-900">
+                        <div class="flex items-center gap-8 p-3.5 rounded-[9px] bg-[#f9f6f3] border border-[#e9e9e9]">
+                            <label class="flex items-center gap-2.5 cursor-pointer text-xs sm:text-sm font-medium text-[#353535] hover:text-[#1a1a1a]">
                                 <input type="radio" 
                                        name="gender" 
                                        value="Laki-laki" 
                                        {{ old('gender', 'Laki-laki') === 'Laki-laki' ? 'checked' : '' }}
-                                       class="w-4 h-4 text-[#B85D3E] focus:ring-[#B85D3E] border-stone-300">
+                                       class="w-4 h-4 text-[#d16806] focus:ring-[#d16806] border-[#e9e9e9]">
                                 <span>Laki-laki</span>
                             </label>
-                            <label class="flex items-center gap-3 cursor-pointer text-xs sm:text-sm font-medium text-stone-700 hover:text-stone-900">
+                            <label class="flex items-center gap-2.5 cursor-pointer text-xs sm:text-sm font-medium text-[#353535] hover:text-[#1a1a1a]">
                                 <input type="radio" 
                                        name="gender" 
                                        value="Perempuan" 
                                        {{ old('gender') === 'Perempuan' ? 'checked' : '' }}
-                                       class="w-4 h-4 text-[#B85D3E] focus:ring-[#B85D3E] border-stone-300">
+                                       class="w-4 h-4 text-[#d16806] focus:ring-[#d16806] border-[#e9e9e9]">
                                 <span>Perempuan</span>
                             </label>
                         </div>
                         @error('gender')
-                            <p class="text-xs font-semibold text-rose-600">{{ $message }}</p>
+                            <p class="text-xs font-medium text-red-600">{{ $message }}</p>
                         @enderror
                     </div>
 
                     <!-- 3. Nomor Identitas (16 Digit NIK) -->
                     <div class="space-y-2">
-                        <label for="identity_number" class="block text-xs font-semibold uppercase tracking-wider text-stone-700">
-                            Nomor Identitas (NIK / KTP) <span class="text-[#B85D3E]">*</span>
+                        <label for="identity_number" class="block text-xs font-medium uppercase tracking-wider text-[#353535]">
+                            Nomor Identitas (NIK / KTP) <span class="text-[#d16806]">*</span>
                         </label>
                         <input type="text" 
                                id="identity_number" 
@@ -96,16 +98,16 @@
                                value="{{ old('identity_number') }}"
                                placeholder="Isi 16 digit angka (cth: 3275091210770004)" 
                                required
-                               class="w-full px-5 py-3.5 rounded-2xl border border-stone-300 bg-stone-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B85D3E]/40 focus:border-[#B85D3E] text-sm text-stone-900 font-mono tracking-widest tabular-nums transition-all @error('identity_number') border-rose-400 bg-rose-50/40 @enderror">
+                               class="w-full px-4 py-3 rounded-[9px] border border-[#e9e9e9] bg-[#f9f6f3] text-sm text-[#1a1a1a] font-mono tracking-wider tabular-nums focus:outline-none focus:border-[#d16806] transition-colors @error('identity_number') border-red-400 bg-red-50/40 @enderror">
                         
                         <!-- Pesan Error Khas BNSP -->
-                        <p id="error-identity_number" class="hidden text-xs font-bold text-rose-600">
+                        <p id="error-identity_number" class="hidden text-xs font-bold text-red-600">
                             isian salah..data harus 16 digit
                         </p>
                         @error('identity_number')
-                            <p class="text-xs font-bold text-rose-600">{{ $message }}</p>
+                            <p class="text-xs font-bold text-red-600">{{ $message }}</p>
                         @enderror
-                        <span class="text-[11px] text-stone-400 font-light block">Wajib berupa 16 digit angka sesuai identitas KTP.</span>
+                        <span class="text-[11px] text-[#8c867e] font-light block">Wajib berupa 16 digit angka sesuai identitas KTP.</span>
                     </div>
 
                     <!-- 4. Tipe Kamar & 5. Harga (Readonly) -->
@@ -113,36 +115,36 @@
                         
                         <!-- Tipe Kamar -->
                         <div class="space-y-2">
-                            <label for="room_type_id" class="block text-xs font-semibold uppercase tracking-wider text-stone-700">
-                                Tipe Kamar <span class="text-[#B85D3E]">*</span>
+                            <label for="room_type_id" class="block text-xs font-medium uppercase tracking-wider text-[#353535]">
+                                Tipe Kamar <span class="text-[#d16806]">*</span>
                             </label>
                             <select id="room_type_id" 
                                     name="room_type_id" 
                                     required
-                                    class="w-full px-5 py-3.5 rounded-2xl border border-stone-300 bg-stone-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B85D3E]/40 focus:border-[#B85D3E] text-sm text-stone-900 transition-all @error('room_type_id') border-rose-400 bg-rose-50/40 @enderror">
-                                <option value="" disabled {{ !old('room_type_id', $selectedRoomId) ? 'selected' : '' }}>
-                                    — PILIH TIPE KAMAR —
+                                    class="w-full px-4 py-3 rounded-[9px] border border-[#e9e9e9] bg-[#f9f6f3] text-sm text-[#1a1a1a] focus:outline-none focus:border-[#d16806] transition-colors @error('room_type_id') border-red-400 bg-red-50/40 @enderror">
+                                <option value="" disabled {{ !old('room_type_id', $selectedRoomId ?? null) ? 'selected' : '' }}>
+                                    — Pilih Tipe Kamar —
                                 </option>
                                 @foreach($roomTypes as $room)
                                     <option value="{{ $room->id }}" 
                                             data-price="{{ $room->price }}"
                                             data-name="{{ $room->name }}"
-                                            {{ (string) old('room_type_id', $selectedRoomId) === (string) $room->id ? 'selected' : '' }}>
-                                        Kamar {{ $room->name }}
+                                            {{ (string) old('room_type_id', $selectedRoomId ?? null) === (string) $room->id ? 'selected' : '' }}>
+                                        Kamar {{ $room->name }} (Rp {{ number_format($room->price, 0, ',', '.') }})
                                     </option>
                                 @endforeach
                             </select>
-                            <p id="error-room_type_id" class="hidden text-xs font-semibold text-rose-600">
+                            <p id="error-room_type_id" class="hidden text-xs font-medium text-red-600">
                                 Pilih salah satu tipe kamar.
                             </p>
                             @error('room_type_id')
-                                <p class="text-xs font-semibold text-rose-600">{{ $message }}</p>
+                                <p class="text-xs font-medium text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <!-- Harga Kamar (Auto-fill Readonly) -->
                         <div class="space-y-2">
-                            <label for="room_price_display" class="block text-xs font-semibold uppercase tracking-wider text-stone-700">
+                            <label for="room_price_display" class="block text-xs font-medium uppercase tracking-wider text-[#353535]">
                                 Harga Kamar (per malam)
                             </label>
                             <input type="text" 
@@ -150,8 +152,8 @@
                                    name="room_price_display" 
                                    readonly 
                                    placeholder="Rp 0"
-                                   class="w-full px-5 py-3.5 rounded-2xl border border-stone-200 bg-stone-100 text-stone-800 text-sm font-mono font-semibold tabular-nums cursor-not-allowed">
-                            <span class="text-[11px] text-stone-400 font-light block">Terisi otomatis sesuai pilihan tipe kamar.</span>
+                                   class="w-full px-4 py-3 rounded-[9px] border border-[#e9e9e9] bg-[#f0ece7] text-[#1a1a1a] text-sm font-mono font-semibold tabular-nums cursor-not-allowed">
+                            <span class="text-[11px] text-[#8c867e] font-light block">Terisi otomatis sesuai pilihan tipe kamar.</span>
                         </div>
 
                     </div>
@@ -161,8 +163,8 @@
                         
                         <!-- Tanggal Pesan -->
                         <div class="space-y-2">
-                            <label for="booking_date" class="block text-xs font-semibold uppercase tracking-wider text-stone-700">
-                                Tanggal Pesan <span class="text-[#B85D3E]">*</span>
+                            <label for="booking_date" class="block text-xs font-medium uppercase tracking-wider text-[#353535]">
+                                Tanggal Pesan <span class="text-[#d16806]">*</span>
                             </label>
                             <input type="date" 
                                    id="booking_date" 
@@ -170,17 +172,17 @@
                                    value="{{ old('booking_date', date('Y-m-d')) }}"
                                    min="{{ date('Y-m-d') }}"
                                    required
-                                   class="w-full px-5 py-3.5 rounded-2xl border border-stone-300 bg-stone-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B85D3E]/40 focus:border-[#B85D3E] text-sm text-stone-900 transition-all @error('booking_date') border-rose-400 bg-rose-50/40 @enderror">
-                            <span class="text-[11px] text-stone-400 font-light block">Format tanggal pemesanan: dd/mm/yyyy.</span>
+                                   class="w-full px-4 py-3 rounded-[9px] border border-[#e9e9e9] bg-[#f9f6f3] text-sm text-[#1a1a1a] focus:outline-none focus:border-[#d16806] transition-colors @error('booking_date') border-red-400 bg-red-50/40 @enderror">
+                            <span class="text-[11px] text-[#8c867e] font-light block">Format tanggal pemesanan: dd/mm/yyyy.</span>
                             @error('booking_date')
-                                <p class="text-xs font-semibold text-rose-600">{{ $message }}</p>
+                                <p class="text-xs font-medium text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <!-- Durasi Menginap -->
                         <div class="space-y-2">
-                            <label for="stay_duration" class="block text-xs font-semibold uppercase tracking-wider text-stone-700">
-                                Durasi Menginap (Hari) <span class="text-[#B85D3E]">*</span>
+                            <label for="stay_duration" class="block text-xs font-medium uppercase tracking-wider text-[#353535]">
+                                Durasi Menginap (Hari) <span class="text-[#d16806]">*</span>
                             </label>
                             <div class="relative">
                                 <input type="text" 
@@ -189,39 +191,39 @@
                                        value="{{ old('stay_duration', '1') }}"
                                        placeholder="Cth: 3" 
                                        required
-                                       class="w-full px-5 py-3.5 pr-14 rounded-2xl border border-stone-300 bg-stone-50/50 focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#B85D3E]/40 focus:border-[#B85D3E] text-sm text-stone-900 font-mono tabular-nums transition-all @error('stay_duration') border-rose-400 bg-rose-50/40 @enderror">
-                                <div class="absolute inset-y-0 right-0 pr-5 flex items-center pointer-events-none text-xs font-semibold text-stone-400">
+                                       class="w-full px-4 py-3 pr-14 rounded-[9px] border border-[#e9e9e9] bg-[#f9f6f3] text-sm text-[#1a1a1a] font-mono tabular-nums focus:outline-none focus:border-[#d16806] transition-colors @error('stay_duration') border-red-400 bg-red-50/40 @enderror">
+                                <div class="absolute inset-y-0 right-0 pr-4 flex items-center pointer-events-none text-xs font-semibold text-[#8c867e]">
                                     Hari
                                 </div>
                             </div>
                             
                             <!-- Pesan Error Khas BNSP -->
-                            <p id="error-stay_duration" class="hidden text-xs font-bold text-rose-600">
+                            <p id="error-stay_duration" class="hidden text-xs font-bold text-red-600">
                                 harus isi angka
                             </p>
                             @error('stay_duration')
-                                <p class="text-xs font-bold text-rose-600">{{ $message }}</p>
+                                <p class="text-xs font-bold text-red-600">{{ $message }}</p>
                             @enderror
-                            <span class="text-[11px] text-stone-400 font-light block">Durasi &gt; 3 hari otomatis mendapatkan diskon 10%.</span>
+                            <span class="text-[11px] text-[#8c867e] font-light block">Durasi &gt; 3 hari otomatis mendapatkan diskon 10%.</span>
                         </div>
 
                     </div>
 
                     <!-- 8. Termasuk Breakfast (Checkbox) -->
-                    <div class="p-5 rounded-2xl bg-stone-100 border border-stone-300/80">
-                        <label class="flex items-center gap-4 cursor-pointer">
+                    <div class="p-4 rounded-[12px] bg-[#f9f6f3] border border-[#e9e9e9]">
+                        <label class="flex items-center gap-3.5 cursor-pointer">
                             <input type="checkbox" 
                                    id="include_breakfast" 
                                    name="include_breakfast" 
                                    value="1" 
                                    {{ old('include_breakfast') ? 'checked' : '' }}
-                                   class="w-5 h-5 rounded text-[#B85D3E] focus:ring-[#B85D3E] border-stone-400">
+                                   class="w-4 h-4 rounded text-[#d16806] focus:ring-[#d16806] border-[#e9e9e9]">
                             <div>
-                                <span class="text-xs sm:text-sm font-semibold text-stone-900 block">
+                                <span class="text-xs sm:text-sm font-medium text-[#1a1a1a] block">
                                     Termasuk Breakfast (+ Rp 80.000)
                                 </span>
-                                <span class="text-[11px] text-stone-500 font-light block">
-                                    Cekbox dicentang berarti Ya, menyediakan sarapan pagi prasmanan (buffet).
+                                <span class="text-[11px] text-[#737373] font-light block">
+                                    Centang untuk menyertakan sarapan prasmanan harian selama durasi menginap.
                                 </span>
                             </div>
                         </label>
@@ -229,7 +231,7 @@
 
                     <!-- 9. Total Bayar (Readonly) -->
                     <div class="space-y-2 pt-2">
-                        <label for="total_payment_display" class="block text-xs font-semibold uppercase tracking-wider text-stone-700">
+                        <label for="total_payment_display" class="block text-xs font-medium uppercase tracking-wider text-[#353535]">
                             Total Bayar
                         </label>
                         <input type="text" 
@@ -237,19 +239,19 @@
                                name="total_payment_display" 
                                readonly 
                                placeholder="Klik tombol 'Hitung Total Bayar'" 
-                               class="w-full px-5 py-4 rounded-2xl border border-stone-300 bg-stone-100 text-stone-900 font-mono text-xl font-bold tabular-nums cursor-not-allowed">
-                        <span id="hint-total" class="text-xs text-stone-500 font-light block">
+                               class="w-full px-4 py-3.5 rounded-[9px] border border-[#e9e9e9] bg-[#f0ece7] text-[#1a1a1a] font-mono text-xl font-bold tabular-nums cursor-not-allowed">
+                        <span id="hint-total" class="text-xs text-[#737373] font-light block">
                             Terisi otomatis dengan menekan tombol <strong>Hitung Total Bayar</strong> di bawah.
                         </span>
                     </div>
 
-                    <!-- BARIS TOMBOL AKSI SESUAI MOCKUP BNSP -->
-                    <div class="pt-8 border-t border-stone-200 flex flex-wrap items-center justify-between gap-4">
+                    <!-- Action Buttons: Hitung Total Bayar, Simpan, Cancel -->
+                    <div class="pt-6 border-t border-[#e9e9e9] flex flex-wrap items-center justify-between gap-4">
                         
                         <!-- 1. Tombol Hitung Total Bayar -->
                         <button type="button" 
                                 id="btn-calculate"
-                                class="pressable px-7 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#141312] text-white hover:bg-[#2E2A26] shadow-md transition-all">
+                                class="pressable px-6 py-3 rounded-[9px] bg-white border border-[#e9e9e9] text-[#1a1a1a] hover:bg-[#f9f6f3] hover:border-[#d16806] text-xs font-semibold tracking-wider uppercase shadow-sm transition-all">
                             Hitung Total Bayar
                         </button>
 
@@ -258,14 +260,14 @@
                             <button type="submit" 
                                     id="btn-save"
                                     disabled
-                                    class="pressable px-8 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#B85D3E] text-white shadow-md transition-all cursor-not-allowed opacity-50">
+                                    class="pressable px-7 py-3 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] disabled:bg-[#e2ded9] disabled:text-[#8c867e] disabled:cursor-not-allowed text-white text-xs font-semibold tracking-wider uppercase shadow-sm transition-all">
                                 Simpan
                             </button>
 
                             <!-- 3. Tombol Cancel / Batal -->
                             <button type="button" 
                                     id="btn-cancel"
-                                    class="pressable px-6 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-stone-200 hover:bg-stone-300 text-stone-700 transition-colors">
+                                    class="pressable px-5 py-3 rounded-[9px] bg-[#f9f6f3] hover:bg-[#eee8e0] text-[#606060] border border-[#e9e9e9] text-xs font-medium tracking-wider uppercase transition-colors">
                                 Cancel
                             </button>
                         </div>
@@ -276,47 +278,49 @@
 
             </div>
 
-            <!-- SIDEBAR DETAIL RINGKASAN KALKULASI (4 KOLOM) -->
+            <!-- Right: Calculation Breakdown Sidebar (4 cols) -->
             <div class="lg:col-span-4 space-y-6">
                 
-                <div class="p-8 rounded-3xl bg-[#141312] text-white border border-white/10 shadow-xl space-y-6">
-                    <div class="pb-4 border-b border-white/10">
-                        <span class="text-[10px] font-semibold tracking-widest uppercase text-[#8C867E] block">RINGKASAN ESTIMASI</span>
-                        <h3 class="font-serif text-2xl font-normal text-white mt-1">Rincian Reservasi</h3>
+                <div class="p-6 sm:p-8 rounded-[24px] sm:rounded-[32px] bg-white border border-[#f4e2d8] shadow-sm space-y-6">
+                    <div class="pb-4 border-b border-[#e9e9e9]">
+                        <h3 class="font-serif text-2xl font-normal text-[#1a1a1a]">
+                            Rincian Estimasi
+                        </h3>
+                        <p class="text-xs text-[#737373] mt-1 font-light">Kalkulasi biaya otomatis dan transparan</p>
                     </div>
 
-                    <div id="calculation-breakdown" class="space-y-4 text-xs font-light text-[#C7BFB4]">
-                        <div class="flex justify-between pb-3 border-b border-white/5">
-                            <span>Sewa Kamar (<span id="calc-duration" class="font-mono tabular-nums">0</span> hari):</span>
-                            <strong id="calc-subtotal" class="font-mono tabular-nums text-white">Rp 0</strong>
+                    <div id="calculation-breakdown" class="space-y-3.5 text-xs font-light text-[#606060]">
+                        <div class="flex justify-between pb-2.5 border-b border-[#f0ece7]">
+                            <span>Sewa Kamar (<span id="calc-duration" class="font-mono tabular-nums font-normal">0</span> hari):</span>
+                            <strong id="calc-subtotal" class="font-mono tabular-nums text-[#1a1a1a] font-medium">Rp 0</strong>
                         </div>
-                        <div class="flex justify-between pb-3 border-b border-white/5 text-[#E5D5D0]">
+                        <div class="flex justify-between pb-2.5 border-b border-[#f0ece7] text-[#d16806]">
                             <span>Diskon (<span id="calc-discount-percent">0</span>%):</span>
-                            <strong id="calc-discount-amount" class="font-mono tabular-nums">- Rp 0</strong>
+                            <strong id="calc-discount-amount" class="font-mono tabular-nums font-medium">- Rp 0</strong>
                         </div>
-                        <div class="flex justify-between pb-3 border-b border-white/5">
+                        <div class="flex justify-between pb-2.5 border-b border-[#f0ece7]">
                             <span>Sarapan (Buffet):</span>
-                            <strong id="calc-breakfast-fee" class="font-mono tabular-nums text-white">Rp 0</strong>
+                            <strong id="calc-breakfast-fee" class="font-mono tabular-nums text-[#1a1a1a] font-medium">Rp 0</strong>
                         </div>
-                        <div class="pt-2 flex justify-between text-sm text-white">
+                        <div class="pt-2 flex justify-between text-sm text-[#1a1a1a]">
                             <span class="font-medium">Total Akhir:</span>
-                            <strong id="calc-total-final" class="font-mono tabular-nums text-xl font-bold text-[#E8DFD0]">Rp 0</strong>
+                            <strong id="calc-total-final" class="font-mono tabular-nums text-xl font-bold text-[#d16806]">Rp 0</strong>
                         </div>
                     </div>
 
-                    <div class="p-4 rounded-2xl bg-white/5 border border-white/10 text-[11px] text-[#8C867E] space-y-1 leading-relaxed">
-                        <p class="font-medium text-[#FAF8F5]">Pedoman Penilaian Asesor:</p>
-                        <p>• Data diverifikasi di sisi klien (JS) dan sisi peladen (PHP FormRequest).</p>
-                        <p>• Disimpan ke SQLite (Tabel <code>bookings</code>).</p>
+                    <div class="p-4 rounded-[12px] bg-[#f9f6f3] border border-[#e9e9e9] text-[11px] text-[#737373] space-y-1.5 leading-relaxed">
+                        <p class="font-medium text-[#1a1a1a]">Ketentuan Biaya & Diskon:</p>
+                        <p>• Menginap &gt; 3 hari otomatis mendapat diskon 10% dari tarif sewa kamar.</p>
+                        <p>• Sarapan buffet opsional Rp 80.000 per hari.</p>
                     </div>
                 </div>
 
             </div>
 
         </div>
+    </section>
 
-    </div>
-</section>
+</div>
 @endsection
 
 @push('scripts')
@@ -366,14 +370,12 @@
         function invalidateCalculation() {
             isCalculated = false;
             btnSave.disabled = true;
-            btnSave.classList.add('opacity-50', 'cursor-not-allowed');
-            btnSave.classList.remove('cursor-pointer', 'hover:bg-[#a34f33]');
             
             totalPaymentDisplay.value = '';
             totalPaymentDisplay.placeholder = "Klik tombol 'Hitung Total Bayar'";
             if (hintTotal) {
-                hintTotal.innerHTML = "⚠️ Ada perubahan isian. Silakan klik <strong>Hitung Total Bayar</strong> lagi untuk mengaktifkan tombol Simpan.";
-                hintTotal.className = "text-xs text-[#B85D3E] font-medium mt-1.5 block";
+                hintTotal.innerHTML = "Ada perubahan isian. Silakan klik <strong>Hitung Total Bayar</strong> lagi untuk mengaktifkan tombol Simpan.";
+                hintTotal.className = "text-xs text-[#d16806] font-medium mt-1.5 block";
             }
         }
 
@@ -402,12 +404,12 @@
 
             if (!regex16Digit.test(val)) {
                 errorIdentity.classList.remove('hidden');
-                identityInput.classList.add('border-rose-400', 'bg-rose-50/40');
+                identityInput.classList.add('border-red-400', 'bg-red-50/40');
                 identityInput.classList.remove('border-emerald-500');
                 return false;
             } else {
                 errorIdentity.classList.add('hidden');
-                identityInput.classList.remove('border-rose-400', 'bg-rose-50/40');
+                identityInput.classList.remove('border-red-400', 'bg-red-50/40');
                 identityInput.classList.add('border-emerald-500');
                 return true;
             }
@@ -426,12 +428,12 @@
 
             if (!isNumeric || isNaN(num) || num <= 0) {
                 errorStayDuration.classList.remove('hidden');
-                stayDurationInput.classList.add('border-rose-400', 'bg-rose-50/40');
+                stayDurationInput.classList.add('border-red-400', 'bg-red-50/40');
                 stayDurationInput.classList.remove('border-emerald-500');
                 return false;
             } else {
                 errorStayDuration.classList.add('hidden');
-                stayDurationInput.classList.remove('border-rose-400', 'bg-rose-50/40');
+                stayDurationInput.classList.remove('border-red-400', 'bg-red-50/40');
                 stayDurationInput.classList.add('border-emerald-500');
                 return true;
             }
@@ -445,7 +447,7 @@
         customerNameInput.addEventListener('input', function () {
             if (customerNameInput.value.trim().length >= 3) {
                 errorCustomerName.classList.add('hidden');
-                customerNameInput.classList.remove('border-rose-400');
+                customerNameInput.classList.remove('border-red-400');
             }
             invalidateCalculation();
         });
@@ -458,12 +460,12 @@
 
             if (customerNameInput.value.trim() === '') {
                 errorCustomerName.classList.remove('hidden');
-                customerNameInput.classList.add('border-rose-400');
+                customerNameInput.classList.add('border-red-400');
                 customerNameInput.focus();
                 isValid = false;
             } else {
                 errorCustomerName.classList.add('hidden');
-                customerNameInput.classList.remove('border-rose-400');
+                customerNameInput.classList.remove('border-red-400');
             }
 
             if (!validateIdentity()) {
@@ -512,17 +514,15 @@
             calcBreakfastFee.textContent = formatRupiah(breakfastFee);
             calcTotalFinal.textContent = formatRupiah(totalPayment);
 
-            hintTotal.innerHTML = "✓ Perhitungan selesai. Tombol <strong>Simpan</strong> telah aktif.";
+            hintTotal.innerHTML = "Perhitungan selesai. Tombol <strong>Simpan</strong> telah aktif.";
             hintTotal.className = "text-xs text-emerald-700 font-medium mt-1.5 block";
 
             // AKTIFKAN TOMBOL SIMPAN
             isCalculated = true;
             btnSave.disabled = false;
-            btnSave.classList.remove('opacity-50', 'cursor-not-allowed');
-            btnSave.classList.add('cursor-pointer', 'hover:bg-[#a34f33]');
         });
 
-        // 7. TOMBOL CANCEL: Reset Form
+        // 6. TOMBOL CANCEL: Reset Form
         btnCancel.addEventListener('click', function () {
             if (confirm('Batalkan dan reset seluruh isian formulir?')) {
                 form.reset();

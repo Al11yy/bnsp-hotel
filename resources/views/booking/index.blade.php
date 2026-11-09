@@ -1,162 +1,151 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- BANNER RIWAYAT PESANAN -->
-<section class="pt-36 pb-20 px-6 sm:px-8 lg:px-12 bg-[#0D0C0B] text-white border-b border-white/10">
-    <div class="max-w-7xl mx-auto flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div class="space-y-4">
-            <span class="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#8C867E] block">
-                — REKAPITULASI DATA
-            </span>
-            <h1 class="font-serif text-4xl sm:text-6xl font-normal text-white">
-                Daftar Riwayat Pemesanan.
-            </h1>
-            <p class="text-xs sm:text-sm text-[#8C867E] max-w-lg leading-relaxed font-light">
-                Rekapitulasi seluruh transaksi reservasi yang tersimpan di basis data SQLite (Tabel <code>bookings</code>).
-            </p>
-        </div>
+<div class="py-12 sm:py-16 space-y-12">
 
-        <div>
-            <a href="{{ route('booking.create') }}" 
-               class="pressable inline-block px-7 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#C46849] text-white hover:bg-[#d07354] shadow-md transition-all">
-                + Tambah Pemesanan Baru
-            </a>
-        </div>
-    </div>
-</section>
-
-<!-- SECTION TABEL LEDGER DATABASE BOOKINGS -->
-<section class="py-24 bg-[#F7F5F0] text-[#141312] min-h-[calc(100vh-25rem)]">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-8">
-        
-        @if (session('success'))
-            <div class="p-4 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-2xl flex items-center gap-3 text-xs sm:text-sm font-medium">
-                <svg class="w-5 h-5 flex-shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span>{{ session('success') }}</span>
+    <!-- Header Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
+            <div class="max-w-3xl space-y-4">
+                <span class="text-xs font-sans tracking-[0.2em] uppercase text-[#d16806] font-medium">
+                    Rekapitulasi Data Reservasi
+                </span>
+                <h1 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] capitalize">
+                    Data Pemesanan Kamar
+                </h1>
+                <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
+                    Daftar seluruh transaksi pemesanan tamu yang tercatat pada basis data SQLite (Tabel <code>bookings</code>).
+                </p>
             </div>
-        @endif
-        
-        <div class="flex items-center justify-between pb-4 border-b border-stone-300 text-xs">
-            <span class="text-stone-500 font-light">
-                Total <strong>{{ $bookings->total() }}</strong> Data Transaksi Tercatat di Database SQLite
-            </span>
-            <span class="font-mono text-stone-600 text-[11px]">
-                Koneksi: SQLite Active
-            </span>
+
+            <div>
+                <a href="{{ route('booking.create') }}" 
+                   class="pressable inline-flex items-center gap-2 px-6 py-3 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold tracking-wider uppercase transition-colors shadow-sm">
+                    <span>+ Tambah Reservasi Baru</span>
+                </a>
+            </div>
         </div>
+    </section>
 
-        <div class="overflow-x-auto">
-            <table class="w-full text-left text-xs sm:text-sm">
-                <thead>
-                    <tr class="border-b-2 border-stone-900 text-stone-900 uppercase text-[11px] tracking-widest font-semibold">
-                        <th class="py-4 px-4 w-12 text-center">NO</th>
-                        <th class="py-4 px-4">KODE & TANGGAL</th>
-                        <th class="py-4 px-4">NAMA PEMESAN</th>
-                        <th class="py-4 px-4">NO. IDENTITAS (NIK)</th>
-                        <th class="py-4 px-4">TIPE KAMAR</th>
-                        <th class="py-4 px-4 text-center">DURASI</th>
-                        <th class="py-4 px-4 text-center">BREAKFAST</th>
-                        <th class="py-4 px-4 text-center">DISKON</th>
-                        <th class="py-4 px-4 text-right">TOTAL BAYAR</th>
-                        <th class="py-4 px-4 text-center w-28">STRUK</th>
-                    </tr>
-                </thead>
-                <tbody class="divide-y divide-stone-300">
-                    @forelse($bookings as $index => $b)
-                        <tr class="hover:bg-stone-200/50 transition-colors">
-                            <td class="py-5 px-4 text-center font-mono text-stone-400 tabular-nums">
-                                {{ $bookings->firstItem() + $index }}
-                            </td>
+    <!-- Table Section (Mellow Warm Card Style) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        <div class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 border border-[#f4e2d8] shadow-sm space-y-6">
+            
+            <div class="flex items-center justify-between pb-4 border-b border-[#e9e9e9] text-xs text-[#737373]">
+                <span>
+                    Total <strong class="text-[#1a1a1a] font-semibold">{{ $bookings->total() }}</strong> transaksi tercatat
+                </span>
+                <span class="font-mono text-[11px] text-[#8c867e]">
+                    Penyimpanan: SQLite Active
+                </span>
+            </div>
 
-                            <td class="py-5 px-4 whitespace-nowrap">
-                                <strong class="font-mono text-xs text-stone-900 block">{{ $b->booking_code }}</strong>
-                                <span class="text-[11px] text-stone-500 font-light">{{ $b->formatted_booking_date }}</span>
-                            </td>
+            <div class="overflow-x-auto">
+                <table class="w-full text-left text-xs sm:text-sm">
+                    <thead>
+                        <tr class="border-b border-[#e9e9e9] text-[#1a1a1a] uppercase text-[11px] tracking-wider font-semibold">
+                            <th class="py-4 px-3 w-12 text-center">No</th>
+                            <th class="py-4 px-3">Kode & Tanggal</th>
+                            <th class="py-4 px-3">Nama Pemesan</th>
+                            <th class="py-4 px-3">No. Identitas (NIK)</th>
+                            <th class="py-4 px-3">Tipe Kamar</th>
+                            <th class="py-4 px-3 text-center">Durasi</th>
+                            <th class="py-4 px-3 text-center">Sarapan</th>
+                            <th class="py-4 px-3 text-center">Diskon</th>
+                            <th class="py-4 px-3 text-right">Total Bayar</th>
+                            <th class="py-4 px-3 text-center w-32">Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-[#f0ece7]">
+                        @forelse($bookings as $index => $b)
+                            <tr class="hover:bg-[#f9f6f3] transition-colors">
+                                <td class="py-4 px-3 text-center font-mono text-[#8c867e] tabular-nums">
+                                    {{ $bookings->firstItem() + $index }}
+                                </td>
 
-                            <td class="py-5 px-4">
-                                <strong class="font-serif text-base text-stone-900 block font-normal">{{ $b->customer_name }}</strong>
-                                <span class="text-[11px] text-stone-500 font-light">{{ $b->gender }}</span>
-                            </td>
+                                <td class="py-4 px-3 whitespace-nowrap">
+                                    <strong class="font-mono text-xs text-[#1a1a1a] block">{{ $b->booking_code }}</strong>
+                                    <span class="text-[11px] text-[#737373] font-light">{{ $b->formatted_booking_date }}</span>
+                                </td>
 
-                            <td class="py-5 px-4 whitespace-nowrap font-mono text-xs tabular-nums text-stone-700">
-                                {{ $b->identity_number }}
-                            </td>
+                                <td class="py-4 px-3">
+                                    <strong class="font-serif text-base text-[#1a1a1a] block font-normal">{{ $b->customer_name }}</strong>
+                                    <span class="text-[11px] text-[#737373] font-light">{{ $b->gender }}</span>
+                                </td>
 
-                            <td class="py-5 px-4 whitespace-nowrap">
-                                <span class="font-medium text-stone-900">{{ $b->roomType->name }}</span>
-                                <span class="text-[11px] text-stone-400 block font-light">{{ $b->formatted_room_price }}</span>
-                            </td>
+                                <td class="py-4 px-3 whitespace-nowrap font-mono text-xs tabular-nums text-[#353535]">
+                                    {{ $b->identity_number }}
+                                </td>
 
-                            <td class="py-5 px-4 text-center font-mono tabular-nums text-stone-700">
-                                {{ $b->stay_duration }} Hari
-                            </td>
+                                <td class="py-4 px-3 whitespace-nowrap">
+                                    <span class="font-medium text-[#1a1a1a]">{{ $b->roomType->name }}</span>
+                                    <span class="text-[11px] text-[#8c867e] block font-light">{{ $b->formatted_room_price }}</span>
+                                </td>
 
-                            <td class="py-5 px-4 text-center whitespace-nowrap">
-                                @if($b->include_breakfast)
-                                    <span class="text-xs font-semibold text-[#B85D3E]">
-                                        Ya (+80k)
-                                    </span>
-                                @else
-                                    <span class="text-xs text-stone-400 font-light">
-                                        Tidak
-                                    </span>
-                                @endif
-                            </td>
+                                <td class="py-4 px-3 text-center font-mono tabular-nums text-[#353535]">
+                                    {{ $b->stay_duration }} Hari
+                                </td>
 
-                            <td class="py-5 px-4 text-center font-mono tabular-nums text-xs">
-                                @if($b->discount_percentage > 0)
-                                    <span class="text-emerald-700 font-medium">
-                                        {{ $b->discount_percentage }}%
-                                    </span>
-                                @else
-                                    <span class="text-stone-400">0%</span>
-                                @endif
-                            </td>
+                                <td class="py-4 px-3 text-center whitespace-nowrap">
+                                    @if($b->include_breakfast)
+                                        <span class="text-xs font-semibold text-[#d16806]">Ya (+80k)</span>
+                                    @else
+                                        <span class="text-xs text-[#8c867e] font-light">Tidak</span>
+                                    @endif
+                                </td>
 
-                            <td class="py-5 px-4 text-right whitespace-nowrap font-mono font-bold text-stone-900 tabular-nums text-base">
-                                {{ $b->formatted_total_payment }}
-                            </td>
+                                <td class="py-4 px-3 text-center font-mono tabular-nums text-xs">
+                                    @if($b->discount_percentage > 0)
+                                        <span class="text-emerald-700 font-medium">{{ $b->discount_percentage }}%</span>
+                                    @else
+                                        <span class="text-[#8c867e]">0%</span>
+                                    @endif
+                                </td>
 
-                            <td class="py-5 px-4 text-center whitespace-nowrap">
-                                <div class="flex items-center justify-center gap-2">
-                                    <a href="{{ route('booking.show', $b) }}" 
-                                       class="pressable inline-block px-3 py-1.5 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-[#141312] text-white hover:bg-[#B85D3E] transition-all">
-                                        Invoice
+                                <td class="py-4 px-3 text-right whitespace-nowrap font-mono font-bold text-[#d16806] tabular-nums text-base">
+                                    {{ $b->formatted_total_payment }}
+                                </td>
+
+                                <td class="py-4 px-3 text-center whitespace-nowrap">
+                                    <div class="flex items-center justify-center gap-2">
+                                        <a href="{{ route('booking.show', $b) }}" 
+                                           class="pressable inline-block px-3 py-1.5 rounded-[7px] text-[10px] font-semibold tracking-wider uppercase bg-[#1a1a1a] hover:bg-[#d16806] text-white transition-colors">
+                                            Invoice
+                                        </a>
+                                        <form action="{{ route('booking.destroy', $b) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data pemesanan ini?')" class="inline-block">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" 
+                                                    class="pressable px-3 py-1.5 rounded-[7px] text-[10px] font-semibold tracking-wider uppercase bg-red-100 hover:bg-red-600 text-red-700 hover:text-white transition-colors">
+                                                Hapus
+                                            </button>
+                                        </form>
+                                    </div>
+                                </td>
+                            </tr>
+                        @empty
+                            <tr>
+                                <td colspan="10" class="py-16 text-center text-[#737373]">
+                                    <p class="font-serif text-2xl font-normal text-[#1a1a1a]">Belum ada data pemesanan di database SQLite.</p>
+                                    <p class="text-xs mt-1.5 font-light">Silakan membuat reservasi kamar baru terlebih dahulu.</p>
+                                    <a href="{{ route('booking.create') }}" class="pressable inline-block mt-4 px-6 py-2.5 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm">
+                                        Buat Reservasi Sekarang
                                     </a>
-                                    <form action="{{ route('booking.destroy', $b) }}" method="POST" onsubmit="return confirm('Apakah Anda yakin ingin menghapus data pemesanan ini?')" class="inline-block">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" 
-                                                class="pressable px-3 py-1.5 rounded-full text-[10px] font-semibold tracking-wider uppercase bg-rose-100 text-rose-700 hover:bg-rose-600 hover:text-white transition-all">
-                                            Hapus
-                                        </button>
-                                    </form>
-                                </div>
-                            </td>
-                        </tr>
-                    @empty
-                        <tr>
-                            <td colspan="10" class="py-16 text-center text-stone-400">
-                                <p class="font-serif text-xl font-normal text-stone-600">Belum ada data pemesanan di database SQLite.</p>
-                                <p class="text-xs mt-1 font-light">Silakan membuat reservasi baru terlebih dahulu.</p>
-                                <a href="{{ route('booking.create') }}" class="pressable inline-block mt-4 px-6 py-2.5 rounded-full bg-[#B85D3E] text-white text-xs font-semibold uppercase tracking-wider">
-                                    Pesan Kamar Sekarang
-                                </a>
-                            </td>
-                        </tr>
-                    @endforelse
-                </tbody>
-            </table>
-        </div>
-
-        @if($bookings->hasPages())
-            <div class="pt-6 border-t border-stone-300">
-                {{ $bookings->links() }}
+                                </td>
+                            </tr>
+                        @endforelse
+                    </tbody>
+                </table>
             </div>
-        @endif
 
-    </div>
-</section>
+            @if($bookings->hasPages())
+                <div class="pt-6 border-t border-[#e9e9e9]">
+                    {{ $bookings->links() }}
+                </div>
+            @endif
+
+        </div>
+    </section>
+
+</div>
 @endsection

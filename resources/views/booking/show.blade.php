@@ -1,27 +1,28 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- BANNER BUKTI PEMESANAN -->
-<section class="pt-36 pb-16 px-6 sm:px-8 lg:px-12 bg-[#0D0C0B] text-white border-b border-white/10 print:hidden">
-    <div class="max-w-4xl mx-auto text-center space-y-3">
-        <span class="text-[10px] font-bold tracking-[0.25em] uppercase text-[#C46849] block">
-            RESERVASI TERKONFIRMASI
-        </span>
-        <h1 class="font-serif text-3xl sm:text-5xl font-normal text-white">
-            Bukti Transaksi Pemesanan.
-        </h1>
-        <p class="text-xs sm:text-sm text-[#8C867E] max-w-md mx-auto font-light">
-            Data pemesanan telah tersimpan dengan aman ke basis data SQLite. Dokumen ini dapat langsung dicetak sebagai tanda bukti sah reservasi.
-        </p>
-    </div>
-</section>
+<div class="py-12 sm:py-16 space-y-8">
 
-<!-- SECTION TAMPILAN SESUAI FORMAT LEMBAR SOAL BNSP (HALAMAN 3 BUTIR B) -->
-<section class="py-20 bg-[#F7F5F0] text-[#141312] min-h-[calc(100vh-25rem)]">
-    <div class="max-w-2xl mx-auto px-6 sm:px-8 space-y-6">
+    <!-- Header Section (Hidden when printing) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 print:hidden">
+        <div class="max-w-2xl mx-auto text-center space-y-3">
+            <span class="text-xs font-sans tracking-[0.2em] uppercase text-[#d16806] font-medium">
+                Reservasi Terkonfirmasi
+            </span>
+            <h1 class="font-serif text-3xl sm:text-5xl font-normal text-[#1a1a1a] capitalize">
+                Bukti Transaksi Pemesanan
+            </h1>
+            <p class="text-xs sm:text-sm text-[#606060] font-light">
+                Data pemesanan telah tersimpan aman di database SQLite. Dokumen ini sah dan dapat langsung dicetak sebagai voucher reservasi resmi.
+            </p>
+        </div>
+    </section>
+
+    <!-- Voucher Invoice Card (Exact to BNSP Mockup on Page 3) -->
+    <section class="max-w-2xl mx-auto px-4 sm:px-6">
         
         @if (session('success'))
-            <div class="p-4 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-2xl flex items-center gap-3 text-xs sm:text-sm font-medium print:hidden">
+            <div class="mb-6 p-4 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-[12px] flex items-center gap-3 text-xs sm:text-sm font-medium print:hidden">
                 <svg class="w-5 h-5 flex-shrink-0 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
@@ -29,115 +30,123 @@
             </div>
         @endif
         
-        <!-- KARTU VOUCHER INVOICE EDITORIAL -->
-        <div id="invoice-card" class="bg-white rounded-3xl border border-stone-300 shadow-2xl overflow-hidden print:shadow-none print:border-none print:rounded-none">
+        <div id="invoice-card" class="bg-white rounded-[24px] border border-[#f4e2d8] shadow-lg overflow-hidden print:shadow-none print:border-none print:rounded-none">
             
-            <!-- Header Kartu -->
-            <div class="bg-[#141312] text-white p-8 sm:p-10 flex items-center justify-between border-b border-white/10">
-                <div>
-                    <span class="text-[10px] font-mono tracking-widest uppercase text-[#8C867E] block">TANDA BUKTI RESERVASI</span>
-                    <h2 class="font-serif text-2xl sm:text-3xl font-normal text-white mt-1">HOTEL GRAND HARMONI</h2>
-                    <span class="text-xs text-[#C7BFB4] font-light">Boutique Sanctuary & Resort</span>
+            <!-- Card Header -->
+            <div class="bg-[#f9f6f3] border-b border-[#e9e9e9] p-6 sm:p-8 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <svg class="w-8 h-7 text-[#d16806]" viewBox="0 0 44 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 30V4L22 22L40 4V30" stroke="#d16806" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="22" cy="7" r="3.5" fill="#d16806" />
+                    </svg>
+                    <div>
+                        <span class="text-[10px] font-mono tracking-wider uppercase text-[#8c867e] block">VOUCHER RESMI</span>
+                        <h2 class="font-serif italic font-bold text-2xl text-[#1a1a1a] uppercase leading-none">HOTEL MELLOW</h2>
+                        <span class="text-[10px] text-[#737373] font-light">Grand Harmoni Sanctuary</span>
+                    </div>
                 </div>
                 <div class="text-right">
-                    <span class="text-[10px] font-mono text-[#8C867E] uppercase block">KODE RESERVASI</span>
-                    <span class="font-mono text-sm sm:text-base font-bold text-[#E8DFD0]">{{ $booking->booking_code }}</span>
+                    <span class="text-[10px] font-mono text-[#8c867e] uppercase block">Kode Booking</span>
+                    <span class="font-mono text-sm sm:text-base font-bold text-[#d16806]">{{ $booking->booking_code }}</span>
                 </div>
             </div>
 
-            <!-- BADAN TAMPILAN SESUAI PERSIS DENGAN FORMAT SOAL BNSP -->
-            <div class="p-8 sm:p-12 space-y-8">
+            <!-- Card Body (Exact BNSP Page 3 Details) -->
+            <div class="p-6 sm:p-10 space-y-6">
                 
-                <div class="flex items-center justify-between pb-6 border-b border-stone-200 text-xs">
+                <div class="flex items-center justify-between pb-4 border-b border-[#e9e9e9] text-xs">
                     <div>
-                        <span class="text-stone-400 block text-[10px] uppercase tracking-wider font-semibold">Status Transaksi</span>
-                        <span class="text-emerald-700 font-medium">✓ Tersimpan di Database SQLite</span>
+                        <span class="text-[#8c867e] block text-[10px] uppercase tracking-wider font-semibold">Status Transaksi</span>
+                        <span class="text-emerald-700 font-medium">Tersimpan di Database SQLite</span>
                     </div>
                     <div class="text-right">
-                        <span class="text-stone-400 block text-[10px] uppercase tracking-wider font-semibold">Tanggal Pemesanan</span>
-                        <span class="font-mono text-stone-800 font-medium">{{ $booking->formatted_booking_date }}</span>
+                        <span class="text-[#8c867e] block text-[10px] uppercase tracking-wider font-semibold">Tanggal Pemesanan</span>
+                        <span class="font-mono text-[#1a1a1a] font-medium">{{ $booking->formatted_booking_date }}</span>
                     </div>
                 </div>
 
-                <!-- DAFTAR DETAIL FORMAT PERSIS BUTIR B HALAMAN 3 -->
-                <div class="p-8 rounded-2xl bg-stone-50 border border-stone-300 font-mono text-xs sm:text-sm space-y-4 tabular-nums">
+                <!-- Detail List (Matching Exact Format: Nama Pemesan, Nomor Identitas, Jenis Kelamin, Tipe Kamar, Duras Penginapan, Discount, Total Bayar) -->
+                <div class="p-6 rounded-[14px] bg-[#f9f6f3] border border-[#e9e9e9] font-mono text-xs sm:text-sm space-y-3.5 tabular-nums">
                     
                     <div class="flex flex-col sm:flex-row sm:items-center">
-                        <span class="w-48 text-stone-500 font-normal">Nama Pemesan</span>
-                        <span class="text-stone-900 font-bold">: {{ $booking->customer_name }}</span>
+                        <span class="w-48 text-[#606060] font-normal">Nama Pemesan</span>
+                        <span class="text-[#1a1a1a] font-bold">: {{ $booking->customer_name }}</span>
                     </div>
 
                     <div class="flex flex-col sm:flex-row sm:items-center">
-                        <span class="w-48 text-stone-500 font-normal">Nomor Identitas</span>
-                        <span class="text-stone-900 font-bold">: {{ $booking->identity_number }}</span>
+                        <span class="w-48 text-[#606060] font-normal">Nomor Identitas</span>
+                        <span class="text-[#1a1a1a] font-bold">: {{ $booking->identity_number }}</span>
                     </div>
 
                     <div class="flex flex-col sm:flex-row sm:items-center">
-                        <span class="w-48 text-stone-500 font-normal">Jenis Kelamin</span>
-                        <span class="text-stone-900 font-bold">: {{ $booking->gender }}</span>
+                        <span class="w-48 text-[#606060] font-normal">Jenis Kelamin</span>
+                        <span class="text-[#1a1a1a] font-bold">: {{ $booking->gender }}</span>
                     </div>
 
                     <div class="flex flex-col sm:flex-row sm:items-center">
-                        <span class="w-48 text-stone-500 font-normal">Tipe Kamar</span>
-                        <span class="text-stone-900 font-bold">: {{ $booking->roomType->name }}</span>
+                        <span class="w-48 text-[#606060] font-normal">Tipe Kamar</span>
+                        <span class="text-[#1a1a1a] font-bold">: {{ $booking->roomType->name }}</span>
                     </div>
 
                     <div class="flex flex-col sm:flex-row sm:items-center">
-                        <span class="w-48 text-stone-500 font-normal">Duras Penginapan</span>
-                        <span class="text-stone-900 font-bold">: {{ $booking->stay_duration }} Hari</span>
+                        <span class="w-48 text-[#606060] font-normal">Duras Penginapan</span>
+                        <span class="text-[#1a1a1a] font-bold">: {{ $booking->stay_duration }} Hari</span>
                     </div>
 
                     <div class="flex flex-col sm:flex-row sm:items-center">
-                        <span class="w-48 text-stone-500 font-normal">Discount</span>
-                        <span class="text-stone-900 font-bold">: {{ $booking->discount_percentage }}%</span>
+                        <span class="w-48 text-[#606060] font-normal">Discount</span>
+                        <span class="text-[#1a1a1a] font-bold">: {{ $booking->discount_percentage }}%</span>
                     </div>
 
-                    <div class="border-t border-dashed border-stone-300 pt-4 flex flex-col sm:flex-row sm:items-center">
-                        <span class="w-48 text-stone-900 font-black text-sm uppercase">Total Bayar</span>
-                        <span class="text-[#B85D3E] font-black text-xl">: {{ $booking->formatted_total_payment }}</span>
+                    <div class="border-t border-dashed border-[#d1c8be] pt-3.5 flex flex-col sm:flex-row sm:items-center">
+                        <span class="w-48 text-[#1a1a1a] font-black text-sm uppercase">Total Bayar</span>
+                        <span class="text-[#d16806] font-black text-xl">: {{ $booking->formatted_total_payment }}</span>
                     </div>
 
                 </div>
 
-                <!-- Catatan Fasilitas Tambahan -->
-                <div class="p-5 rounded-2xl bg-stone-100 border border-stone-200 text-xs text-stone-600 space-y-1.5 font-light">
-                    <p class="font-medium text-stone-900">Rincian Perhitungan:</p>
+                <!-- Calculation Notes -->
+                <div class="p-4 rounded-[12px] bg-white border border-[#e9e9e9] text-xs text-[#606060] space-y-1 font-light">
+                    <p class="font-medium text-[#1a1a1a]">Rincian Perhitungan Biaya:</p>
                     <p>• Tarif Dasar: {{ $booking->formatted_room_price }} / malam</p>
-                    <p>• Termasuk Breakfast: <strong>{{ $booking->include_breakfast ? 'Ya (+ Rp 80.000)' : 'Tidak' }}</strong></p>
+                    <p>• Fasilitas Sarapan (Buffet): <strong>{{ $booking->include_breakfast ? 'Ya (+ Rp 80.000)' : 'Tidak' }}</strong></p>
                     @if($booking->discount_amount > 0)
-                        <p class="text-emerald-700">• Potongan Diskon Masa Inap (> 3 hari): - {{ $booking->formatted_discount_amount }}</p>
+                        <p class="text-emerald-700">• Potongan Diskon Durasi (> 3 hari): - {{ $booking->formatted_discount_amount }}</p>
                     @endif
                 </div>
 
-                <!-- Tanda Tangan Cetak (Hanya tampil saat dicetak) -->
-                <div class="hidden print:grid grid-cols-2 pt-16 text-center text-xs text-stone-700">
+                <!-- Print Signatures (Shown only when printing) -->
+                <div class="hidden print:grid grid-cols-2 pt-14 text-center text-xs text-[#353535]">
                     <div>
                         <p>Pemesan,</p>
                         <br><br><br>
                         <p class="font-bold underline">({{ $booking->customer_name }})</p>
                     </div>
                     <div>
-                        <p>Front Office Grand Harmoni,</p>
+                        <p>Front Office Hotel Mellow,</p>
                         <br><br><br>
                         <p class="font-bold underline">(Petugas Reservasi)</p>
                     </div>
                 </div>
 
-                <!-- TOMBOL AKSI CETAK & NAVIGASI -->
-                <div class="pt-6 border-t border-stone-200 flex flex-wrap items-center justify-between gap-4 print:hidden">
+                <!-- Action Buttons: Print, New Booking, All Bookings (Hidden when printing) -->
+                <div class="pt-6 border-t border-[#e9e9e9] flex flex-wrap items-center justify-between gap-4 print:hidden">
                     <button type="button" 
                             onclick="window.print()"
-                            class="pressable px-8 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#141312] text-white hover:bg-[#2E2A26] shadow-md transition-all">
-                        Cetak Bukti Pemesanan
+                            class="pressable px-6 py-3 rounded-[9px] bg-[#1a1a1a] hover:bg-[#d16806] text-white text-xs font-semibold tracking-wider uppercase shadow-sm transition-colors flex items-center gap-2">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 17h2a2 2 0 002-2v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v4a2 2 0 002 2h2m2 4h6a2 2 0 002-2v-4a2 2 0 00-2-2H9a2 2 0 00-2 2v4a2 2 0 002 2zm8-12V5a2 2 0 00-2-2H9a2 2 0 00-2 2v4h10z"/>
+                        </svg>
+                        <span>Cetak Bukti Pemesanan</span>
                     </button>
 
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-2.5">
                         <a href="{{ route('booking.create') }}" 
-                           class="pressable px-6 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#B85D3E] text-white hover:bg-[#a34f33] transition-all">
+                           class="pressable px-5 py-3 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold tracking-wider uppercase transition-colors shadow-sm">
                             + Pesan Kamar Baru
                         </a>
                         <a href="{{ route('booking.index') }}" 
-                           class="pressable px-5 py-3.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-stone-200 hover:bg-stone-300 text-stone-700 transition-colors">
+                           class="pressable px-4 py-3 rounded-[9px] bg-[#f9f6f3] hover:bg-[#eee8e0] text-[#606060] border border-[#e9e9e9] text-xs font-medium tracking-wider uppercase transition-colors">
                             Semua Pesanan
                         </a>
                     </div>
@@ -147,6 +156,7 @@
 
         </div>
 
-    </div>
-</section>
+    </section>
+
+</div>
 @endsection

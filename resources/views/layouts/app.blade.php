@@ -4,95 +4,144 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ $title ?? 'Grand Harmoni — Architectural Hotel & Sanctuary' }}</title>
+    <title>{{ $title ?? 'Hotel Mellow — Grand Harmoni Sanctuary' }}</title>
     
-    <meta name="description" content="Hotel Grand Harmoni — Akomodasi peristirahatan berarsitektur tenang, material alami, dan kenyamanan tak lekang waktu.">
+    <meta name="description" content="Hotel Mellow — Peristirahatan berarsitektur tenang, material alami, dan kenyamanan tak lekang waktu di Jakarta.">
     <meta name="author" content="Peserta Sertifikasi BNSP">
 
-    <!-- Google Fonts: Cormorant Garamond (Editorial Serif) & Plus Jakarta Sans (Modernist Sans) -->
+    <!-- Google Fonts: Cormorant Upright & Cormorant Infant (Serif) + Sora (Clean Sans) + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Infant:ital,wght@0,600;0,700;1,600;1,700&family=Cormorant+Upright:wght@400;500;600;700&family=Sora:wght@200;300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
     <!-- Vite Assets Bundler -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <style>
+        body {
+            font-family: 'Sora', system-ui, -apple-system, sans-serif;
+            background-color: #f9f6f3;
+            color: #1a1a1a;
+        }
         .font-serif {
-            font-family: 'Cormorant Garamond', Garamond, Georgia, serif;
+            font-family: 'Cormorant Upright', 'Cormorant Infant', Georgia, serif;
         }
         .font-sans {
-            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+            font-family: 'Sora', system-ui, -apple-system, sans-serif;
+        }
+        .font-mono {
+            font-family: 'JetBrains Mono', monospace;
         }
     </style>
 </head>
-<body class="min-h-full flex flex-col bg-[#0D0C0B] text-[#F7F5F0] antialiased font-sans selection:bg-[#C46849] selection:text-white">
-    
-    <!-- FLOATING EDITORIAL PILL NAVBAR (Faithful SOLÉM Masterpiece Replication) -->
-    <header class="fixed top-0 inset-x-0 z-50 pt-5 px-4 sm:px-8 lg:px-12 pointer-events-none">
-        <div class="max-w-7xl mx-auto flex items-center justify-between gap-4">
-            
-            <!-- Left: Pill Buttons Group (Matching SOLÉM Reference) -->
-            <div class="pointer-events-auto flex items-center gap-1.5 sm:gap-2">
-                <!-- Grid dots icon pill -->
-                <a href="{{ route('home') }}" class="w-9 h-9 rounded-full border border-white/25 bg-black/30 backdrop-blur-md flex items-center justify-center text-white/90 hover:text-white hover:bg-white/20 transition-all shadow-lg" title="Grand Harmoni">
-                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 16 16">
-                        <circle cx="4" cy="4" r="1.5"/>
-                        <circle cx="12" cy="4" r="1.5"/>
-                        <circle cx="4" cy="12" r="1.5"/>
-                        <circle cx="12" cy="12" r="1.5"/>
+<body class="min-h-full flex flex-col bg-[#f9f6f3] text-[#1a1a1a] antialiased selection:bg-[#d16806] selection:text-white">
+
+    <!-- ==========================================
+         TOP CONTACT BAR (Mellow Figma Reference 1:298)
+         ========================================== -->
+    <div class="border-b border-[#e9e9e9] bg-[#f9f6f3] text-[#606060] text-xs py-2 px-4 sm:px-8 lg:px-14">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+            <!-- Contact Info: Phone & Email -->
+            <div class="flex items-center gap-6 text-[13px]">
+                <a href="tel:0215558989" class="flex items-center gap-2 hover:text-[#d16806] transition-colors">
+                    <svg class="w-3.5 h-3.5 text-[#d16806]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                     </svg>
+                    <span>(021) 555-8989</span>
                 </a>
-
-                <!-- Navigation Pill Items -->
-                <nav class="hidden md:flex items-center gap-1.5 text-[11px] font-medium tracking-[0.14em] uppercase" aria-label="Navigasi Utama">
-                    <a href="{{ route('home') }}" 
-                       class="px-4 py-2 rounded-full border {{ request()->routeIs('home') ? 'border-white bg-white/25 text-white' : 'border-white/25 bg-black/30 text-white/90' }} backdrop-blur-md hover:bg-white/20 hover:text-white transition-all shadow-lg">
-                        Beranda
-                    </a>
-                    <a href="{{ route('about') }}" 
-                       class="px-4 py-2 rounded-full border {{ request()->routeIs('about') ? 'border-white bg-white/25 text-white' : 'border-white/25 bg-black/30 text-white/90' }} backdrop-blur-md hover:bg-white/20 hover:text-white transition-all shadow-lg">
-                        Tentang Kami
-                    </a>
-                    <a href="{{ route('prices') }}" 
-                       class="px-4 py-2 rounded-full border {{ request()->routeIs('prices') ? 'border-white bg-white/25 text-white' : 'border-white/25 bg-black/30 text-white/90' }} backdrop-blur-md hover:bg-white/20 hover:text-white transition-all shadow-lg">
-                        Daftar Harga
-                    </a>
-                    <a href="{{ route('products') }}" 
-                       class="px-4 py-2 rounded-full border {{ request()->routeIs('products') ? 'border-white bg-white/25 text-white' : 'border-white/25 bg-black/30 text-white/90' }} backdrop-blur-md hover:bg-white/20 hover:text-white transition-all shadow-lg">
-                        Produk & Video
-                    </a>
-                    <a href="{{ route('booking.index') }}" 
-                       class="px-4 py-2 rounded-full border {{ request()->routeIs('booking.index') ? 'border-white bg-white/25 text-white' : 'border-white/25 bg-black/30 text-white/90' }} backdrop-blur-md hover:bg-white/20 hover:text-white transition-all shadow-lg">
-                        Data Pesanan
-                    </a>
-                </nav>
+                <span class="text-[#e2ded9] hidden sm:inline">|</span>
+                <a href="mailto:reservation@grandharmonihotel.co.id" class="flex items-center gap-2 hover:text-[#d16806] transition-colors">
+                    <svg class="w-3.5 h-3.5 text-[#d16806]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                    </svg>
+                    <span>reservation@grandharmonihotel.co.id</span>
+                </a>
             </div>
 
-            <!-- Center: Address / Coordinates (SOLÉM Style) -->
-            <div class="pointer-events-auto hidden xl:block text-center font-mono text-[10px] tracking-[0.22em] uppercase text-white/70 leading-relaxed select-none">
-                <span>JL. BOULEVARD SUDIRMAN NO. 88</span><br>
-                <span>JAKARTA PUSAT, 10220</span>
+            <!-- Social Share & Coordinates -->
+            <div class="flex items-center gap-4 text-xs">
+                <span class="text-[#999] tracking-wider uppercase text-[11px] hidden md:inline">Jakarta Sanctuary</span>
+                <div class="flex items-center gap-3 text-[#737373]">
+                    <a href="#" class="hover:text-[#d16806] transition-colors" title="Instagram">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    </a>
+                    <a href="#" class="hover:text-[#d16806] transition-colors" title="Facebook">
+                        <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                    </a>
+                </div>
             </div>
+        </div>
+    </div>
+
+    <!-- ==========================================
+         MAIN NAVBAR (Mellow Figma Reference 1:268)
+         ========================================== -->
+    <header class="sticky top-0 z-40 bg-[#f9f6f3]/95 backdrop-blur-md border-b border-[#e9e9e9]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 py-4 flex items-center justify-between gap-4">
+            
+            <!-- Left: Logo Mellow with Signature Terracotta Accent -->
+            <a href="{{ route('home') }}" class="flex items-center gap-2 group">
+                <div class="relative w-9 h-7 flex items-center justify-center">
+                    <!-- Stylized Geometric 'M' SVG -->
+                    <svg class="w-8 h-7 text-[#d16806]" viewBox="0 0 44 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 30V4L22 22L40 4V30" stroke="#d16806" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="22" cy="7" r="3.5" fill="#d16806" />
+                    </svg>
+                </div>
+                <div class="flex flex-col">
+                    <span class="font-serif italic font-bold text-2xl tracking-[0.14em] text-[#1a1a1a] uppercase leading-none group-hover:text-[#d16806] transition-colors">
+                        mellow
+                    </span>
+                    <span class="text-[9px] font-sans font-medium tracking-[0.2em] text-[#737373] uppercase">
+                        Grand Harmoni
+                    </span>
+                </div>
+            </a>
+
+            <!-- Center: Navigation Links (Clean Mellow Aesthetics) -->
+            <nav class="hidden md:flex items-center gap-8 text-[14px] font-normal tracking-[0.04em] text-[#353535]" aria-label="Navigasi Utama">
+                <a href="{{ route('home') }}" 
+                   class="hover:text-[#d16806] transition-colors {{ request()->routeIs('home') ? 'text-[#d16806] font-medium' : '' }}">
+                    Beranda
+                </a>
+                <a href="{{ route('about') }}" 
+                   class="hover:text-[#d16806] transition-colors {{ request()->routeIs('about') ? 'text-[#d16806] font-medium' : '' }}">
+                    Tentang Kami
+                </a>
+                <a href="{{ route('products') }}" 
+                   class="hover:text-[#d16806] transition-colors {{ request()->routeIs('products') ? 'text-[#d16806] font-medium' : '' }}">
+                    Koleksi Kamar
+                </a>
+                <a href="{{ route('prices') }}" 
+                   class="hover:text-[#d16806] transition-colors {{ request()->routeIs('prices') ? 'text-[#d16806] font-medium' : '' }}">
+                    Daftar Tarif
+                </a>
+                <a href="{{ route('booking.index') }}" 
+                   class="hover:text-[#d16806] transition-colors {{ request()->routeIs('booking.index') ? 'text-[#d16806] font-medium' : '' }}">
+                    Data Reservasi
+                </a>
+            </nav>
 
             <!-- Right: Action CTA & Mobile Toggle -->
-            <div class="pointer-events-auto flex items-center gap-2 sm:gap-3">
+            <div class="flex items-center gap-3">
                 <a href="{{ route('booking.create') }}" 
-                   class="pressable inline-flex items-center gap-2 px-5 sm:px-6 py-2 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-semibold tracking-wider uppercase bg-white text-[#121110] hover:bg-[#C46849] hover:text-white transition-all shadow-xl">
+                   class="pressable inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold tracking-wider uppercase shadow-sm">
                     <span>Pesan Kamar</span>
-                    <span class="text-xs">↗</span>
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                    </svg>
                 </a>
 
                 <!-- Mobile Hamburger Button -->
                 <button type="button" 
                         id="mobile-menu-toggle"
                         aria-expanded="false" 
-                        class="md:hidden p-2 rounded-full border border-white/25 bg-black/30 backdrop-blur-md text-white hover:bg-white/20 transition-colors">
+                        class="md:hidden p-2 rounded-[9px] border border-[#e9e9e9] bg-white text-[#353535] hover:bg-[#f2eee9] transition-colors">
                     <svg id="menu-icon-bars" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M4 7h16M4 17h16"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 7h16M4 17h16"></path>
                     </svg>
                     <svg id="menu-icon-close" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M6 18L18 6M6 6l12 12"></path>
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
                 </button>
             </div>
@@ -100,45 +149,45 @@
         </div>
 
         <!-- Mobile Drawer Menu -->
-        <div id="mobile-nav-panel" class="pointer-events-auto hidden md:hidden mt-3 max-w-sm mx-auto bg-[#181715]/95 backdrop-blur-2xl border border-white/15 rounded-3xl p-6 shadow-2xl space-y-4">
-            <nav class="flex flex-col space-y-3 text-xs uppercase tracking-widest text-[#C7BFB4]">
-                <a href="{{ route('home') }}" class="py-2 border-b border-white/10 hover:text-white">Beranda</a>
-                <a href="{{ route('about') }}" class="py-2 border-b border-white/10 hover:text-white">Tentang Kami</a>
-                <a href="{{ route('prices') }}" class="py-2 border-b border-white/10 hover:text-white">Daftar Harga</a>
-                <a href="{{ route('products') }}" class="py-2 border-b border-white/10 hover:text-white">Produk & Video</a>
-                <a href="{{ route('booking.index') }}" class="py-2 border-b border-white/10 hover:text-white">Data Pesanan</a>
-                <a href="{{ route('booking.create') }}" class="py-3 mt-2 text-center rounded-full bg-[#C46849] text-white font-bold tracking-wider">
-                    Pesan Kamar Sekarang ↗
+        <div id="mobile-nav-panel" class="hidden md:hidden border-t border-[#e9e9e9] bg-white px-6 py-5 shadow-lg">
+            <nav class="flex flex-col space-y-3 text-sm text-[#353535]">
+                <a href="{{ route('home') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Beranda</a>
+                <a href="{{ route('about') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Tentang Kami</a>
+                <a href="{{ route('products') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Koleksi Kamar</a>
+                <a href="{{ route('prices') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Daftar Tarif</a>
+                <a href="{{ route('booking.index') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Data Reservasi</a>
+                <a href="{{ route('booking.create') }}" class="py-3 mt-2 text-center rounded-[9px] bg-[#d16806] text-white font-medium text-xs uppercase tracking-wider">
+                    Pesan Kamar Sekarang →
                 </a>
             </nav>
         </div>
     </header>
 
-    <!-- NOTIFIKASI FLASH ALERT MINIMALIS (Jika ada) -->
+    <!-- NOTIFIKASI FLASH ALERT MINIMALIS -->
     @if(session('success'))
-        <div class="fixed bottom-6 right-6 z-50 max-w-md bg-[#181715]/95 backdrop-blur-xl border border-white/10 text-white rounded-2xl p-4 shadow-2xl flex items-center justify-between gap-4">
+        <div class="fixed bottom-6 right-6 z-50 max-w-md bg-white border border-[#d16806]/40 text-[#1a1a1a] rounded-[14px] p-4 shadow-xl flex items-center justify-between gap-4">
             <div class="flex items-center gap-3">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#C46849] animate-pulse"></span>
-                <p class="text-xs font-medium text-[#EBE6DC]">{{ session('success') }}</p>
+                <span class="w-2.5 h-2.5 rounded-full bg-[#d16806]"></span>
+                <p class="text-xs font-medium text-[#1a1a1a]">{{ session('success') }}</p>
             </div>
-            <button type="button" onclick="this.parentElement.remove()" class="text-[#8C867E] hover:text-white text-xs">
+            <button type="button" onclick="this.parentElement.remove()" class="text-[#737373] hover:text-[#1a1a1a] text-xs">
                 ✕
             </button>
         </div>
     @endif
 
     @if($errors->any())
-        <div class="fixed bottom-6 right-6 z-50 max-w-md bg-[#251A18]/95 backdrop-blur-xl border border-[#C46849]/30 text-white rounded-2xl p-5 shadow-2xl">
+        <div class="fixed bottom-6 right-6 z-50 max-w-md bg-white border border-red-300 text-red-900 rounded-[14px] p-5 shadow-xl">
             <div class="flex items-start justify-between gap-3">
                 <div>
-                    <p class="text-xs font-bold uppercase tracking-wider text-[#C46849]">Periksa Isian Formulir</p>
-                    <ul class="mt-2 space-y-1 text-xs text-[#E5D5D0]">
+                    <p class="text-xs font-bold uppercase tracking-wider text-red-700">Periksa Isian Formulir</p>
+                    <ul class="mt-2 space-y-1 text-xs text-red-800">
                         @foreach($errors->all() as $error)
                             <li>• {{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
-                <button type="button" onclick="this.parentElement.parentElement.remove()" class="text-[#8C867E] hover:text-white text-xs">✕</button>
+                <button type="button" onclick="this.parentElement.parentElement.remove()" class="text-red-400 hover:text-red-700 text-xs">✕</button>
             </div>
         </div>
     @endif
@@ -148,83 +197,98 @@
         @yield('content')
     </main>
 
-    <!-- ARCHITECTURAL FOOTER (Faithful SOLÉM Masterpiece Replication) -->
-    <footer class="bg-[#0D0C0B] text-[#C7BFB4] border-t border-white/10 pt-24 pb-12">
-        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-16">
+    <!-- ==========================================
+         FOOTER (Mellow Figma Reference 1:360)
+         ========================================== -->
+    <footer class="bg-white border-t border-[#e9e9e9] pt-20 pb-12 text-[#606060]">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
             
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pb-12 border-b border-white/10">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12 pb-16 border-b border-[#e9e9e9]">
                 
-                <!-- Left Title Column -->
-                <div class="lg:col-span-5 space-y-6">
-                    <span class="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#8C867E]">
-                        — KONTAK KAMI
-                    </span>
-                    <h2 class="font-serif text-4xl sm:text-5xl lg:text-6xl font-normal text-white leading-tight">
-                        A Space to Align — <br>
-                        <span class="italic text-[#EAE5DC]">Connect with Harmoni.</span>
-                    </h2>
-                    <p class="text-xs text-[#8C867E] leading-relaxed max-w-sm">
-                        Sebuah peristirahatan kontemporer berbalut ketenangan material alami di jantung Jakarta. Dirancang untuk pengalaman menginap berkesan.
+                <!-- Col 1: About & Logo (4 cols) -->
+                <div class="lg:col-span-4 space-y-5">
+                    <a href="{{ route('home') }}" class="flex items-center gap-2">
+                        <svg class="w-7 h-6 text-[#d16806]" viewBox="0 0 44 34" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 30V4L22 22L40 4V30" stroke="#d16806" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="22" cy="7" r="3.5" fill="#d16806" />
+                        </svg>
+                        <span class="font-serif italic font-bold text-2xl tracking-[0.14em] text-[#1a1a1a] uppercase">
+                            mellow
+                        </span>
+                    </a>
+                    <p class="text-xs text-[#606060] leading-relaxed max-w-sm font-light">
+                        Selamat datang di Hotel Mellow — Grand Harmoni. Tempat di mana kenyamanan berpadu dengan ketenangan alami di tengah kota Jakarta.
                     </p>
+                    <div class="pt-2 text-xs font-mono text-[#8c867e]">
+                        <span>JAKARTA RESIDENCE • EST. 2026</span>
+                    </div>
                 </div>
 
-                <!-- Right Information Columns -->
-                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-8 text-xs">
+                <!-- Col 2: Newsletter Subscription (3 cols) -->
+                <div class="lg:col-span-3 space-y-4">
+                    <h3 class="font-serif text-xl font-normal text-[#1a1a1a]">Buletin & Berita</h3>
+                    <p class="text-xs text-[#737373] leading-relaxed">
+                        Dapatkan informasi penawaran istimewa dan agenda acara terbaru kami.
+                    </p>
+                    <form onsubmit="event.preventDefault(); alert('Terima kasih telah mendaftar buletin!');" class="space-y-2">
+                        <input type="email" placeholder="Alamat email Anda" required
+                               class="w-full text-xs px-3.5 py-2.5 rounded-[9px] border border-[#e9e9e9] bg-[#f9f6f3] focus:outline-none focus:border-[#d16806]">
+                        <button type="submit" 
+                                class="w-full px-4 py-2.5 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-medium tracking-wide uppercase transition-colors">
+                            Langganan Buletin →
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Col 3: Contact Info (3 cols) -->
+                <div class="lg:col-span-3 space-y-4 text-xs">
+                    <h3 class="font-serif text-xl font-normal text-[#1a1a1a]">Informasi Kontak</h3>
                     
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-[10px] font-mono tracking-widest uppercase text-[#8C867E] block mb-1">LOKASI UTAMA</span>
-                            <p class="text-[#FAF8F5] leading-relaxed font-light">
-                                Jl. Boulevard Sudirman No. 88, Kav. 12<br>
+                    <div class="space-y-3">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-4 h-4 text-[#d16806] shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            </svg>
+                            <p class="leading-relaxed text-[#353535]">
+                                Jl. Boulevard Sudirman No. 88<br>
                                 Jakarta Pusat, DKI Jakarta 10220
                             </p>
                         </div>
-                        <div class="pt-2">
-                            <span class="text-[10px] font-mono tracking-widest uppercase text-[#8C867E] block mb-1">EMAIL RESERVASI</span>
-                            <p class="text-[#FAF8F5] font-light">
-                                reservation@grandharmonihotel.co.id
-                            </p>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-[#d16806] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                            </svg>
+                            <span class="text-[#353535]">(021) 555-8989</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <svg class="w-4 h-4 text-[#d16806] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            </svg>
+                            <span class="text-[#353535] break-all">reservation@grandharmonihotel.co.id</span>
                         </div>
                     </div>
-
-                    <div class="space-y-4">
-                        <div>
-                            <span class="text-[10px] font-mono tracking-widest uppercase text-[#8C867E] block mb-1">LAYANAN TELEPON</span>
-                            <p class="text-[#FAF8F5] leading-relaxed font-light">
-                                (021) 555-8989<br>
-                                +62 812-3456-7890
-                            </p>
-                        </div>
-                        <div class="pt-2">
-                            <span class="text-[10px] font-mono tracking-widest uppercase text-[#8C867E] block mb-1">WAKTU OPERASIONAL</span>
-                            <p class="text-[#FAF8F5] leading-relaxed font-light">
-                                Check-in: 14.00 WIB • Check-out: 12.00 WIB<br>
-                                Front Desk 24 Jam
-                            </p>
-                        </div>
-                    </div>
-
                 </div>
 
-            </div>
-
-            <!-- Full-width Architectural Banner in Footer (SOLÉM Style) -->
-            <div class="rounded-3xl overflow-hidden aspect-[21/9] sm:aspect-[24/8] bg-[#181715] border border-white/10 shadow-2xl relative group">
-                <img src="{{ asset('assets/images/rooms/detail.jpg') }}" 
-                     alt="Grand Harmoni Sanctuary Atmosphere" 
-                     class="w-full h-full object-cover filter brightness-[0.85] contrast-[1.05] group-hover:scale-102 transition-transform duration-700">
-                <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div class="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 text-white">
-                    <span class="font-serif text-2xl sm:text-3xl font-normal block">Grand Harmoni Sanctuary</span>
-                    <span class="text-xs text-[#C7BFB4] font-mono tracking-widest uppercase">Jakarta Residence • Est. 2026</span>
+                <!-- Col 4: Quick Nav Links (2 cols) -->
+                <div class="lg:col-span-2 space-y-4 text-xs">
+                    <h3 class="font-serif text-xl font-normal text-[#1a1a1a]">Tautan</h3>
+                    <ul class="space-y-2 text-[#606060]">
+                        <li><a href="{{ route('home') }}" class="hover:text-[#d16806] transition-colors">Beranda</a></li>
+                        <li><a href="{{ route('about') }}" class="hover:text-[#d16806] transition-colors">Tentang Kami</a></li>
+                        <li><a href="{{ route('products') }}" class="hover:text-[#d16806] transition-colors">Koleksi Kamar</a></li>
+                        <li><a href="{{ route('prices') }}" class="hover:text-[#d16806] transition-colors">Daftar Tarif</a></li>
+                        <li><a href="{{ route('booking.index') }}" class="hover:text-[#d16806] transition-colors">Data Reservasi</a></li>
+                    </ul>
                 </div>
+
             </div>
 
             <!-- Bottom Sub-footer -->
-            <div class="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-[#6B655D] tracking-wider uppercase gap-4">
-                <p>© {{ date('Y') }} HOTEL GRAND HARMONI. ALL RIGHTS RESERVED.</p>
-                <p class="font-normal text-[#8C867E]">
-                    SKEMA BNSP: <span class="text-[#FAF8F5]">JUNIOR WEB DEVELOPER (FR.SKEMA-02-07)</span>
+            <div class="pt-8 flex flex-col sm:flex-row items-center justify-between text-xs text-[#8c867e] gap-4">
+                <p>© {{ date('Y') }} HOTEL MELLOW — GRAND HARMONI. ALL RIGHTS RESERVED.</p>
+                <p>
+                    SERTIFIKASI BNSP: <span class="text-[#1a1a1a] font-medium">JUNIOR WEB DEVELOPER (FR.IA.02)</span>
                 </p>
             </div>
 

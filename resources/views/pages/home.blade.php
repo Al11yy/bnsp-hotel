@@ -1,262 +1,248 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- ==========================================
-     SECTION 1: HERO VIEWPORT (SOLÉM MASTERPIECE)
-     ========================================== -->
-<section class="relative min-h-screen w-full flex flex-col justify-between pt-28 pb-10 px-6 sm:px-10 lg:px-14 bg-[#0D0C0B] text-white overflow-hidden">
-    
-    <!-- Full Bleed Architectural Background Image -->
-    <div class="absolute inset-0 z-0">
-        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/915036143.jpg?k=6c2ee8fed39b4a400bfa5c7a5f81972bb7719d0b0c8d407ca79346d3b25fdb90&o=" 
-            alt="Grand Harmoni Architectural Sanctuary" 
-            class="w-full h-full object-cover object-center filter brightness-[0.86] contrast-[1.08]">
-        <!-- Subtle Vignette & Gradient Overlays for High Legibility -->
-        <div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/15 to-black/80 pointer-events-none"></div>
-    </div>
+<div class="space-y-24 sm:space-y-32 py-8 sm:py-12">
 
-    <!-- Top Area: Year Badge & Massive Editorial Wordmark -->
-    <div class="relative z-10 max-w-7xl mx-auto w-full pt-4">
-        <div class="flex items-center justify-between text-[11px] font-mono tracking-[0.25em] uppercase text-white/75 pb-2">
-            <span>RESIDENCE & SUITES</span>
-            <span>© 2026</span>
-        </div>
-        
-        <!-- Big Bold Serif Wordmark Across Viewport (Exact SOLÉM Composition) -->
-        <div class="text-center w-full select-none">
-            <h1 class="font-serif text-[17vw] sm:text-[15vw] lg:text-[13.5vw] leading-[0.82] font-normal tracking-[-0.03em] uppercase text-white/95 drop-shadow-lg">
-                GRAND HARMONI
-            </h1>
-        </div>
-    </div>
+    <!-- ==========================================
+         SECTION 1: BILLBOARD / HERO (Mellow Figma 1:227)
+         ========================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        <div class="relative rounded-[28px] sm:rounded-[36px] overflow-hidden min-h-[640px] lg:min-h-[700px] flex items-center shadow-lg">
+            
+            <!-- Real-World Photographic Backdrop (Zero AI Imagery) -->
+            <img src="{{ asset('assets/images/rooms/hero.jpg') }}" 
+                 alt="Hotel Mellow Grand Harmoni Architectural Sanctuary" 
+                 class="absolute inset-0 w-full h-full object-cover object-center filter brightness-[0.82] contrast-[1.05]">
+            
+            <!-- Ambient Vignette Gradient -->
+            <div class="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
 
-    <!-- Bottom Hero Sub-bar: Philosophy Quote (Left) & Scroll Down (Right) -->
-    <div class="relative z-10 max-w-7xl mx-auto w-full pt-8 flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6">
-        <!-- Bottom Left: Iconic SOLÉM Quote -->
-        <div class="text-xs sm:text-sm text-white/90 font-light leading-relaxed max-w-md">
-            <p class="font-normal text-white">Spaces crafted with restraint, light, and deep presence.</p>
-            <p class="text-white/60">Not built to impress — built to endure.</p>
-        </div>
+            <!-- Hero Grid: Headline on Left, Floating Availability Card on Right -->
+            <div class="relative z-10 w-full p-8 sm:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+                
+                <!-- Left: Headline & Button (7 cols) -->
+                <div class="lg:col-span-7 space-y-6 text-white max-w-xl">
+                    <span class="text-xs font-sans tracking-[0.2em] uppercase text-[#e2ded9]">
+                        Sanctuary in Jakarta • Grand Harmoni
+                    </span>
+                    <h1 class="font-serif text-5xl sm:text-6xl lg:text-7xl font-normal leading-[1.08] capitalize text-white">
+                        Hotel Mellow Your Gateway to Serenity.
+                    </h1>
+                    <p class="text-sm sm:text-base text-white/90 font-light leading-relaxed">
+                        Sebuah peristirahatan berarsitektur tenang, memadukan kehangatan material alami dengan kenyamanan modern di pusat Jakarta.
+                    </p>
+                    <div class="pt-4">
+                        <a href="#rooms" 
+                           class="pressable inline-flex items-center gap-3 px-8 py-3.5 rounded-[9px] bg-[#f9f6f3] text-[#1a1a1a] hover:bg-white text-sm font-medium tracking-wide shadow-md">
+                            <span>Explore rooms</span>
+                            <svg class="w-4 h-4 text-[#d16806]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
 
-        <!-- Bottom Right: Scroll Indicator -->
-        <a href="#filosofi" class="inline-flex items-center gap-2.5 text-[11px] font-mono uppercase tracking-[0.2em] text-white/80 hover:text-white transition-colors">
-            <span class="w-6 h-6 rounded-full border border-white/30 flex items-center justify-center text-[10px]">↓</span>
-            <span>SCROLL DOWN</span>
-        </a>
-    </div>
+                <!-- Right: Check Availability Card (5 cols) (Mellow Figma 1:235) -->
+                <div class="lg:col-span-5 flex justify-end">
+                    <div class="w-full max-w-md bg-white rounded-[20px] p-6 sm:p-8 shadow-2xl border border-white/80 space-y-5">
+                        <div class="text-center pb-2">
+                            <h2 class="font-serif text-3xl font-normal text-[#1a1a1a] capitalize">
+                                Check availability
+                            </h2>
+                            <p class="text-xs text-[#737373] mt-1 font-light">Pesan kamar impian Anda secara langsung</p>
+                        </div>
 
-</section>
+                        <form action="{{ route('booking.create') }}" method="GET" class="space-y-4">
+                            <!-- Check-in -->
+                            <div class="space-y-1.5">
+                                <label class="block text-[11px] font-medium tracking-wider uppercase text-[#353535]">
+                                    Check-in
+                                </label>
+                                <div class="relative flex items-center">
+                                    <input type="date" name="booking_date" value="{{ date('Y-m-d') }}" min="{{ date('Y-m-d') }}"
+                                           class="w-full text-xs px-3.5 py-2.5 rounded-[9px] border border-[#e9e9e9] bg-[#f9f6f3] text-[#353535] focus:outline-none focus:border-[#d16806]">
+                                </div>
+                            </div>
 
+                            <!-- Durasi Menginap -->
+                            <div class="space-y-1.5">
+                                <label class="block text-[11px] font-medium tracking-wider uppercase text-[#353535]">
+                                    Durasi Menginap (Hari)
+                                </label>
+                                <input type="number" name="stay_duration" value="1" min="1" max="30"
+                                       class="w-full text-xs px-3.5 py-2.5 rounded-[9px] border border-[#e9e9e9] bg-[#f9f6f3] text-[#353535] focus:outline-none focus:border-[#d16806]">
+                            </div>
 
-<!-- ==========================================
-     SECTION 2: ABOUT US / PHILOSOPHY (EXACT MATCH TO REFERENCE SCREENSHOT)
-     ========================================== -->
-<section id="filosofi" class="py-24 sm:py-32 bg-white text-[#141312] border-t border-stone-200 overflow-hidden relative">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14">
-        
-        <!-- Top Row: (01) ABOUT US | Main 3-line Headline | Right Arrow Button -->
-        <div class="flex items-start justify-between gap-6 sm:gap-10">
-            <!-- Left: Eyebrow Label -->
-            <div class="w-32 sm:w-40 shrink-0 pt-1.5">
-                <span class="text-xs font-mono tracking-wider text-stone-600 block">
-                    (01) <span class="italic font-serif">ABOUT US</span>
-                </span>
+                            <!-- Pilihan Tipe Kamar -->
+                            <div class="space-y-1.5">
+                                <label class="block text-[11px] font-medium tracking-wider uppercase text-[#353535]">
+                                    Pilihan Kamar
+                                </label>
+                                <select name="room_type_id" 
+                                        class="w-full text-xs px-3.5 py-2.5 rounded-[9px] border border-[#e9e9e9] bg-[#f9f6f3] text-[#353535] focus:outline-none focus:border-[#d16806]">
+                                    @foreach($roomTypes as $room)
+                                        <option value="{{ $room->id }}">
+                                            {{ $room->name }} — Rp {{ number_format($room->price, 0, ',', '.') }} / malam
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <!-- Button -->
+                            <button type="submit" 
+                                    class="pressable w-full py-3.5 px-6 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold tracking-wider uppercase flex items-center justify-center gap-2 shadow-sm transition-colors">
+                                <span>Check availability</span>
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
             </div>
+        </div>
+    </section>
 
-            <!-- Center: Iconic 3-line Headline -->
-            <div class="flex-1 max-w-4xl">
-                <h2 class="text-3xl sm:text-5xl lg:text-[3.25rem] font-normal leading-[1.18] tracking-tight text-stone-900 font-sans">
-                    We design <span class="font-serif italic font-normal text-stone-900">atmospheres</span>, not just buildings.<br>
-                    Our work is defined by material honesty<br>
-                    and a <span class="font-serif italic font-normal text-stone-900">deep respect for nature</span>.
-                </h2>
-            </div>
 
-            <!-- Right: Next Arrow Pill Button -->
-            <div class="shrink-0 pt-2 hidden sm:block">
-                <a href="#kamar-koleksi" class="w-11 h-7 rounded-full border border-stone-300 flex items-center justify-center text-stone-500 hover:border-stone-900 hover:text-stone-900 transition-colors" title="Jelajahi Koleksi">
-                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+    <!-- ==========================================
+         SECTION 2: ABOUT / SANCTUARY STORY (Mellow Figma 1:216)
+         ========================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        <div class="text-center max-w-3xl mx-auto space-y-4">
+            <h2 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] leading-tight capitalize">
+                Mellow: Your Gateway to Serenity
+            </h2>
+            <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
+                Welcome to Hotel Mellow, where comfort meets tranquility. Nestled in the heart of a bustling city, our hotel offers a peaceful retreat for both business and leisure travelers. With modern amenities and a warm, inviting atmosphere, we strive to make your stay memorable.
+            </p>
+            <div class="pt-2">
+                <a href="{{ route('about') }}" class="pressable inline-flex items-center gap-2 text-sm font-medium text-[#353535] hover:text-[#d16806] transition-colors">
+                    <span>Read about us</span>
+                    <svg class="w-4 h-4 text-[#d16806]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
                     </svg>
                 </a>
             </div>
         </div>
 
-        <!-- Lower Row: Circular Award Stamp & Prev Button | Wireframe Circle & Paragraph & Asterisks | Vertical Photo Card -->
-        <div class="mt-16 sm:mt-24 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
+        <!-- Asymmetric 3-Image Composition (Exact from Mellow 1:217, 1:218, 1:219) -->
+        <div class="mt-14 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-6">
+                <div class="rounded-[20px] overflow-hidden aspect-[4/3] shadow-md border border-[#f4e2d8]">
+                    <img src="{{ asset('assets/images/rooms/detail.jpg') }}" alt="Mellow Interior Ambience" class="w-full h-full object-cover">
+                </div>
+            </div>
+            <div class="md:col-span-6 space-y-6">
+                <div class="rounded-[20px] overflow-hidden aspect-[16/9] shadow-md border border-[#f4e2d8]">
+                    <img src="{{ asset('assets/images/rooms/standar.jpg') }}" alt="Standar Room Suite" class="w-full h-full object-cover">
+                </div>
+                <div class="rounded-[20px] overflow-hidden aspect-[16/9] shadow-md border border-[#f4e2d8]">
+                    <img src="{{ asset('assets/images/rooms/deluxe.jpg') }}" alt="Deluxe Room Sanctuary" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 3: ACHIEVEMENTS / STATS (Mellow Figma 1:199)
+         ========================================== -->
+    <section class="max-w-5xl mx-auto px-4 sm:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center py-6 border-y border-[#e9e9e9]">
             
-            <!-- Left Column: Circular Award Stamp & Bottom Prev Button (3 Kolom) -->
-            <div class="lg:col-span-3 flex flex-col justify-between h-full space-y-12">
-                <!-- Circular Award Seal with Laurel Wreath & Star (Exact from Image) -->
-                <div class="w-24 h-24 select-none">
-                    <svg class="w-full h-full text-stone-800" viewBox="0 0 120 120">
-                        <defs>
-                            <path id="sealCircle" d="M 60, 60 m -43, 0 a 43,43 0 1,1 86,0 a 43,43 0 1,1 -86,0" />
-                        </defs>
-                        <!-- Outer fine dotted ring -->
-                        <circle cx="60" cy="60" r="52" fill="none" stroke="currentColor" stroke-width="0.75" stroke-dasharray="2 2" opacity="0.5"/>
-                        <!-- Circular Curved Text -->
-                        <text font-size="7" font-family="'Plus Jakarta Sans', monospace" font-weight="600" letter-spacing="1.7" fill="currentColor">
-                            <textPath href="#sealCircle" startOffset="0%">
-                                BEST ARCHITECTURE 2026 • BEST ARCHITECTURE 2026 •
-                            </textPath>
-                        </text>
-                        <!-- Laurel Wreath & Star in Center -->
-                        <g transform="translate(60, 60) scale(0.85)">
-                            <!-- Star -->
-                            <polygon points="0,-18 3,-10 11,-10 5,-5 7,3 0,-1 -7,3 -5,-5 -11,-10 -3,-10" fill="currentColor"/>
-                            <!-- Laurel Left -->
-                            <path d="M -2,-8 C -10,-4 -14,6 -10,16 C -7,21 -2,24 0,25 C -3,23 -6,19 -7,15 C -10,7 -7,0 -2,-8 Z" fill="currentColor" opacity="0.9"/>
-                            <path d="M -8,0 C -12,2 -14,7 -12,12 C -10,7 -8,3 -4,1 Z" fill="currentColor"/>
-                            <path d="M -9,8 C -14,11 -15,16 -12,20 C -11,15 -9,11 -5,9 Z" fill="currentColor"/>
-                            <!-- Laurel Right -->
-                            <path d="M 2,-8 C 10,-4 14,6 10,16 C 7,21 2,24 0,25 C 3,23 6,19 7,15 C 10,7 7,0 2,-8 Z" fill="currentColor" opacity="0.9"/>
-                            <path d="M 8,0 C 12,2 14,7 12,12 C 10,7 8,3 4,1 Z" fill="currentColor"/>
-                            <path d="M 9,8 C 14,11 15,16 12,20 C 11,15 9,11 5,9 Z" fill="currentColor"/>
-                        </g>
-                    </svg>
-                </div>
-
-                <!-- Prev Arrow Button on Left -->
-                <div class="pt-4">
-                    <a href="#filosofi" class="w-11 h-7 rounded-full border border-stone-300 inline-flex items-center justify-center text-stone-500 hover:border-stone-900 hover:text-stone-900 transition-colors" title="Kembali">
-                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
-                        </svg>
-                    </a>
-                </div>
+            <div class="space-y-1">
+                <span class="font-sans font-extralight text-5xl sm:text-6xl text-[#d16806] block tabular-nums">25k</span>
+                <span class="text-xs sm:text-sm font-light text-[#353535] capitalize">Happy clients</span>
             </div>
 
-            <!-- Center Column: Thin line, Faint Circle, 4-Line Paragraph & 3 Stars (6 Kolom) -->
-            <div class="lg:col-span-6 relative flex items-center min-h-[220px]">
-                <!-- Thin Horizontal Connecting Line -->
-                <div class="absolute -left-12 sm:-left-24 right-0 top-1/2 h-[1px] bg-stone-200 pointer-events-none"></div>
-
-                <!-- Faint Wireframe Circle Backdrop (Exact from Image) -->
-                <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-full border border-stone-200/90 absolute left-4 sm:left-12 top-1/2 -translate-y-1/2 pointer-events-none"></div>
-
-                <!-- Paragraph & 3 Stars Container -->
-                <div class="relative z-10 flex flex-col sm:flex-row sm:items-center gap-6 sm:gap-8 pl-8 sm:pl-24 pr-4">
-                    <p class="text-xs sm:text-[13px] text-stone-700 leading-relaxed font-light max-w-sm">
-                        In a world overwhelmed by noise, we believe in the power of quiet architecture. Raw textures, sun-washed surfaces, and sculptural geometry create calm environments.
-                    </p>
-                    <span class="text-stone-800 text-xs tracking-[0.4em] font-serif select-none shrink-0">✦ ✦ ✦</span>
-                </div>
+            <div class="space-y-1">
+                <span class="font-sans font-extralight text-5xl sm:text-6xl text-[#d16806] block tabular-nums">160</span>
+                <span class="text-xs sm:text-sm font-light text-[#353535] capitalize">Total rooms</span>
             </div>
 
-            <!-- Right Column: Vertical Architectural Photo Card (3 Kolom) -->
-            <div class="lg:col-span-3 flex flex-col items-end">
-                <div class="w-full max-w-[240px] space-y-2">
-                    <div class="rounded-2xl overflow-hidden aspect-[3/4] bg-stone-100 shadow-xl border border-stone-200 group">
-                        <img src="{{ asset('assets/images/rooms/detail.jpg') }}" 
-                             alt="Bogor Icon Villa Architecture" 
-                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                    </div>
-                    <div class="flex items-center justify-between text-[11px] font-mono text-stone-500 px-1 pt-1">
-                        <span>Solém Villa</span>
-                        <span>©2026</span>
-                    </div>
-                </div>
+            <div class="space-y-1">
+                <span class="font-sans font-extralight text-5xl sm:text-6xl text-[#d16806] block tabular-nums">28</span>
+                <span class="text-xs sm:text-sm font-light text-[#353535] capitalize">Awards won</span>
+            </div>
+
+            <div class="space-y-1">
+                <span class="font-sans font-extralight text-5xl sm:text-6xl text-[#d16806] block tabular-nums">100</span>
+                <span class="text-xs sm:text-sm font-light text-[#353535] capitalize">Team members</span>
             </div>
 
         </div>
-
-    </div>
-</section>
+    </section>
 
 
-<!-- ==========================================
-     SECTION 3: ACCOMMODATION / TIMELESS SERVICES (SOLÉM DARK SECTION)
-     ========================================== -->
-<section id="kamar-koleksi" class="py-28 sm:py-36 bg-[#121110] text-white border-t border-white/10">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 space-y-24">
+    <!-- ==========================================
+         SECTION 4: EXPLORE OUR ROOMS (Mellow Figma 1:166)
+         ========================================== -->
+    <section id="rooms" class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
         
-        <!-- Section Header -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between pb-8 border-b border-white/10 gap-6">
-            <div class="space-y-2">
-                <span class="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#8C867E] block">
-                    — PILIHAN KAMAR
-                </span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-normal text-white">
-                    Timeless Services. <span class="italic text-[#EAE5DC]">Smarter Living.</span>
+        <div class="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4 pb-10">
+            <div>
+                <h2 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] capitalize">
+                    Explore our rooms
                 </h2>
+                <p class="text-xs sm:text-sm text-[#737373] mt-2 font-light">Tiga pilihan akomodasi eksklusif dengan kenyamanan terbaik</p>
             </div>
-            <div class="max-w-sm text-right">
-                <span class="text-[10px] font-mono tracking-widest uppercase text-[#8C867E] block mb-1">PILIHAN AKOMODASI RESMI</span>
-                <p class="text-xs text-[#8C867E] font-light leading-relaxed">
-                    Tersedia 3 jenis tipe kamar standar BNSP (Standar, Deluxe, Family) dengan fasilitas premium dan garansi kebersihan bintang 4.
-                </p>
-            </div>
+            <a href="{{ route('products') }}" 
+               class="pressable inline-flex items-center gap-2 px-6 py-3 rounded-[9px] bg-white border border-[#e9e9e9] text-[#353535] hover:border-[#d16806] hover:text-[#d16806] text-xs font-medium tracking-wide shadow-sm transition-all">
+                <span>Lihat Semua Kamar</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                </svg>
+            </a>
         </div>
 
-        <!-- Room Showcase Rows (Dual-Photo Gallery Composition from SOLÉM Image 2) -->
-        <div class="space-y-28">
-            @foreach($roomTypes as $index => $room)
-                <div class="space-y-8 pb-24 border-b border-white/10 last:border-b-0">
+        <!-- 3 Room Cards Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            @foreach($roomTypes as $room)
+                <div class="bg-white rounded-[20px] overflow-hidden border border-[#f4e2d8] shadow-sm flex flex-col group hover:shadow-md transition-shadow">
                     
-                    <!-- Row Header Bar: Number, Name, Price & CTA -->
-                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4">
-                        <div class="flex items-baseline gap-4">
-                            <span class="text-sm font-mono text-[#8C867E] tabular-nums">0{{ $index + 1 }}</span>
-                            <h3 class="font-serif text-2xl sm:text-4xl font-normal text-white">
-                                Kamar {{ $room->name }}
-                            </h3>
-                            <span class="text-xs text-[#8C867E] font-light hidden sm:inline">— {{ $room->capacity }}</span>
-                        </div>
-                        
-                        <div class="flex items-center gap-6">
-                            <div class="text-right">
-                                <span class="text-[10px] font-mono text-[#8C867E] uppercase block">Tarif Per Malam</span>
-                                <span class="text-xl font-mono tabular-nums font-semibold text-[#E8DFD0]">{{ $room->formatted_price }}</span>
-                            </div>
-                            <a href="{{ route('booking.create', ['room_id' => $room->id]) }}" 
-                               class="pressable px-7 py-2.5 rounded-full text-xs font-semibold tracking-wider uppercase bg-white text-stone-900 hover:bg-[#C46849] hover:text-white transition-all shadow-lg flex items-center gap-1.5">
-                                <span>Pesan Kamar</span>
-                                <span class="text-xs">↗</span>
-                            </a>
-                        </div>
+                    <!-- Room Image -->
+                    <div class="aspect-[4/3] overflow-hidden relative bg-[#f0ece7]">
+                        <img src="{{ asset('assets/images/rooms/' . strtolower($room->name) . '.jpg') }}" 
+                             alt="{{ $room->name }} Suite" 
+                             class="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500">
+                        <span class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-medium text-[#1a1a1a] uppercase tracking-wider">
+                            {{ $room->name }}
+                        </span>
                     </div>
 
-                    <!-- Dual Photographic Showcase: Wide View + Detail View (SOLÉM Image 2) -->
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch">
-                        
-                        <!-- Primary Wide View Image (8 Columns) -->
-                        <div class="md:col-span-8 rounded-3xl overflow-hidden aspect-[16/10] bg-[#1A1816] border border-white/10 group shadow-2xl relative">
-                            <img src="{{ asset($room->image_url) }}" 
-                                 alt="Kamar {{ $room->name }} Wide View" 
-                                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
-                            <div class="absolute bottom-5 left-6 text-white text-xs font-mono tracking-wider uppercase bg-black/40 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/15">
-                                Utama • {{ $room->name }} Suite
+                    <!-- Room Info -->
+                    <div class="p-6 sm:p-7 flex-1 flex flex-col justify-between space-y-4">
+                        <div class="space-y-2">
+                            <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">
+                                {{ $room->name }} Room
+                            </h3>
+                            <p class="text-xs text-[#606060] leading-relaxed line-clamp-2 font-light">
+                                {{ $room->description }}
+                            </p>
+                            
+                            <!-- Highlights -->
+                            <div class="pt-2 flex items-center gap-3 text-xs text-[#737373]">
+                                <span>{{ $room->capacity }} Tamu</span>
+                                <span>•</span>
+                                <span>{{ $room->bed_type }}</span>
+                                <span>•</span>
+                                <span>Wi-Fi Cepat</span>
                             </div>
                         </div>
 
-                        <!-- Secondary Specs & Detail Card (4 Columns) -->
-                        <div class="md:col-span-4 rounded-3xl bg-[#181715] border border-white/10 p-8 flex flex-col justify-between space-y-6 shadow-2xl">
-                            <div class="space-y-4">
-                                <span class="text-[10px] font-mono tracking-widest uppercase text-[#8C867E] block">SPESIFIKASI SUITE</span>
-                                <p class="text-xs text-[#C7BFB4] leading-relaxed font-light">
-                                    {{ $room->description }}
-                                </p>
-
-                                <div class="space-y-2 pt-3 border-t border-white/10 text-xs text-[#EAE5DC] font-light">
-                                    <p>🛏️ <strong>Ranjang:</strong> {{ $room->bed_type }}</p>
-                                    <p>👥 <strong>Kapasitas:</strong> {{ $room->capacity }}</p>
-                                    <p>🍳 <strong>Sarapan:</strong> Opsional (+ Rp 80.000)</p>
-                                </div>
-
-                                <div class="pt-2">
-                                    <p class="text-[10px] font-mono uppercase tracking-wider text-[#8C867E] mb-2">Fasilitas Utama:</p>
-                                    <ul class="text-xs text-[#A89F91] space-y-1 font-light">
-                                        @foreach(array_slice($room->facilities ?? [], 0, 4) as $facility)
-                                            <li>• {{ $facility }}</li>
-                                        @endforeach
-                                    </ul>
-                                </div>
+                        <!-- Price & CTA Button -->
+                        <div class="pt-4 border-t border-[#f4e2d8] flex items-center justify-between gap-3">
+                            <div>
+                                <span class="font-sans font-semibold text-xl text-[#d16806] tabular-nums">
+                                    Rp {{ number_format($room->price, 0, ',', '.') }}
+                                </span>
+                                <span class="text-xs text-[#737373] block font-light">/ malam</span>
                             </div>
 
-                            <a href="{{ route('booking.create', ['room_id' => $room->id]) }}" 
-                               class="pressable block text-center py-3 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#C46849] hover:bg-[#d07354] text-white transition-all shadow-md">
-                                Reservasi Tipe Ini ↗
+                            <a href="{{ route('booking.create', ['room_type_id' => $room->id]) }}" 
+                               class="pressable px-4 py-2.5 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold tracking-wider uppercase transition-colors">
+                                Pesan Kamar
                             </a>
                         </div>
 
@@ -266,123 +252,153 @@
             @endforeach
         </div>
 
-    </div>
-</section>
+    </section>
 
 
-<!-- ==========================================
-     SECTION 4: ARCHITECTURE IN HARMONI (GALLERY & VIRTUAL VIDEO TOUR)
-     ========================================== -->
-<section id="tur-video" class="py-28 sm:py-36 bg-[#FAF8F5] text-[#141312] border-t border-stone-200">
-    <div class="max-w-7xl mx-auto px-6 sm:px-10 lg:px-14 space-y-16">
-        
-        <!-- Section Header with Filter Pills (SOLÉM Image 2) -->
-        <div class="flex flex-col md:flex-row md:items-end justify-between pb-6 border-b border-stone-300 gap-6">
-            <div class="space-y-2">
-                <span class="text-[11px] font-semibold tracking-[0.25em] uppercase text-stone-500 block">
-                    — TUR VIRTUAL & VIDEO
-                </span>
-                <h2 class="font-serif text-3xl sm:text-5xl font-normal text-stone-900">
-                    Architecture in Harmoni.
-                </h2>
-            </div>
-
-            <!-- Filter Buttons -->
-            <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
-                <button type="button" onclick="switchVideo('{{ asset('assets/videos/rooms/hotel_tour.mp4') }}', 'Tur Utama Hotel')" class="px-4 py-2 rounded-full border border-stone-900 bg-stone-900 text-white font-medium">Tur Utama</button>
-                <button type="button" onclick="switchVideo('{{ asset('assets/videos/rooms/standar_tour.mp4') }}', 'Kamar Standar')" class="px-4 py-2 rounded-full border border-stone-300 bg-white hover:bg-stone-100 text-stone-800 transition-colors">Standar</button>
-                <button type="button" onclick="switchVideo('{{ asset('assets/videos/rooms/deluxe_tour.mp4') }}', 'Kamar Deluxe')" class="px-4 py-2 rounded-full border border-stone-300 bg-white hover:bg-stone-100 text-stone-800 transition-colors">Deluxe</button>
-                <button type="button" onclick="switchVideo('{{ asset('assets/videos/rooms/family_tour.mp4') }}', 'Kamar Family')" class="px-4 py-2 rounded-full border border-stone-300 bg-white hover:bg-stone-100 text-stone-800 transition-colors">Family</button>
-            </div>
-        </div>
-
-        <!-- Video Player Card & Architectural Photo Grid -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            <!-- Video Player (8 Kolom) -->
-            <div class="lg:col-span-8 rounded-3xl overflow-hidden bg-black border border-stone-300 shadow-2xl relative aspect-[16/9]">
-                <video id="main-video-player" controls preload="metadata" class="w-full h-full object-cover">
-                    <source id="video-source" src="{{ asset('assets/videos/rooms/hotel_tour.mp4') }}" type="video/mp4">
-                    Browser Anda tidak mendukung tag video HTML5.
-                </video>
-            </div>
-
-            <!-- Architectural Gallery Cards (4 Kolom) -->
-            <div class="lg:col-span-4 space-y-6">
-                <div class="p-6 rounded-3xl bg-white border border-stone-300 shadow-lg space-y-3">
-                    <span class="text-[10px] font-mono tracking-widest uppercase text-stone-400 block">DOKUMENTASI VISUAL</span>
-                    <h4 id="video-title-display" class="font-serif text-2xl font-normal text-stone-900">Tur Utama Hotel</h4>
-                    <p class="text-xs text-stone-600 font-light leading-relaxed">
-                        Nikmati pengalaman berkeliling seluruh area Hotel Grand Harmoni, mulai dari ruang lobi berarsitektur hangat hingga fasilitas kamar tidur yang tenang.
-                    </p>
-                </div>
-
-                <div class="rounded-3xl overflow-hidden aspect-[4/3] bg-stone-200 border border-stone-300 shadow-md">
-                    <img src="{{ asset('assets/images/rooms/family.jpg') }}" alt="Family Suite Living" class="w-full h-full object-cover">
-                </div>
-            </div>
-
-        </div>
-
-    </div>
-</section>
-
-
-<!-- ==========================================
-     SECTION 5: TESTIMONIAL / EDITORIAL QUOTE (SOLÉM IMAGE 2)
-     ========================================== -->
-<section class="py-24 sm:py-32 bg-[#FAF8F5] text-[#141312] border-t border-stone-200">
-    <div class="max-w-5xl mx-auto px-6 sm:px-10 lg:px-14">
-        
-        <div class="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-            
-            <!-- Big Serif Quotation (9 Kolom) -->
-            <div class="md:col-span-9 space-y-8">
-                <span class="font-serif text-6xl text-[#B85D3E] block leading-none select-none">❝</span>
-                <blockquote class="font-serif text-2xl sm:text-4xl lg:text-4xl font-normal leading-snug text-stone-900">
-                    From material selection to the quiet ambient lighting, the hospitality team translated our stay into a serene sanctuary. We couldn't have imagined a more <span class="italic font-normal">perfect rest</span>.
-                </blockquote>
+    <!-- ==========================================
+         SECTION 5: VIDEO WALKTHROUGH TOUR (BNSP Mandatory)
+         ========================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        <div class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 lg:p-12 border border-[#f4e2d8] shadow-sm">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
-                <div class="flex items-center gap-4 pt-4 border-t border-stone-300">
-                    <div class="w-12 h-12 rounded-full overflow-hidden bg-stone-300 border border-stone-400 shrink-0">
-                        <img src="{{ asset('assets/images/rooms/standar.jpg') }}" alt="Andri Santosa" class="w-full h-full object-cover">
-                    </div>
-                    <div>
-                        <strong class="font-serif text-lg text-stone-900 block font-normal">Andri Santosa</strong>
-                        <span class="text-xs font-mono text-stone-500 uppercase tracking-wider">Tamu Eksekutif • Peserta Uji BNSP</span>
+                <!-- Video Player (7 cols) -->
+                <div class="lg:col-span-7">
+                    <div class="rounded-[20px] overflow-hidden bg-black aspect-video shadow-md relative">
+                        <video id="video-source" controls playsinline preload="metadata" 
+                               class="w-full h-full object-cover">
+                            <source src="{{ asset('assets/videos/rooms/hotel_tour.mp4') }}" type="video/mp4">
+                            Browser Anda tidak mendukung tag video HTML5.
+                        </video>
                     </div>
                 </div>
+
+                <!-- Text & Explanation (5 cols) -->
+                <div class="lg:col-span-5 space-y-5">
+                    <span class="text-xs font-sans tracking-[0.2em] uppercase text-[#d16806] font-medium">
+                        Visual Sanctuary Tour
+                    </span>
+                    <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#1a1a1a] leading-tight">
+                        Jelajahi Suasana Hotel Mellow Secara Virtual
+                    </h2>
+                    <p class="text-xs sm:text-sm text-[#606060] leading-relaxed font-light">
+                        Simak rekaman video asli yang menampilkan arsitektur lobby, lanskap tropis, serta interior kamar yang tertata rapi untuk memastikan pengalaman menginap berkelas.
+                    </p>
+                    
+                    <div class="pt-2">
+                        <a href="{{ route('products') }}" 
+                           class="pressable inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-[#d16806] hover:text-[#b55804]">
+                            <span>Lihat Video Seluruh Kamar</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==========================================
+         SECTION 6: SERVICES & FACILITIES (Mellow Figma 1:72)
+         ========================================== -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        
+        <div class="text-center max-w-2xl mx-auto space-y-3 pb-12">
+            <h2 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] capitalize">
+                Our services & facilities
+            </h2>
+            <p class="text-xs sm:text-sm text-[#737373] font-light">
+                Fasilitas lengkap bertaraf internasional dirancang untuk ketenangan dan kenyamanan optimal Anda.
+            </p>
+        </div>
+
+        <!-- 6 Cards Grid (Exact from Mellow Template 1:72) -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            
+            <!-- 1. Yoga & Meditation -->
+            <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Yoga & Meditation</h3>
+                <p class="text-xs text-[#606060] font-light leading-relaxed">
+                    Segarkan tubuh dan pikiran melalui sesi relaksasi dan meditasi dengan bimbingan instruktur profesional di paviliun terbuka.
+                </p>
             </div>
 
-            <!-- Small Architectural Polaroid Accent Card (3 Kolom) -->
-            <div class="md:col-span-3 hidden md:block">
-                <div class="p-3 bg-white border border-stone-300 rounded-2xl shadow-xl transform rotate-2">
-                    <div class="rounded-xl overflow-hidden aspect-[3/4] bg-stone-200">
-                        <img src="{{ asset('assets/images/rooms/detail.jpg') }}" alt="Detail Polish" class="w-full h-full object-cover">
-                    </div>
-                    <span class="text-[9px] font-mono text-stone-400 uppercase tracking-widest block text-center pt-2">SUITE DETAIL • 2026</span>
+            <!-- 2. Dining & Culinary -->
+            <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                    </svg>
                 </div>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Dining & Restaurant</h3>
+                <p class="text-xs text-[#606060] font-light leading-relaxed">
+                    Nikmati sajian kuliner nusantara dan internasional yang disiapkan dengan bahan segar pilihan oleh koki berpengalaman kami.
+                </p>
+            </div>
+
+            <!-- 3. Rooftop Pool -->
+            <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M3 15a4 4 0 004 4h10a4 4 0 004-4M3 15a4 4 0 014-4h10a4 4 0 014 4M7 7h10M9 3h6"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Rooftop Pool</h3>
+                <p class="text-xs text-[#606060] font-light leading-relaxed">
+                    Kolam renang tanpa batas di lantai teratas dengan pemandangan cakrawala kota Jakarta yang menawan untuk relaksasi sore hari.
+                </p>
+            </div>
+
+            <!-- 4. Fitness Center -->
+            <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M4 8h16M4 16h16M8 4v16m8-16v16"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Fitness Center</h3>
+                <p class="text-xs text-[#606060] font-light leading-relaxed">
+                    Peralatan kardio dan beban mutakhir yang lengkap untuk menjaga kebugaran fisik Anda selama berlibur maupun perjalanan bisnis.
+                </p>
+            </div>
+
+            <!-- 5. Event Spaces -->
+            <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Event Spaces</h3>
+                <p class="text-xs text-[#606060] font-light leading-relaxed">
+                    Ruang rapat serbaguna dan aula elegan berkapasitas fleksibel dengan dukungan teknologi audio-visual termutakhir.
+                </p>
+            </div>
+
+            <!-- 6. Free High-Speed Wi-Fi -->
+            <div class="bg-white rounded-[20px] p-8 border border-[#f4e2d8] shadow-sm hover:border-[#d16806] transition-colors space-y-4 text-center flex flex-col items-center">
+                <div class="w-16 h-16 rounded-full bg-[#f9f6f3] flex items-center justify-center text-[#d16806]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0"/>
+                    </svg>
+                </div>
+                <h3 class="font-serif text-2xl font-normal text-[#1a1a1a] capitalize">Free High-Speed Wi-Fi</h3>
+                <p class="text-xs text-[#606060] font-light leading-relaxed">
+                    Koneksi internet serat optik berkecepatan tinggi tanpa hambatan di seluruh area hotel dan kamar tidur tamu.
+                </p>
             </div>
 
         </div>
 
-    </div>
-</section>
-@endsection
+    </section>
 
-@push('scripts')
-<script>
-    function switchVideo(src, title) {
-        const player = document.getElementById('main-video-player');
-        const source = document.getElementById('video-source');
-        const titleDisplay = document.getElementById('video-title-display');
-        
-        if (player && source) {
-            source.src = src;
-            player.load();
-            player.play();
-            if (titleDisplay) titleDisplay.textContent = title;
-        }
-    }
-</script>
-@endpush
+</div>
+@endsection

@@ -1,86 +1,80 @@
 @extends('layouts.app')
 
 @section('content')
-<!-- BANNER PRODUK & KOLEKSI KAMAR -->
-<section class="pt-36 pb-20 px-6 sm:px-8 lg:px-12 bg-[#0D0C0B] text-white border-b border-white/10">
-    <div class="max-w-7xl mx-auto space-y-4">
-        <span class="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#8C867E] block">
-            — KATALOG ARSITEKTURAL
-        </span>
-        <h1 class="font-serif text-4xl sm:text-6xl font-normal text-white">
-            Koleksi Kamar & Video Tur.
-        </h1>
-        <p class="text-xs sm:text-sm text-[#8C867E] max-w-xl leading-relaxed font-light">
-            Menampilkan 3 tipe kamar pilihan (Standar, Deluxe, Family) lengkap dengan dokumentasi visual foto dan video tur interaktif sesuai lembar tugas BNSP FR.IA.02.
-        </p>
-    </div>
-</section>
+<div class="py-12 sm:py-16 space-y-20">
 
-<!-- SECTION PEMUTAR VIDEO MULTIMEDIA (Butir c Soal BNSP) -->
-<section class="py-20 bg-[#121110] text-white border-b border-white/10">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-10">
-        
-        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-white/10">
-            <div>
-                <span class="text-[10px] font-semibold tracking-[0.2em] uppercase text-[#C46849] block mb-1">DOKUMENTASI VIDEO</span>
-                <h2 class="font-serif text-2xl sm:text-3xl font-normal text-white">
-                    Video Tur Suasana Kamar Hotel
-                </h2>
-            </div>
-
-            <!-- Tab Switcher Tombol Video Interaktif -->
-            <div class="inline-flex p-1 bg-[#1A1816] rounded-full border border-white/10" role="tablist">
-                @foreach($roomTypes as $index => $room)
-                    <button type="button" 
-                            class="video-tab-btn pressable px-5 py-2 rounded-full text-xs font-medium tracking-wider uppercase transition-all {{ $index === 0 ? 'bg-[#C46849] text-white' : 'text-[#8C867E] hover:text-white' }}"
-                            data-video-src="{{ asset($room->video_url) }}"
-                            data-room-name="{{ $room->name }}"
-                            data-room-poster="{{ asset($room->image_url) }}">
-                        {{ $room->name }}
-                    </button>
-                @endforeach
-            </div>
-        </div>
-
-        <!-- Pemutar Video HTML5 -->
-        <div class="relative rounded-3xl overflow-hidden aspect-video bg-black border border-white/15 shadow-2xl max-w-5xl mx-auto">
-            <video id="room-tour-player" 
-                   class="w-full h-full object-cover" 
-                   controls 
-                   preload="metadata"
-                   poster="{{ asset($roomTypes->first()->image_url ?? '') }}">
-                <source id="video-source" src="{{ asset($roomTypes->first()->video_url ?? '') }}" type="video/mp4">
-                Browser Anda tidak mendukung pemutar video HTML5.
-            </video>
-            
-            <div id="video-caption" class="absolute top-6 left-6 bg-[#121110]/80 backdrop-blur-md px-4 py-2 rounded-full border border-white/10 text-xs font-mono tracking-wider uppercase text-[#EAE5DC]">
-                Tur Video: Kamar {{ $roomTypes->first()->name ?? 'Hotel' }}
-            </div>
-        </div>
-
-    </div>
-</section>
-
-<!-- SECTION KATALOG 3 TIPE KAMAR DETAIL -->
-<section class="py-24 bg-[#F7F5F0] text-[#141312]">
-    <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 space-y-24">
-        
-        <div class="max-w-2xl space-y-2">
-            <span class="text-[11px] font-semibold tracking-[0.25em] uppercase text-[#8C867E] block">
-                — SPESIFIKASI RUANG
+    <!-- Header Section -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        <div class="max-w-3xl space-y-4">
+            <span class="text-xs font-sans tracking-[0.2em] uppercase text-[#d16806] font-medium">
+                Katalog Ruang & Kenyamanan
             </span>
-            <h2 class="font-serif text-3xl sm:text-5xl font-normal text-[#141312]">
-                Detail & Fasilitas Kamar.
-            </h2>
+            <h1 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] capitalize">
+                Koleksi Kamar & Video Tur
+            </h1>
+            <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
+                Menampilkan tiga pilihan akomodasi unggulan — Standar, Deluxe, dan Family — lengkap dengan dokumentasi video interaktif sesuai spesifikasi standar sertifikasi BNSP.
+            </p>
         </div>
+    </section>
 
-        <div class="space-y-24">
+    <!-- Interactive Video Tour Section (Mellow Clean Presentation) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        <div class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 border border-[#f4e2d8] shadow-sm space-y-8">
+            
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#e9e9e9]">
+                <div>
+                    <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#1a1a1a]">
+                        Video Tur Virtual Kamar
+                    </h2>
+                    <p class="text-xs text-[#737373] mt-1 font-light">
+                        Pilih tipe kamar di bawah untuk memuat tayangan video tur secara langsung
+                    </p>
+                </div>
+
+                <!-- Room Switcher Tabs -->
+                <div class="inline-flex p-1 bg-[#f9f6f3] rounded-[10px] border border-[#e9e9e9]" role="tablist">
+                    @foreach($roomTypes as $index => $room)
+                        <button type="button" 
+                                class="video-tab-btn pressable px-4 py-2 rounded-[8px] text-xs font-medium tracking-wide uppercase transition-all {{ $index === 0 ? 'bg-[#d16806] text-white shadow-sm' : 'text-[#606060] hover:text-[#1a1a1a]' }}"
+                                data-video-src="{{ asset($room->video_url) }}"
+                                data-room-name="{{ $room->name }}"
+                                data-room-poster="{{ asset($room->image_url) }}">
+                            {{ $room->name }}
+                        </button>
+                    @endforeach
+                </div>
+            </div>
+
+            <!-- Video Player -->
+            <div class="relative rounded-[20px] overflow-hidden aspect-video bg-black shadow-md max-w-5xl mx-auto">
+                <video id="room-tour-player" 
+                       class="w-full h-full object-cover" 
+                       controls 
+                       playsinline
+                       preload="metadata"
+                       poster="{{ asset($roomTypes->first()->image_url ?? '') }}">
+                    <source id="video-source" src="{{ asset($roomTypes->first()->video_url ?? '') }}" type="video/mp4">
+                    Browser Anda tidak mendukung pemutar video HTML5.
+                </video>
+                
+                <div id="video-caption" class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/60 text-xs font-mono text-[#1a1a1a]">
+                    Tur Video: Kamar {{ $roomTypes->first()->name ?? 'Hotel' }}
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Detail 3 Tipe Kamar (Clean Mellow Showcase) -->
+    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
+        <div class="space-y-16">
             @foreach($roomTypes as $index => $room)
-                <div id="kamar-{{ $room->slug }}" class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start pb-20 border-b border-stone-300 last:border-b-0">
+                <div id="kamar-{{ $room->slug }}" class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 border border-[#f4e2d8] shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     
                     <!-- Foto Kamar -->
                     <div class="lg:col-span-6">
-                        <div class="rounded-3xl overflow-hidden aspect-[16/11] bg-stone-300 border border-stone-300 shadow-md">
+                        <div class="rounded-[20px] overflow-hidden aspect-[4/3] bg-[#f9f6f3] shadow-inner">
                             <img src="{{ asset($room->image_url) }}" 
                                  alt="Kamar {{ $room->name }}" 
                                  class="w-full h-full object-cover">
@@ -88,71 +82,74 @@
                     </div>
 
                     <!-- Spesifikasi Kamar -->
-                    <div class="lg:col-span-6 space-y-8">
-                        <div>
-                            <div class="flex items-center justify-between pb-4 border-b border-stone-300">
-                                <div>
-                                    <span class="text-xs font-mono text-stone-400 tabular-nums">TIPE 0{{ $index + 1 }}</span>
-                                    <h3 class="font-serif text-3xl sm:text-4xl font-normal text-stone-900 mt-1">
-                                        Kamar {{ $room->name }}
-                                    </h3>
-                                </div>
-                                <div class="text-right">
-                                    <span class="text-xs text-stone-400 block font-light">Tarif Per Malam</span>
-                                    <span class="font-mono text-2xl font-semibold text-[#B85D3E] tabular-nums">
-                                        {{ $room->formatted_price }}
-                                    </span>
-                                </div>
-                            </div>
-
-                            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed font-light mt-4">
-                                {{ $room->description }}
-                            </p>
-                        </div>
-
-                        <!-- Grid Kapasitas & Ranjang -->
-                        <div class="grid grid-cols-2 gap-6 p-5 rounded-2xl bg-stone-200/60 border border-stone-300 text-xs">
+                    <div class="lg:col-span-6 space-y-6">
+                        <div class="pb-4 border-b border-[#e9e9e9] flex items-start justify-between gap-4">
                             <div>
-                                <span class="text-stone-400 block text-[10px] uppercase tracking-wider font-semibold">Kapasitas Tamu</span>
-                                <strong class="text-stone-900 font-medium block mt-1">👥 {{ $room->capacity }}</strong>
+                                <span class="text-xs font-sans tracking-widest text-[#d16806] uppercase block">
+                                    Pilihan 0{{ $index + 1 }}
+                                </span>
+                                <h3 class="font-serif text-3xl sm:text-4xl font-normal text-[#1a1a1a] mt-1 capitalize">
+                                    Kamar {{ $room->name }}
+                                </h3>
                             </div>
-                            <div>
-                                <span class="text-stone-400 block text-[10px] uppercase tracking-wider font-semibold">Tipe Ranjang</span>
-                                <strong class="text-stone-900 font-medium block mt-1">🛏️ {{ $room->bed_type }}</strong>
+                            <div class="text-right">
+                                <span class="text-xs text-[#737373] block font-light">Tarif per malam</span>
+                                <span class="font-sans font-semibold text-2xl text-[#d16806] tabular-nums">
+                                    {{ $room->formatted_price }}
+                                </span>
                             </div>
                         </div>
 
-                        <!-- Fasilitas Kamar Lengkap -->
-                        <div class="space-y-3">
-                            <span class="text-[10px] font-semibold tracking-widest uppercase text-stone-400 block">FASILITAS SUITE</span>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-stone-700 font-light">
+                        <p class="text-xs sm:text-sm text-[#606060] font-light leading-relaxed">
+                            {{ $room->description }}
+                        </p>
+
+                        <!-- Specifications Grid (NO EMOJIS, Clean Minimalist Design) -->
+                        <div class="grid grid-cols-2 gap-4 p-4 rounded-[12px] bg-[#f9f6f3] border border-[#e9e9e9] text-xs">
+                            <div class="space-y-1">
+                                <span class="text-[11px] font-medium uppercase tracking-wider text-[#737373] block">Kapasitas Tamu</span>
+                                <span class="text-[#1a1a1a] font-medium block">{{ $room->capacity }}</span>
+                            </div>
+                            <div class="space-y-1">
+                                <span class="text-[11px] font-medium uppercase tracking-wider text-[#737373] block">Tipe Ranjang</span>
+                                <span class="text-[#1a1a1a] font-medium block">{{ $room->bed_type }}</span>
+                            </div>
+                        </div>
+
+                        <!-- Amenities List -->
+                        <div class="space-y-2.5">
+                            <span class="text-xs font-medium uppercase tracking-wider text-[#1a1a1a] block">Fasilitas Termasuk:</span>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#606060]">
                                 @foreach($room->facilities ?? [] as $facility)
                                     <div class="flex items-center gap-2">
-                                        <span class="text-[#B85D3E] font-bold">✓</span>
+                                        <svg class="w-3.5 h-3.5 text-[#d16806] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                                        </svg>
                                         <span>{{ $facility }}</span>
                                     </div>
                                 @endforeach
                             </div>
                         </div>
 
-                        <!-- Tombol Booking -->
-                        <div class="pt-4 flex items-center justify-between">
-                            <span class="text-xs text-stone-500 font-light">
-                                * Diskon 10% untuk menginap &gt; 3 hari
+                        <!-- Action Button -->
+                        <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                            <span class="text-xs text-[#737373] font-light">
+                                Diskon 10% untuk durasi lebih dari 3 hari
                             </span>
-                            <a href="{{ route('booking.create', ['room_id' => $room->id]) }}" 
-                               class="pressable px-7 py-3 rounded-full text-xs font-semibold tracking-wider uppercase bg-[#141312] text-white hover:bg-[#B85D3E] transition-all">
+                            <a href="{{ route('booking.create', ['room_type_id' => $room->id]) }}" 
+                               class="pressable px-6 py-3 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold tracking-wider uppercase text-center transition-colors shadow-sm">
                                 Pesan Kamar {{ $room->name }} →
                             </a>
                         </div>
+
                     </div>
 
                 </div>
             @endforeach
         </div>
+    </section>
 
-    </div>
-</section>
+</div>
 @endsection
 
 @push('scripts')
@@ -167,11 +164,11 @@
             tabButtons.forEach(btn => {
                 btn.addEventListener('click', function () {
                     tabButtons.forEach(b => {
-                        b.classList.remove('bg-[#C46849]', 'text-white');
-                        b.classList.add('text-[#8C867E]');
+                        b.classList.remove('bg-[#d16806]', 'text-white', 'shadow-sm');
+                        b.classList.add('text-[#606060]');
                     });
-                    this.classList.remove('text-[#8C867E]');
-                    this.classList.add('bg-[#C46849]', 'text-white');
+                    this.classList.remove('text-[#606060]');
+                    this.classList.add('bg-[#d16806]', 'text-white', 'shadow-sm');
 
                     const newSrc = this.getAttribute('data-video-src');
                     const roomName = this.getAttribute('data-room-name');
