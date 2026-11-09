@@ -13,7 +13,7 @@
                 Form Pemesanan
             </h1>
             <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
-                Silakan lengkapi formulir reservasi kamar berikut untuk memastikan ketersediaan akomodasi pilihan Anda di JW Marriott Hotel Jakarta. Klik tombol <strong>Hitung Total Bayar</strong> untuk memeriksa rincian biaya sebelum menyimpan pemesanan.
+                Silakan lengkapi formulir reservasi kamar berikut untuk memastikan ketersediaan akomodasi pilihan Anda di JW Marriott Hotel Jakarta. Klik tombol 'Hitung Total Bayar' untuk memeriksa rincian biaya sebelum menyimpan pemesanan.
             </p>
         </div>
     </section>
@@ -230,7 +230,7 @@
 
                     <!-- 9. Total Bayar (Readonly) -->
                     <div class="space-y-2 pt-2">
-                        <label for="total_payment_display" class="block text-xs font-medium uppercase tracking-wider text-[#353535]">
+                        <label for="total_payment_display" class="block text-xs font-normal uppercase tracking-wider text-[#353535]">
                             Total Bayar
                         </label>
                         <input type="text" 
@@ -238,9 +238,9 @@
                                name="total_payment_display" 
                                readonly 
                                placeholder="Klik tombol 'Hitung Total Bayar'" 
-                               class="w-full px-4 py-3.5 rounded-[9px] border border-[#e9e9e9] bg-[#f0ece7] text-[#1a1a1a] font-mono text-xl font-bold tabular-nums cursor-not-allowed">
+                               class="w-full px-4 py-3.5 rounded-[9px] border border-[#e9e9e9] bg-[#f0ece7] text-[#1a1a1a] font-mono text-base font-normal tabular-nums cursor-not-allowed placeholder:font-normal placeholder:text-[#8c867e]">
                         <span id="hint-total" class="text-xs text-[#737373] font-light block">
-                            Terisi otomatis dengan menekan tombol <strong>Hitung Total Bayar</strong> di bawah.
+                            Terisi otomatis dengan menekan tombol 'Hitung Total Bayar' di bawah.
                         </span>
                     </div>
 
@@ -250,7 +250,7 @@
                         <!-- 1. Tombol Hitung Total Bayar -->
                         <button type="button" 
                                 id="btn-calculate"
-                                class="pressable px-6 py-3 rounded-[9px] bg-white border border-[#e9e9e9] text-[#1a1a1a] hover:bg-[#f9f6f3] hover:border-[#d16806] text-xs font-semibold tracking-wider uppercase shadow-sm transition-all">
+                                class="pressable px-6 py-3 rounded-[9px] bg-white border border-[#e9e9e9] text-[#1a1a1a] hover:bg-[#f9f6f3] hover:border-[#d16806] text-xs font-medium tracking-wider uppercase shadow-sm transition-all">
                             Hitung Total Bayar
                         </button>
 
@@ -259,7 +259,7 @@
                             <button type="submit" 
                                     id="btn-save"
                                     disabled
-                                    class="pressable px-7 py-3 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] disabled:bg-[#e2ded9] disabled:text-[#8c867e] disabled:cursor-not-allowed text-white text-xs font-semibold tracking-wider uppercase shadow-sm transition-all">
+                                    class="pressable px-7 py-3 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] disabled:bg-[#e2ded9] disabled:text-[#8c867e] disabled:cursor-not-allowed text-white text-xs font-medium tracking-wider uppercase shadow-sm transition-all">
                                 Simpan
                             </button>
 
@@ -291,19 +291,19 @@
                     <div id="calculation-breakdown" class="space-y-3.5 text-xs font-light text-[#606060]">
                         <div class="flex justify-between pb-2.5 border-b border-[#f0ece7]">
                             <span>Sewa Kamar (<span id="calc-duration" class="font-mono tabular-nums font-normal">0</span> hari):</span>
-                            <strong id="calc-subtotal" class="font-mono tabular-nums text-[#1a1a1a] font-medium">Rp 0</strong>
+                            <span id="calc-subtotal" class="font-mono tabular-nums text-[#1a1a1a] font-normal">Rp 0</span>
                         </div>
                         <div class="flex justify-between pb-2.5 border-b border-[#f0ece7] text-[#d16806]">
                             <span>Diskon (<span id="calc-discount-percent">0</span>%):</span>
-                            <strong id="calc-discount-amount" class="font-mono tabular-nums font-medium">- Rp 0</strong>
+                            <span id="calc-discount-amount" class="font-mono tabular-nums font-normal">- Rp 0</span>
                         </div>
                         <div class="flex justify-between pb-2.5 border-b border-[#f0ece7]">
                             <span>Sarapan (<span id="calc-breakfast-days" class="font-mono tabular-nums">0</span> hari):</span>
-                            <strong id="calc-breakfast-fee" class="font-mono tabular-nums text-[#1a1a1a] font-medium">Rp 0</strong>
+                            <span id="calc-breakfast-fee" class="font-mono tabular-nums text-[#1a1a1a] font-normal">Rp 0</span>
                         </div>
                         <div class="pt-2 flex justify-between text-sm text-[#1a1a1a]">
-                            <span class="font-medium">Total Akhir:</span>
-                            <strong id="calc-total-final" class="font-mono tabular-nums text-xl font-bold text-[#d16806]">Rp 0</strong>
+                            <span class="font-normal">Total Akhir:</span>
+                            <span id="calc-total-final" class="font-mono tabular-nums text-xl font-normal text-[#d16806]">Rp 0</span>
                         </div>
                     </div>
 
@@ -373,9 +373,10 @@
             
             totalPaymentDisplay.value = '';
             totalPaymentDisplay.placeholder = "Klik tombol 'Hitung Total Bayar'";
+            totalPaymentDisplay.className = "w-full px-4 py-3.5 rounded-[9px] border border-[#e9e9e9] bg-[#f0ece7] text-[#1a1a1a] font-mono text-base font-normal tabular-nums cursor-not-allowed placeholder:font-normal placeholder:text-[#8c867e]";
             if (hintTotal) {
-                hintTotal.innerHTML = "Ada perubahan isian. Silakan klik <strong>Hitung Total Bayar</strong> lagi untuk mengaktifkan tombol Simpan.";
-                hintTotal.className = "text-xs text-[#d16806] font-medium mt-1.5 block";
+                hintTotal.innerHTML = "Ada perubahan isian. Silakan klik tombol 'Hitung Total Bayar' lagi untuk mengaktifkan tombol Simpan.";
+                hintTotal.className = "text-xs text-[#d16806] font-normal mt-1.5 block";
             }
         }
 
@@ -506,6 +507,7 @@
             const totalPayment = (subtotal - discountAmount) + breakfastFee;
 
             totalPaymentDisplay.value = formatRupiah(totalPayment);
+            totalPaymentDisplay.className = "w-full px-4 py-3.5 rounded-[9px] border border-[#e9e9e9] bg-[#f0ece7] text-[#d16806] font-mono text-lg sm:text-xl font-normal tabular-nums cursor-not-allowed";
 
             calcDuration.textContent = duration;
             calcSubtotal.textContent = formatRupiah(subtotal);
@@ -515,8 +517,8 @@
             calcBreakfastFee.textContent = formatRupiah(breakfastFee);
             calcTotalFinal.textContent = formatRupiah(totalPayment);
 
-            hintTotal.innerHTML = "Perhitungan selesai. Tombol <strong>Simpan</strong> telah aktif.";
-            hintTotal.className = "text-xs text-emerald-700 font-medium mt-1.5 block";
+            hintTotal.innerHTML = "Perhitungan selesai. Tombol Simpan telah aktif.";
+            hintTotal.className = "text-xs text-emerald-700 font-normal mt-1.5 block";
 
             // AKTIFKAN TOMBOL SIMPAN
             isCalculated = true;

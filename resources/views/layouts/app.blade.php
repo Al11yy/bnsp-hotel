@@ -41,31 +41,31 @@
          ========================================== -->
     <div class="border-b border-[#e9e9e9] bg-[#f9f6f3] text-[#606060] text-xs py-2 px-4 sm:px-8 lg:px-14">
         <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-            <!-- Contact Info: Phone & Email -->
+            <!-- Contact Info: Phone & Email (JW Marriott Hotel Jakarta) -->
             <div class="flex items-center gap-6 text-[13px]">
-                <a href="tel:0215558989" class="flex items-center gap-2 hover:text-[#d16806] transition-colors">
+                <a href="tel:+622157988888" class="flex items-center gap-2 hover:text-[#d16806] transition-colors" title="Telepon Resmi JW Marriott Hotel Jakarta">
                     <svg class="w-3.5 h-3.5 text-[#d16806]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                     </svg>
-                    <span>(021) 555-8989</span>
+                    <span>(021) 5798-8888</span>
                 </a>
                 <span class="text-[#e2ded9] hidden sm:inline">|</span>
-                <a href="mailto:reservation@grandharmonihotel.co.id" class="flex items-center gap-2 hover:text-[#d16806] transition-colors">
+                <a href="mailto:mhrs.jktjw.reservation@marriotthotels.com" class="flex items-center gap-2 hover:text-[#d16806] transition-colors" title="Email Reservasi Resmi JW Marriott Jakarta">
                     <svg class="w-3.5 h-3.5 text-[#d16806]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                     </svg>
-                    <span>reservation@grandharmonihotel.co.id</span>
+                    <span class="truncate max-w-[240px] sm:max-w-none">mhrs.jktjw.reservation@marriotthotels.com</span>
                 </a>
             </div>
 
-            <!-- Luxury Location & Social Icons -->
+            <!-- Luxury Location & Social Icons (Official JW Marriott Jakarta) -->
             <div class="flex items-center gap-4 text-xs">
                 <span class="text-[#999] tracking-wider uppercase text-[11px] hidden md:inline">JW Marriott Jakarta • Mega Kuningan</span>
                 <div class="flex items-center gap-3 text-[#737373]">
-                    <a href="#" class="hover:text-[#d16806] transition-colors" title="Instagram">
+                    <a href="https://www.instagram.com/jwmarriottjkt/" target="_blank" rel="noopener noreferrer" class="hover:text-[#d16806] transition-colors" title="Instagram Resmi @jwmarriottjkt" aria-label="Instagram JW Marriott Jakarta">
                         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <a href="#" class="hover:text-[#d16806] transition-colors" title="Facebook">
+                    <a href="https://www.facebook.com/jwmarriottjkt/" target="_blank" rel="noopener noreferrer" class="hover:text-[#d16806] transition-colors" title="Facebook Resmi JW Marriott Hotel Jakarta" aria-label="Facebook JW Marriott Jakarta">
                         <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
                     </a>
                 </div>
@@ -79,22 +79,24 @@
     <header class="sticky top-0 z-40 bg-[#f9f6f3]/95 backdrop-blur-md border-b border-[#e9e9e9]">
         <div class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 py-4 flex items-center justify-between gap-4">
             
-            <!-- Left: Logo JW Marriott x Grand Harmoni -->
-            <a href="{{ route('home') }}" class="flex items-center gap-3 group">
-                <div class="relative w-9 h-8 flex items-center justify-center">
-                    <!-- Stylized Marriott Griffin / M-Emblem SVG -->
-                    <svg class="w-8 h-8 text-[#d16806]" viewBox="0 0 44 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 30V4L22 22L40 4V30" stroke="#d16806" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <circle cx="22" cy="7" r="3.5" fill="#d16806" />
-                    </svg>
-                </div>
+            <!-- Left: Logo Resmi JW Marriott Hotel Jakarta -->
+            <a href="{{ route('home') }}" class="flex items-center gap-3.5 group shrink-0" aria-label="JW Marriott Hotel Jakarta">
+                <img src="{{ asset('assets/images/jw-marriott-griffin.png') }}" 
+                     alt="JW Marriott Griffin Emblem" 
+                     class="h-9 sm:h-11 w-auto object-contain transition-transform group-hover:scale-105">
                 <div class="flex flex-col">
-                    <span class="font-serif italic font-bold text-2xl tracking-[0.14em] text-[#1a1a1a] uppercase leading-none group-hover:text-[#d16806] transition-colors">
+                    <span class="font-serif italic font-bold text-2xl sm:text-[25px] tracking-[0.14em] text-[#1a1a1a] uppercase leading-none group-hover:text-[#d16806] transition-colors">
                         JW MARRIOTT
                     </span>
-                    <span class="text-[9px] font-sans font-medium tracking-[0.25em] text-[#737373] uppercase">
-                        Jakarta • Grand Harmoni
-                    </span>
+                    <div class="flex items-center gap-1.5 mt-1">
+                        <span class="text-[9px] sm:text-[10px] font-sans font-semibold tracking-[0.22em] text-[#737373] uppercase leading-tight">
+                            HOTEL JAKARTA
+                        </span>
+                        <span class="text-[#c8c2bc] text-[8px] leading-tight">•</span>
+                        <span class="text-[8px] sm:text-[9px] font-sans font-normal tracking-[0.16em] text-[#8c867e] uppercase leading-tight">
+                            MEGA KUNINGAN
+                        </span>
+                    </div>
                 </div>
             </a>
 
@@ -202,19 +204,38 @@
                 
                 <!-- Col 1: About & Logo (4 cols) -->
                 <div class="lg:col-span-4 space-y-5">
-                    <a href="{{ route('home') }}" class="flex items-center gap-2">
-                        <svg class="w-7 h-6 text-[#d16806]" viewBox="0 0 44 34" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 30V4L22 22L40 4V30" stroke="#d16806" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
-                            <circle cx="22" cy="7" r="3.5" fill="#d16806" />
-                        </svg>
-                        <span class="font-serif italic font-bold text-2xl tracking-[0.14em] text-[#1a1a1a] uppercase">
-                            JW MARRIOTT
-                        </span>
+                    <a href="{{ route('home') }}" class="flex items-center gap-3">
+                        <img src="{{ asset('assets/images/jw-marriott-griffin.png') }}" 
+                             alt="JW Marriott Hotel Jakarta" 
+                             class="h-9 w-auto object-contain">
+                        <div class="flex flex-col">
+                            <span class="font-serif italic font-bold text-2xl tracking-[0.14em] text-[#1a1a1a] uppercase leading-none">
+                                JW MARRIOTT
+                            </span>
+                            <span class="text-[9px] font-sans font-medium tracking-[0.22em] text-[#737373] uppercase mt-1">
+                                JAKARTA • MEGA KUNINGAN
+                            </span>
+                        </div>
                     </a>
                     <p class="text-xs text-[#606060] leading-relaxed max-w-sm font-light">
                         Selamat datang di JW Marriott Hotel Jakarta — Grand Harmoni. Kenyamanan mewah bertaraf bintang lima di kawasan prestisius Mega Kuningan, Jakarta.
                     </p>
-                    <div class="pt-2 text-xs font-mono text-[#8c867e]">
+                    <!-- Social Media Links: JW Marriott Jakarta -->
+                    <div class="flex flex-wrap items-center gap-2 pt-1 text-[#737373]">
+                        <a href="https://www.instagram.com/jwmarriottjkt/" target="_blank" rel="noopener noreferrer" 
+                           class="flex items-center gap-2 px-3 py-1.5 rounded-[7px] border border-[#e9e9e9] bg-[#f9f6f3] text-[11px] hover:text-[#d16806] hover:border-[#d16806] transition-colors"
+                           title="Instagram Resmi @jwmarriottjkt">
+                            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                            <span>@jwmarriottjkt</span>
+                        </a>
+                        <a href="https://www.facebook.com/jwmarriottjkt/" target="_blank" rel="noopener noreferrer" 
+                           class="flex items-center gap-2 px-3 py-1.5 rounded-[7px] border border-[#e9e9e9] bg-[#f9f6f3] text-[11px] hover:text-[#d16806] hover:border-[#d16806] transition-colors"
+                           title="Facebook Resmi JW Marriott Hotel Jakarta">
+                            <svg class="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+                            <span>JW Marriott Jakarta</span>
+                        </a>
+                    </div>
+                    <div class="pt-1 text-xs font-mono text-[#8c867e]">
                         <span>MEGA KUNINGAN, JAKARTA • EST. 2026</span>
                     </div>
                 </div>
@@ -254,13 +275,20 @@
                             <svg class="w-4 h-4 text-[#d16806] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
                             </svg>
-                            <span class="text-[#353535]">(021) 555-8989</span>
+                            <a href="tel:+622157988888" class="text-[#353535] hover:text-[#d16806] transition-colors">
+                                (021) 5798-8888 <span class="text-[#8c867e] text-[11px]">/ (021) 555-8989</span>
+                            </a>
                         </div>
                         <div class="flex items-center gap-3">
                             <svg class="w-4 h-4 text-[#d16806] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
-                            <span class="text-[#353535] break-all">reservation@grandharmonihotel.co.id</span>
+                            <div class="flex flex-col">
+                                <a href="mailto:mhrs.jktjw.reservation@marriotthotels.com" class="text-[#353535] hover:text-[#d16806] transition-colors break-all">
+                                    mhrs.jktjw.reservation@marriotthotels.com
+                                </a>
+                                <span class="text-[#8c867e] text-[11px] break-all">reservation@grandharmonihotel.co.id</span>
+                            </div>
                         </div>
                     </div>
                 </div>

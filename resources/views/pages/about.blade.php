@@ -97,17 +97,18 @@
                 <p class="text-sm sm:text-base text-[#1a1a1a] font-light leading-relaxed">
                     {{ $hotelInfo['address'] }}
                 </p>
+                <span class="text-xs text-[#737373] font-light block">Kawasan Mega Kuningan, Jakarta Selatan</span>
             </div>
 
             <!-- 2. No Telp -->
             <div class="space-y-2">
                 <span class="text-[11px] font-sans uppercase tracking-[0.15em] text-[#737373] block">Nomor Telepon</span>
                 <p class="text-sm sm:text-base text-[#1a1a1a] font-medium">
-                    <a href="tel:{{ preg_replace('/[^0-9]/', '', $hotelInfo['phone']) }}" class="hover:text-[#d16806] transition-colors">
-                        {{ $hotelInfo['phone'] }}
+                    <a href="tel:+622157988888" class="hover:text-[#d16806] transition-colors">
+                        (021) 5798-8888
                     </a>
                 </p>
-                <span class="text-xs text-[#737373] font-light block">Bebas Pulsa • 24/7 Concierge</span>
+                <span class="text-xs text-[#737373] font-light block">Hunting / Reservasi: (021) 555-8989</span>
             </div>
 
             <!-- 3. Alamat Email -->
@@ -118,15 +119,20 @@
                         {{ $hotelInfo['email'] }}
                     </a>
                 </p>
-                <span class="text-xs text-[#737373] font-light block">Respon Resmi dalam 1x24 Jam</span>
+                <span class="text-xs text-[#737373] font-light block break-all">reservation@grandharmonihotel.co.id</span>
             </div>
 
-            <!-- 4. Waktu Menginap -->
+            <!-- 4. Waktu Menginap & Media Sosial -->
             <div class="space-y-2">
-                <span class="text-[11px] font-sans uppercase tracking-[0.15em] text-[#737373] block">Waktu Menginap</span>
+                <span class="text-[11px] font-sans uppercase tracking-[0.15em] text-[#737373] block">Waktu Menginap & Sosial</span>
                 <div class="text-sm sm:text-base text-[#1a1a1a] space-y-1">
                     <p class="font-light">Check-in: <strong class="font-medium">14.00 WIB</strong></p>
                     <p class="font-light">Check-out: <strong class="font-medium">12.00 WIB</strong></p>
+                </div>
+                <div class="flex items-center gap-3 pt-2">
+                    <a href="https://www.instagram.com/jwmarriottjkt/" target="_blank" rel="noopener noreferrer" class="text-xs text-[#737373] hover:text-[#d16806] transition-colors">
+                        Instagram: @jwmarriottjkt
+                    </a>
                 </div>
             </div>
         </div>
