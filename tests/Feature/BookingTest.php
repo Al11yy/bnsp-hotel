@@ -41,7 +41,7 @@ class BookingTest extends TestCase
     }
 
     /**
-     * Validasi gagal jika Nomor Identitas bukan 16 digit angka ("isian salah..data harus 16 digit").
+     * Validasi gagal jika Nomor Identitas bukan 16 digit angka.
      */
     public function test_validation_fails_when_identity_number_is_not_16_digits(): void
     {
@@ -58,12 +58,12 @@ class BookingTest extends TestCase
         ]);
 
         $response->assertSessionHasErrors([
-            'identity_number' => 'isian salah..data harus 16 digit',
+            'identity_number' => 'Format nomor identitas tidak valid. Nomor identitas harus terdiri dari 16 digit angka.',
         ]);
     }
 
     /**
-     * Validasi gagal jika Durasi Menginap bukan angka ("harus isi angka").
+     * Validasi gagal jika Durasi Menginap bukan angka.
      */
     public function test_validation_fails_when_stay_duration_is_not_numeric(): void
     {
@@ -80,7 +80,7 @@ class BookingTest extends TestCase
         ]);
 
         $response->assertSessionHasErrors([
-            'stay_duration' => 'harus isi angka',
+            'stay_duration' => 'Durasi menginap harus berupa angka (minimal 1 hari).',
         ]);
     }
 

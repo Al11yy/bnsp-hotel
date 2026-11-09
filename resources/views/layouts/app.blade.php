@@ -9,6 +9,11 @@
     <meta name="description" content="JW Marriott Hotel Jakarta — Peristirahatan berarsitektur mewah, keramahan bintang lima tak lekang waktu, dan kenyamanan istimewa di Jakarta.">
     <meta name="author" content="JW Marriott Hotel Jakarta">
 
+    <!-- Favicon Resmi JW Marriott -->
+    <link rel="icon" type="image/png" href="{{ asset('assets/images/jw-marriott-griffin.png') }}">
+    <link rel="shortcut icon" href="{{ asset('assets/images/jw-marriott-griffin.png') }}">
+    <link rel="apple-touch-icon" href="{{ asset('assets/images/jw-marriott-griffin.png') }}">
+
     <!-- Google Fonts: Cormorant Upright & Cormorant Infant (Serif) + Sora (Clean Sans) + JetBrains Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -160,18 +165,6 @@
         </div>
     </header>
 
-    <!-- NOTIFIKASI FLASH ALERT MINIMALIS -->
-    @if(session('success'))
-        <div class="fixed bottom-6 right-6 z-50 max-w-md bg-white border border-[#d16806]/40 text-[#1a1a1a] rounded-[14px] p-4 shadow-xl flex items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <span class="w-2.5 h-2.5 rounded-full bg-[#d16806]"></span>
-                <p class="text-xs font-medium text-[#1a1a1a]">{{ session('success') }}</p>
-            </div>
-            <button type="button" onclick="this.parentElement.remove()" class="text-[#737373] hover:text-[#1a1a1a] text-xs">
-                ✕
-            </button>
-        </div>
-    @endif
 
     @if($errors->any())
         <div class="fixed bottom-6 right-6 z-50 max-w-md bg-white border border-red-300 text-red-900 rounded-[14px] p-5 shadow-xl">

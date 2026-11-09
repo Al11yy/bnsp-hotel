@@ -25,7 +25,7 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi input form sesuai ketentuan lembar uji BNSP FR.IA.02
+        // Validasi input form sesuai ketentuan standar sistem reservasi hotel
         $request->validate([
             'customer_name' => 'required|string|min:3|max:150',
             'gender' => 'required|in:Laki-laki,Perempuan',
@@ -39,15 +39,15 @@ class BookingController extends Controller
             'customer_name.min' => 'Nama Pemesan minimal 3 karakter.',
             'gender.required' => 'Pilih jenis kelamin (Laki-laki atau Perempuan).',
             'gender.in' => 'Pilihan jenis kelamin tidak valid.',
-            'identity_number.required' => 'Nomor Identitas wajib diisi.',
-            'identity_number.regex' => 'isian salah..data harus 16 digit',
+            'identity_number.required' => 'Nomor Identitas (NIK/KTP) wajib diisi.',
+            'identity_number.regex' => 'Format nomor identitas tidak valid. Nomor identitas harus terdiri dari 16 digit angka.',
             'room_type_id.required' => 'Pilih tipe kamar yang ingin dipesan.',
             'room_type_id.exists' => 'Tipe kamar yang dipilih tidak terdaftar di sistem.',
             'booking_date.required' => 'Tanggal pesan wajib diisi.',
             'booking_date.date' => 'Format tanggal pesan tidak valid.',
-            'stay_duration.required' => 'harus isi angka',
-            'stay_duration.integer' => 'harus isi angka',
-            'stay_duration.min' => 'harus isi angka (minimal 1 hari)',
+            'stay_duration.required' => 'Durasi menginap harus diisi dengan angka (minimal 1 hari).',
+            'stay_duration.integer' => 'Durasi menginap harus berupa angka (minimal 1 hari).',
+            'stay_duration.min' => 'Durasi menginap minimal 1 hari.',
         ]);
 
         $roomType = RoomType::findOrFail($request->room_type_id);
