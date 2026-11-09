@@ -79,8 +79,8 @@ class HotelPagesTest extends TestCase
         $response->assertSee('Deluxe');
         $response->assertSee('Family');
         $response->assertSee('Rp 80.000');
-        $response->assertSee('Riwayat Pemesanan Kamar');
-        $response->assertSee('Belum Ada Riwayat Pemesanan');
+        $response->assertSee('Riwayat Pemesanan');
+        $response->assertSee(route('booking.index'));
     }
 
     /**

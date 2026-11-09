@@ -1,7 +1,17 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 space-y-10">
+<div class="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-8 lg:px-14 space-y-8">
+
+    <!-- Breadcrumb / Back Navigation to Daftar Harga -->
+    <div>
+        <a href="{{ route('prices') }}" class="inline-flex items-center gap-2 text-xs text-[#737373] hover:text-[#d16806] transition-colors">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+            </svg>
+            <span>Kembali ke Daftar Harga</span>
+        </a>
+    </div>
 
     <!-- Header Section (Clean Luxury Editorial Style) -->
     <header class="space-y-3 pb-8 border-b border-[#e9e9e9]">
