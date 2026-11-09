@@ -10,6 +10,16 @@ use Illuminate\Support\Str;
 class BookingController extends Controller
 {
     /**
+     * Menampilkan riwayat seluruh transaksi pemesanan kamar hotel (index).
+     */
+    public function index()
+    {
+        $bookings = Booking::with('roomType')->orderBy('created_at', 'desc')->get();
+
+        return view('booking.index', compact('bookings'));
+    }
+
+    /**
      * Menampilkan formulir pemesanan kamar hotel (create).
      */
     public function create(Request $request)

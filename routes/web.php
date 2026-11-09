@@ -32,6 +32,9 @@ Route::get('/tentang-kami', [HotelController::class, 'about'])->name('about');
 Route::get('/pesan-kamar', [BookingController::class, 'create'])->name('booking.create');
 Route::post('/pesan-kamar', [BookingController::class, 'store'])->name('booking.store');
 
+// Riwayat Pemesanan Kamar (Daftar Seluruh Reservasi)
+Route::get('/riwayat-pemesanan', [BookingController::class, 'index'])->name('booking.index');
+
 // Simulasi Hitung Total Bayar (AJAX / Fetch)
 Route::post('/pesan-kamar/hitung', [BookingController::class, 'calculate'])->name('booking.calculate');
 

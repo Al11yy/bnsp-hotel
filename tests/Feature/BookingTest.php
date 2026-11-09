@@ -195,4 +195,36 @@ class BookingTest extends TestCase
         $booking = Booking::where('identity_number', '3275094405900001')->firstOrFail();
         $response->assertRedirect(route('booking.show', $booking));
     }
+
+    /**
+     * Halaman riwayat pemesanan dapat diakses dan menampilkan daftar reservasi.
+     */
+    public function test_booking_history_page_is_accessible_and_lists_reservations(): void
+    {
+        $standar = RoomType::where('name', 'Standar')->firstOrFail();
+
+        Booking::create([
+            'booking_code' => 'BK-TEST-12345',
+            'customer_name' => 'Budi Santoso',
+            'gender' => 'Laki-laki',
+            'identity_number' => '3275091210770004',
+            'room_type_id' => $standar->id,
+            'room_price' => $standar->price,
+            'booking_date' => now()->toDateString(),
+            'stay_duration' => 2,
+            'include_breakfast' => true,
+            'breakfast_fee' => 160000,
+            'discount_percentage' => 0,
+            'discount_amount' => 0,
+            'total_payment' => ($standar->price * 2) + 160000,
+        ]);
+
+        $response = $this->get(route('booking.index'));
+
+        $response->assertStatus(200);
+        $response->assertSee('Riwayat Pemesanan');
+        $response->assertSee('BK-TEST-12345');
+        $response->assertSee('Budi Santoso');
+        $response->assertSee('Standar');
+    }
 }

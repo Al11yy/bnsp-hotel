@@ -168,13 +168,13 @@
             </button>
 
             <div class="flex items-center gap-3">
+                <a href="{{ route('booking.index') }}" 
+                   class="pressable inline-flex items-center gap-2 px-5 py-3 rounded-[9px] bg-white hover:bg-[#f9f6f3] text-[#353535] border border-[#e2ded9] text-xs font-medium tracking-wider uppercase transition-colors">
+                    <span>← Riwayat Pemesanan</span>
+                </a>
                 <a href="{{ route('booking.create') }}" 
                    class="pressable inline-flex items-center gap-2 px-6 py-3 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold tracking-wider uppercase transition-colors shadow-sm">
                     <span>Pesan Kamar Baru</span>
-                </a>
-                <a href="{{ route('home') }}" 
-                   class="pressable px-5 py-3 rounded-[9px] bg-[#f9f6f3] hover:bg-[#eee8e0] text-[#606060] border border-[#e9e9e9] text-xs font-medium tracking-wider uppercase transition-colors">
-                    Kembali ke Beranda
                 </a>
             </div>
         </div>
