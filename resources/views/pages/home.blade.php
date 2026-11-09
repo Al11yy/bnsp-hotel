@@ -265,9 +265,9 @@
                 <!-- Video Player (7 cols) -->
                 <div class="lg:col-span-7">
                     <div class="rounded-[20px] overflow-hidden bg-black aspect-video shadow-md relative">
-                        <video id="video-source" controls playsinline preload="metadata" 
+                        <video id="video-source" controls muted playsinline preload="metadata" 
                                class="w-full h-full object-cover">
-                            <source src="{{ asset('assets/videos/rooms/hotel_tour.mp4') }}" type="video/mp4">
+                            <source src="{{ route('video.stream', ['filename' => 'hotel_tour.mp4']) }}" type="video/mp4">
                             Browser Anda tidak mendukung tag video HTML5.
                         </video>
                     </div>
@@ -402,3 +402,15 @@
 
 </div>
 @endsection
+
+@push('scripts')
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const homeVideo = document.getElementById('video-source');
+        if (homeVideo) {
+            homeVideo.muted = true;
+            homeVideo.defaultMuted = true;
+        }
+    });
+</script>
+@endpush

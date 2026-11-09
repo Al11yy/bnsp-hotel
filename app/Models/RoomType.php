@@ -64,4 +64,14 @@ class RoomType extends Model
     {
         return 'Rp '.number_format($this->price, 0, ',', '.');
     }
+
+    /**
+     * URL stream video kamar hotel dengan dukungan HTTP 206 Partial Content (Byte-Range)
+     */
+    public function getVideoStreamUrlAttribute(): string
+    {
+        $filename = basename($this->video_url ?? 'standar_tour.mp4');
+
+        return route('video.stream', ['filename' => $filename]);
+    }
 }

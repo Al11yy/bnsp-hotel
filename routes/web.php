@@ -41,3 +41,6 @@ Route::post('/pesan-kamar/hitung', [BookingController::class, 'calculate'])->nam
 // Bukti Konfirmasi Pemesanan
 Route::get('/pesanan/{booking}', [BookingController::class, 'show'])->name('booking.show');
 Route::delete('/pesanan/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');
+
+// Video Streaming dengan Byte-Range Support (HTTP 206 Partial Content) untuk Fast-Forward & Rewind
+Route::get('/video-stream/{filename}', [HotelController::class, 'streamVideo'])->name('video.stream');

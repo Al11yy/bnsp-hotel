@@ -56,4 +56,23 @@ class HotelController extends Controller
 
         return view('pages.about', compact('hotelInfo'));
     }
+
+    /**
+     * Mengalirkan video tur kamar hotel dengan dukungan HTTP 206 Partial Content (Byte-Range Streaming).
+     * Memungkinkan pemutar video HTML5 untuk memajukan (fast-forward) dan memundurkan (rewind) video secara instan.
+     */
+    public function streamVideo(string $filename)
+    {
+        $cleanFilename = basename($filename);
+        $path = public_path('assets/videos/rooms/'.$cleanFilename);
+
+        if (! file_exists($path)) {
+            abort(404, 'File video tidak ditemukan.');
+        }
+
+        return response()->file($path, [
+            'Content-Type' => 'video/mp4',
+            'Accept-Ranges' => 'bytes',
+        ]);
+    }
 }

@@ -34,7 +34,7 @@
                 @foreach($roomTypes as $index => $room)
                     <button type="button" 
                             class="video-tab-btn pressable px-4 py-2 rounded-[8px] text-xs font-medium tracking-wide uppercase transition-all {{ $index === 0 ? 'bg-[#d16806] text-white shadow-sm' : 'text-[#606060] hover:text-[#1a1a1a]' }}"
-                            data-video-src="{{ asset($room->video_url) }}"
+                            data-video-src="{{ $room->video_stream_url }}"
                             data-room-name="{{ $room->name }}"
                             data-room-poster="{{ asset($room->image_url) }}">
                         {{ $room->name }}
@@ -48,16 +48,17 @@
             <video id="room-tour-player" 
                    class="w-full h-full object-cover" 
                    controls 
+                   muted
                    playsinline
                    preload="metadata"
                    poster="{{ asset($roomTypes->first()->image_url ?? '') }}">
-                <source id="video-source" src="{{ asset($roomTypes->first()->video_url ?? '') }}" type="video/mp4">
+                <source id="video-source" src="{{ $roomTypes->first()->video_stream_url ?? route('video.stream', ['filename' => 'standar_tour.mp4']) }}" type="video/mp4">
                 Browser Anda tidak mendukung pemutar video HTML5.
             </video>
             
-            <div id="video-caption" class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-mono text-[#1a1a1a] shadow-sm">
+            <!-- <div id="video-caption" class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-mono text-[#1a1a1a] shadow-sm">
                 Tur Video: Kamar {{ $roomTypes->first()->name ?? 'Hotel' }} — JW Marriott Jakarta
-            </div>
+            </div> -->
         </div>
 
     </section>
@@ -173,6 +174,12 @@
         const videoSource = document.getElementById('video-source');
         const caption = document.getElementById('video-caption');
 
+        if (player) {
+            // Mute secara default saat halaman dimuat
+            player.muted = true;
+            player.defaultMuted = true;
+        }
+
         if (tabButtons.length > 0 && player && videoSource) {
             tabButtons.forEach(btn => {
                 btn.addEventListener('click', function () {
@@ -187,6 +194,10 @@
                     const roomName = this.getAttribute('data-room-name');
                     const poster = this.getAttribute('data-room-poster');
 
+                    // Set video tetap termute terlebih dahulu sesuai instruksi
+                    player.muted = true;
+                    player.defaultMuted = true;
+                    player.src = newSrc;
                     videoSource.setAttribute('src', newSrc);
                     if (poster) player.setAttribute('poster', poster);
                     if (caption) caption.textContent = 'Tur Video: Kamar ' + roomName + ' — JW Marriott Jakarta';

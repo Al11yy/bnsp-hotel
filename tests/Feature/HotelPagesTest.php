@@ -82,4 +82,28 @@ class HotelPagesTest extends TestCase
         $response->assertSee('Riwayat Pemesanan Kamar');
         $response->assertSee('Belum Ada Riwayat Pemesanan');
     }
+
+    /**
+     * Endpoint video streaming mendukung HTTP 206 Partial Content (Byte-Range) untuk fast-forward dan rewind.
+     */
+    public function test_video_streaming_route_supports_byte_range_requests(): void
+    {
+        $response = $this->withHeaders([
+            'Range' => 'bytes=0-100',
+        ])->get(route('video.stream', ['filename' => 'hotel_tour.mp4']));
+
+        $response->assertStatus(206);
+        $response->assertHeader('Accept-Ranges', 'bytes');
+        $this->assertStringStartsWith('bytes 0-100/', $response->headers->get('Content-Range'));
+    }
+
+    /**
+     * Endpoint video streaming mengembalikan 404 jika file video tidak ada.
+     */
+    public function test_video_streaming_route_returns_404_for_missing_file(): void
+    {
+        $response = $this->get(route('video.stream', ['filename' => 'non_existent_video.mp4']));
+
+        $response->assertStatus(404);
+    }
 }
