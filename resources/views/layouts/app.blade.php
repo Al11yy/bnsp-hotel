@@ -98,7 +98,7 @@
                 </div>
             </a>
 
-            <!-- Center: Navigation Links -->
+            <!-- Center: Navigation Links (Clean 4-Item Nav) -->
             <nav class="hidden md:flex items-center gap-8 text-[14px] font-normal tracking-[0.04em] text-[#353535]" aria-label="Navigasi Utama">
                 <a href="{{ route('home') }}" 
                    class="hover:text-[#d16806] transition-colors {{ request()->routeIs('home') ? 'text-[#d16806] font-medium' : '' }}">
@@ -111,10 +111,6 @@
                 <a href="{{ route('products') }}" 
                    class="hover:text-[#d16806] transition-colors {{ request()->routeIs('products') ? 'text-[#d16806] font-medium' : '' }}">
                     Koleksi Kamar
-                </a>
-                <a href="{{ route('prices') }}" 
-                   class="hover:text-[#d16806] transition-colors {{ request()->routeIs('prices') ? 'text-[#d16806] font-medium' : '' }}">
-                    Daftar Tarif
                 </a>
                 <a href="{{ route('booking.index') }}" 
                    class="hover:text-[#d16806] transition-colors {{ request()->routeIs('booking.index') ? 'text-[#d16806] font-medium' : '' }}">
@@ -154,7 +150,6 @@
                 <a href="{{ route('home') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Beranda</a>
                 <a href="{{ route('about') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Tentang Kami</a>
                 <a href="{{ route('products') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Koleksi Kamar</a>
-                <a href="{{ route('prices') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Daftar Tarif</a>
                 <a href="{{ route('booking.index') }}" class="py-2 border-b border-[#f0ece7] hover:text-[#d16806]">Data Reservasi</a>
                 <a href="{{ route('booking.create') }}" class="py-3 mt-2 text-center rounded-[9px] bg-[#d16806] text-white font-medium text-xs uppercase tracking-wider">
                     Pesan Kamar Sekarang →
@@ -277,7 +272,6 @@
                         <li><a href="{{ route('home') }}" class="hover:text-[#d16806] transition-colors">Beranda</a></li>
                         <li><a href="{{ route('about') }}" class="hover:text-[#d16806] transition-colors">Tentang Kami</a></li>
                         <li><a href="{{ route('products') }}" class="hover:text-[#d16806] transition-colors">Koleksi Kamar</a></li>
-                        <li><a href="{{ route('prices') }}" class="hover:text-[#d16806] transition-colors">Daftar Tarif</a></li>
                         <li><a href="{{ route('booking.index') }}" class="hover:text-[#d16806] transition-colors">Data Reservasi</a></li>
                     </ul>
                 </div>

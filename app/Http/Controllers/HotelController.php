@@ -27,16 +27,6 @@ class HotelController extends Controller
     }
 
     /**
-     * Menampilkan halaman daftar harga sewa kamar hotel per malam.
-     */
-    public function prices()
-    {
-        $roomTypes = RoomType::orderBy('price', 'asc')->get();
-
-        return view('pages.prices', compact('roomTypes'));
-    }
-
-    /**
      * Menampilkan halaman tentang kami: profil hotel, alamat, nomor telepon, dan email.
      */
     public function about()

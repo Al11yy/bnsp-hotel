@@ -8,10 +8,10 @@ use Tests\TestCase;
 
 /**
  * Feature Test : HotelPagesTest
- * Deskripsi    : Menguji ketersediaan halaman publik hotel (Beranda, Produk & Video, Daftar Harga, Tentang Kami)
+ * Deskripsi    : Menguji ketersediaan halaman publik hotel (Beranda, Produk & Video, Tentang Kami)
  * Author       : Peserta Sertifikasi BNSP - Junior Web Developer
- * Versi        : 1.0.0
- * Tanggal      : 2026-11-02
+ * Versi        : 2.0.0
+ * Tanggal      : 2026-11-09
  */
 class HotelPagesTest extends TestCase
 {
@@ -50,20 +50,6 @@ class HotelPagesTest extends TestCase
         $response->assertSee('Deluxe');
         $response->assertSee('Family');
         $response->assertSee('video-source');
-    }
-
-    /**
-     * Halaman daftar harga menampilkan tabel harga sesuai spesifikasi.
-     */
-    public function test_prices_page_is_accessible_and_shows_price_table(): void
-    {
-        $response = $this->get(route('prices'));
-
-        $response->assertStatus(200);
-        $response->assertSee('Daftar Harga Sewa Kamar Hotel');
-        $response->assertSee('Rp 500.000');
-        $response->assertSee('Rp 800.000');
-        $response->assertSee('Rp 1.200.000');
     }
 
     /**
