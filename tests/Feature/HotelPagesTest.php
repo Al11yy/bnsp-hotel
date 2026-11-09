@@ -65,4 +65,19 @@ class HotelPagesTest extends TestCase
         $response->assertSee('(021) 555-8989');
         $response->assertSee('reservation@grandharmonihotel.co.id');
     }
+
+    /**
+     * Halaman daftar harga dapat diakses dan menampilkan tarif 3 jenis kamar serta ketentuan sarapan per hari.
+     */
+    public function test_prices_page_is_accessible_and_shows_price_list(): void
+    {
+        $response = $this->get(route('prices'));
+
+        $response->assertStatus(200);
+        $response->assertSee('Daftar Harga Kamar Hotel');
+        $response->assertSee('Standar');
+        $response->assertSee('Deluxe');
+        $response->assertSee('Family');
+        $response->assertSee('Rp 80.000');
+    }
 }

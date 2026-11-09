@@ -10,16 +10,6 @@ use Illuminate\Support\Str;
 class BookingController extends Controller
 {
     /**
-     * Menampilkan daftar semua transaksi pemesanan (index).
-     */
-    public function index()
-    {
-        $bookings = Booking::with('roomType')->latest()->paginate(10);
-
-        return view('booking.index', compact('bookings'));
-    }
-
-    /**
      * Menampilkan formulir pemesanan kamar hotel (create).
      */
     public function create(Request $request)
@@ -108,7 +98,7 @@ class BookingController extends Controller
     {
         $booking->delete();
 
-        return redirect()->route('booking.index')
+        return redirect()->route('booking.create')
             ->with('success', 'Data pemesanan berhasil dihapus.');
     }
 

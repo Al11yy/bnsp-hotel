@@ -219,10 +219,10 @@
                                    class="w-4 h-4 rounded text-[#d16806] focus:ring-[#d16806] border-[#e9e9e9]">
                             <div>
                                 <span class="text-xs sm:text-sm font-medium text-[#1a1a1a] block">
-                                    Termasuk Breakfast (+ Rp 80.000)
+                                    Termasuk Breakfast (+ Rp 80.000 / hari)
                                 </span>
                                 <span class="text-[11px] text-[#737373] font-light block">
-                                    Centang untuk menyertakan sarapan prasmanan harian di Sailendra Restaurant selama durasi menginap.
+                                    Centang untuk menyertakan sarapan prasmanan harian di Sailendra Restaurant (dihitung Rp 80.000 x jumlah hari menginap).
                                 </span>
                             </div>
                         </label>
@@ -298,7 +298,7 @@
                             <strong id="calc-discount-amount" class="font-mono tabular-nums font-medium">- Rp 0</strong>
                         </div>
                         <div class="flex justify-between pb-2.5 border-b border-[#f0ece7]">
-                            <span>Sarapan (Buffet):</span>
+                            <span>Sarapan (<span id="calc-breakfast-days" class="font-mono tabular-nums">0</span> hari):</span>
                             <strong id="calc-breakfast-fee" class="font-mono tabular-nums text-[#1a1a1a] font-medium">Rp 0</strong>
                         </div>
                         <div class="pt-2 flex justify-between text-sm text-[#1a1a1a]">
@@ -341,6 +341,7 @@
         const calcSubtotal = document.getElementById('calc-subtotal');
         const calcDiscountPercent = document.getElementById('calc-discount-percent');
         const calcDiscountAmount = document.getElementById('calc-discount-amount');
+        const calcBreakfastDays = document.getElementById('calc-breakfast-days');
         const calcBreakfastFee = document.getElementById('calc-breakfast-fee');
         const calcTotalFinal = document.getElementById('calc-total-final');
 
@@ -501,7 +502,7 @@
             }
 
             const includeBreakfast = breakfastCheckbox.checked;
-            const breakfastFee = includeBreakfast ? 80000 : 0;
+            const breakfastFee = includeBreakfast ? (80000 * duration) : 0;
             const totalPayment = (subtotal - discountAmount) + breakfastFee;
 
             totalPaymentDisplay.value = formatRupiah(totalPayment);
@@ -510,6 +511,7 @@
             calcSubtotal.textContent = formatRupiah(subtotal);
             calcDiscountPercent.textContent = discountPercent;
             calcDiscountAmount.textContent = '- ' + formatRupiah(discountAmount);
+            if (calcBreakfastDays) calcBreakfastDays.textContent = includeBreakfast ? duration : 0;
             calcBreakfastFee.textContent = formatRupiah(breakfastFee);
             calcTotalFinal.textContent = formatRupiah(totalPayment);
 

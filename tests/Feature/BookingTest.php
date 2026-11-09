@@ -110,7 +110,7 @@ class BookingTest extends TestCase
             'room_type_id' => $standar->id,
             'stay_duration' => 3,
             'include_breakfast' => 1,
-            'breakfast_fee' => 80000,
+            'breakfast_fee' => 240000,
         ]);
 
         $booking = Booking::where('identity_number', '3275091210770004')->firstOrFail();
@@ -155,6 +155,44 @@ class BookingTest extends TestCase
         ]);
 
         $booking = Booking::where('identity_number', '3171015504880002')->firstOrFail();
+        $response->assertRedirect(route('booking.show', $booking));
+    }
+
+    /**
+     * Pengujian kalkulasi sarapan Rp 80.000 per hari (cth: 4 hari = 80.000 x 4 = 320.000).
+     */
+    public function test_breakfast_charge_is_calculated_per_day_for_four_days(): void
+    {
+        $standar = RoomType::where('name', 'Standar')->firstOrFail();
+
+        // 4 hari Standar:
+        // Subtotal = 500.000 * 4 = 2.000.000
+        // Diskon 10% = 200.000
+        // Biaya sarapan 4 hari = 80.000 * 4 = 320.000
+        // Total bayar = (2.000.000 - 200.000) + 320.000 = 2.120.000
+        $payload = [
+            'customer_name' => 'Dewi Lestari',
+            'gender' => 'Perempuan',
+            'identity_number' => '3275094405900001',
+            'room_type_id' => $standar->id,
+            'booking_date' => now()->toDateString(),
+            'stay_duration' => '4',
+            'include_breakfast' => 1,
+        ];
+
+        $response = $this->post(route('booking.store'), $payload);
+
+        $this->assertDatabaseHas('bookings', [
+            'customer_name' => 'Dewi Lestari',
+            'stay_duration' => 4,
+            'include_breakfast' => 1,
+            'breakfast_fee' => 320000,
+            'discount_percentage' => 10,
+            'discount_amount' => 200000,
+            'total_payment' => 2120000,
+        ]);
+
+        $booking = Booking::where('identity_number', '3275094405900001')->firstOrFail();
         $response->assertRedirect(route('booking.show', $booking));
     }
 }

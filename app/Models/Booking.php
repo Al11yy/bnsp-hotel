@@ -108,10 +108,10 @@ class Booking extends Model
     }
 
     /**
-     * Hitung kalkulasi pemesanan berdasarkan aturan BNSP:
+     * Hitung kalkulasi pemesanan berdasarkan aturan hotel:
      * - Subtotal = harga_kamar * durasi
      * - Jika durasi > 3 hari => diskon 10%
-     * - Jika sarapan dipilih => tambahan Rp 80.000
+     * - Jika sarapan dipilih => tambahan Rp 80.000 per hari (80.000 * durasi)
      *
      * @return array{
      *     subtotal: int,
@@ -126,7 +126,7 @@ class Booking extends Model
         $subtotal = $roomPrice * $duration;
         $discountPercentage = ($duration > 3) ? 10 : 0;
         $discountAmount = (int) round(($discountPercentage / 100) * $subtotal);
-        $breakfastFee = $includeBreakfast ? 80000 : 0;
+        $breakfastFee = $includeBreakfast ? (80000 * $duration) : 0;
         $totalPayment = ($subtotal - $discountAmount) + $breakfastFee;
 
         return [
