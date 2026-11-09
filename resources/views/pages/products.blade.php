@@ -1,152 +1,165 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="py-12 sm:py-16 space-y-20">
+<div class="py-14 sm:py-20 lg:py-24 max-w-6xl mx-auto px-4 sm:px-8 lg:px-12 space-y-20 sm:space-y-28">
 
     <!-- Header Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
-        <div class="max-w-3xl space-y-4">
-            <span class="text-xs font-sans tracking-[0.2em] uppercase text-[#d16806] font-medium">
-                Katalog Ruang & Kenyamanan
-            </span>
-            <h1 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] capitalize">
-                Koleksi Kamar & Video Tur
-            </h1>
-            <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
-                Menampilkan tiga pilihan akomodasi unggulan JW Marriott Hotel Jakarta — Standar, Deluxe, dan Family — lengkap dengan kasur signature Marriott, interior elegan berpanorama kota, dan dokumentasi video tur virtual.
+    <header class="max-w-3xl space-y-4">
+        <span class="text-xs font-sans tracking-[0.25em] uppercase text-[#d16806] font-medium block">
+            Akomodasi & Video Tur • JW Marriott Jakarta
+        </span>
+        <h1 class="font-serif text-4xl sm:text-6xl font-normal text-[#1a1a1a] tracking-tight capitalize">
+            Koleksi Kamar & Video Tur
+        </h1>
+        <p class="text-base sm:text-lg text-[#606060] font-light leading-relaxed pt-2">
+            Saksikan video tur virtual tiga pilihan kamar unggulan JW Marriott Hotel Jakarta di kawasan Mega Kuningan — Standar, Deluxe, dan Family — lengkap dengan fasilitas kemewahan bintang lima.
+        </p>
+    </header>
+
+    <!-- Interactive Video Tour Section (Unboxed & Clean Flow) -->
+    <section class="space-y-6">
+        
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-[#e9e9e9]">
+            <div>
+                <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#1a1a1a]">
+                    Video Tur Virtual Kamar
+                </h2>
+                <p class="text-xs text-[#737373] mt-1 font-light">
+                    Pilih tipe kamar di bawah untuk memutar cuplikan suasana interior kamar
+                </p>
+            </div>
+
+            <!-- Room Switcher Tabs -->
+            <div class="inline-flex p-1 bg-[#f0ece7] rounded-[10px]" role="tablist">
+                @foreach($roomTypes as $index => $room)
+                    <button type="button" 
+                            class="video-tab-btn pressable px-4 py-2 rounded-[8px] text-xs font-medium tracking-wide uppercase transition-all {{ $index === 0 ? 'bg-[#d16806] text-white shadow-sm' : 'text-[#606060] hover:text-[#1a1a1a]' }}"
+                            data-video-src="{{ asset($room->video_url) }}"
+                            data-room-name="{{ $room->name }}"
+                            data-room-poster="{{ asset($room->image_url) }}">
+                        {{ $room->name }}
+                    </button>
+                @endforeach
+            </div>
+        </div>
+
+        <!-- Video Player (Edge-to-Edge Container without heavy boxes) -->
+        <div class="relative overflow-hidden aspect-video bg-black shadow-sm">
+            <video id="room-tour-player" 
+                   class="w-full h-full object-cover" 
+                   controls 
+                   playsinline
+                   preload="metadata"
+                   poster="{{ asset($roomTypes->first()->image_url ?? '') }}">
+                <source id="video-source" src="{{ asset($roomTypes->first()->video_url ?? '') }}" type="video/mp4">
+                Browser Anda tidak mendukung pemutar video HTML5.
+            </video>
+            
+            <div id="video-caption" class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-4 py-1.5 rounded-full text-xs font-mono text-[#1a1a1a] shadow-sm">
+                Tur Video: Kamar {{ $roomTypes->first()->name ?? 'Hotel' }} — JW Marriott Jakarta
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Room Cards (Exact Editorial Horizontal Layout Matching Screenshot) -->
+    <section class="space-y-8">
+        
+        <div class="border-b border-[#1a1a1a] pb-4">
+            <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#1a1a1a]">
+                Pilihan Kamar Unggulan
+            </h2>
+            <p class="text-xs sm:text-sm text-[#737373] font-light mt-1">
+                Kenyamanan istimewa dengan tempat tidur signature Marriott, pencahayaan hangat, dan panorama kota Jakarta.
             </p>
         </div>
-    </section>
 
-    <!-- Interactive Video Tour Section (JW Marriott Jakarta Walkthrough) -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
-        <div class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 border border-[#f4e2d8] shadow-sm space-y-8">
-            
-            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-[#e9e9e9]">
-                <div>
-                    <h2 class="font-serif text-2xl sm:text-3xl font-normal text-[#1a1a1a]">
-                        Video Tur Virtual Kamar
-                    </h2>
-                    <p class="text-xs text-[#737373] mt-1 font-light">
-                        Pilih tipe kamar di bawah untuk memutar cuplikan tur suasana kamar secara langsung
-                    </p>
-                </div>
-
-                <!-- Room Switcher Tabs -->
-                <div class="inline-flex p-1 bg-[#f9f6f3] rounded-[10px] border border-[#e9e9e9]" role="tablist">
-                    @foreach($roomTypes as $index => $room)
-                        <button type="button" 
-                                class="video-tab-btn pressable px-4 py-2 rounded-[8px] text-xs font-medium tracking-wide uppercase transition-all {{ $index === 0 ? 'bg-[#d16806] text-white shadow-sm' : 'text-[#606060] hover:text-[#1a1a1a]' }}"
-                                data-video-src="{{ asset($room->video_url) }}"
-                                data-room-name="{{ $room->name }}"
-                                data-room-poster="{{ asset($room->image_url) }}">
-                            {{ $room->name }}
-                        </button>
-                    @endforeach
-                </div>
-            </div>
-
-            <!-- Video Player -->
-            <div class="relative rounded-[20px] overflow-hidden aspect-video bg-black shadow-md max-w-5xl mx-auto">
-                <video id="room-tour-player" 
-                       class="w-full h-full object-cover" 
-                       controls 
-                       playsinline
-                       preload="metadata"
-                       poster="{{ asset($roomTypes->first()->image_url ?? '') }}">
-                    <source id="video-source" src="{{ asset($roomTypes->first()->video_url ?? '') }}" type="video/mp4">
-                    Browser Anda tidak mendukung pemutar video HTML5.
-                </video>
-                
-                <div id="video-caption" class="absolute top-4 left-4 bg-white/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/60 text-xs font-mono text-[#1a1a1a]">
-                    Tur Video: Kamar {{ $roomTypes->first()->name ?? 'Hotel' }} — JW Marriott Jakarta
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Detail 3 Tipe Kamar (JW Marriott Jakarta Rooms) -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-8 lg:px-14">
-        <div class="space-y-16">
-            @foreach($roomTypes as $index => $room)
-                <div id="kamar-{{ $room->slug }}" class="bg-white rounded-[24px] sm:rounded-[32px] p-6 sm:p-10 border border-[#f4e2d8] shadow-sm grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div class="divide-y divide-[#e9e9e9]">
+            @foreach($roomTypes as $room)
+                @php
+                    $imageMap = [
+                        'Standar' => 'standar.jpg',
+                        'Deluxe' => 'deluxe.jpg',
+                        'Family' => 'family.jpg',
+                    ];
+                    $imageName = $imageMap[$room->name] ?? 'standar.jpg';
+                    $specsMap = [
+                        'Standar' => ['Ukuran' => '32 m²', 'Tempat Tidur' => 'Twin Bed', 'Kapasitas' => '2 Tamu Dewasa'],
+                        'Deluxe' => ['Ukuran' => '42 m²', 'Tempat Tidur' => 'King Bed', 'Kapasitas' => '2 Tamu Dewasa'],
+                        'Family' => ['Ukuran' => '65 m²', 'Tempat Tidur' => 'King + Twin Suite', 'Kapasitas' => '4 Tamu Dewasa'],
+                    ];
+                    $specs = $specsMap[$room->name] ?? ['Ukuran' => '35 m²', 'Tempat Tidur' => 'Queen Bed', 'Kapasitas' => '2 Tamu'];
+                @endphp
+                <article class="py-12 first:pt-4 last:pb-0 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                     
-                    <!-- Foto Kamar (Authentic JW Marriott Photography) -->
-                    <div class="lg:col-span-6">
-                        <div class="rounded-[20px] overflow-hidden aspect-[4/3] bg-[#f9f6f3] shadow-inner">
-                            <img src="{{ asset($room->image_url) }}" 
-                                 alt="Kamar {{ $room->name }} JW Marriott Jakarta" 
-                                 class="w-full h-full object-cover">
-                        </div>
+                    <!-- Media Asset (Authentic JW Marriott Photography) -->
+                    <div class="lg:col-span-5 overflow-hidden aspect-[16/10] bg-[#f0ece7]">
+                        <img src="{{ asset('assets/images/rooms/' . $imageName) }}" 
+                             alt="{{ $room->name }} JW Marriott Jakarta" 
+                             class="w-full h-full object-cover">
                     </div>
 
-                    <!-- Spesifikasi Kamar -->
-                    <div class="lg:col-span-6 space-y-6">
-                        <div class="pb-4 border-b border-[#e9e9e9] flex items-start justify-between gap-4">
-                            <div>
-                                <span class="text-xs font-sans tracking-widest text-[#d16806] uppercase block">
-                                    Pilihan 0{{ $index + 1 }}
+                    <!-- Room Information & Pricing -->
+                    <div class="lg:col-span-7 space-y-6">
+                        
+                        <!-- Header Row: Tipe Kamar & Tarif -->
+                        <div class="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                            <div class="space-y-1">
+                                <span class="text-xs font-mono text-[#d16806] tracking-widest block uppercase">
+                                    TIPE KAMAR RESMI
                                 </span>
-                                <h3 class="font-serif text-3xl sm:text-4xl font-normal text-[#1a1a1a] mt-1 capitalize">
-                                    Kamar {{ $room->name }}
-                                </h3>
+                                <h2 class="font-serif text-3xl sm:text-4xl font-normal text-[#1a1a1a]">
+                                    {{ $room->name }} Room
+                                </h2>
                             </div>
-                            <div class="text-right">
-                                <span class="text-xs text-[#737373] block font-light">Tarif per malam</span>
-                                <span class="font-sans font-semibold text-2xl text-[#d16806] tabular-nums">
+                            <div class="text-left sm:text-right">
+                                <span class="text-[11px] font-sans uppercase tracking-[0.15em] text-[#737373] block">TARIF PER MALAM</span>
+                                <p class="font-mono text-2xl sm:text-3xl font-bold text-[#d16806]">
                                     {{ $room->formatted_price }}
-                                </span>
+                                </p>
+                                <span class="text-xs text-[#737373] font-light block">Termasuk Pajak & Layanan</span>
                             </div>
                         </div>
 
-                        <p class="text-xs sm:text-sm text-[#606060] font-light leading-relaxed">
+                        <!-- Description Paragraph -->
+                        <p class="text-sm sm:text-base text-[#606060] font-light leading-relaxed">
                             {{ $room->description }}
                         </p>
 
-                        <!-- Specifications Grid (NO EMOJIS, Clean Minimalist Design) -->
-                        <div class="grid grid-cols-2 gap-4 p-4 rounded-[12px] bg-[#f9f6f3] border border-[#e9e9e9] text-xs">
-                            <div class="space-y-1">
-                                <span class="text-[11px] font-medium uppercase tracking-wider text-[#737373] block">Kapasitas Tamu</span>
-                                <span class="text-[#1a1a1a] font-medium block">{{ $room->capacity }}</span>
+                        <!-- Room Specs (Luas, Ranjang, Kapasitas) -->
+                        <div class="grid grid-cols-3 gap-4 py-4 border-y border-[#f0ece7] text-xs">
+                            <div>
+                                <span class="text-[#8c867e] block text-[11px] uppercase tracking-wider">LUAS KAMAR</span>
+                                <span class="text-[#1a1a1a] font-medium">{{ $specs['Ukuran'] }}</span>
                             </div>
-                            <div class="space-y-1">
-                                <span class="text-[11px] font-medium uppercase tracking-wider text-[#737373] block">Tipe Ranjang</span>
-                                <span class="text-[#1a1a1a] font-medium block">{{ $room->bed_type }}</span>
+                            <div>
+                                <span class="text-[#8c867e] block text-[11px] uppercase tracking-wider">TEMPAT TIDUR</span>
+                                <span class="text-[#1a1a1a] font-medium">{{ $specs['Tempat Tidur'] }}</span>
                             </div>
-                        </div>
-
-                        <!-- Amenities List -->
-                        <div class="space-y-2.5">
-                            <span class="text-xs font-medium uppercase tracking-wider text-[#1a1a1a] block">Fasilitas Kamar:</span>
-                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#606060]">
-                                @foreach($room->facilities ?? [] as $facility)
-                                    <div class="flex items-center gap-2">
-                                        <svg class="w-3.5 h-3.5 text-[#d16806] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                                        </svg>
-                                        <span>{{ $facility }}</span>
-                                    </div>
-                                @endforeach
+                            <div>
+                                <span class="text-[#8c867e] block text-[11px] uppercase tracking-wider">KAPASITAS</span>
+                                <span class="text-[#1a1a1a] font-medium">{{ $specs['Kapasitas'] }}</span>
                             </div>
                         </div>
 
-                        <!-- Action Button -->
-                        <div class="pt-2 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                            <span class="text-xs text-[#737373] font-light">
-                                Diskon 10% untuk durasi lebih dari 3 hari
-                            </span>
-                            <a href="{{ route('booking.create', ['room_type_id' => $room->id]) }}" 
-                               class="pressable px-6 py-3 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold tracking-wider uppercase text-center transition-colors shadow-sm">
-                                Pesan Kamar {{ $room->name }} →
+                        <!-- Footer Row: Subtext & Action Button -->
+                        <div class="pt-2 flex items-center justify-between">
+                            <span class="text-xs text-[#737373] font-light">Konfirmasi instan secara online</span>
+                            <a href="{{ route('booking.create', ['room_id' => $room->id]) }}" 
+                               class="pressable inline-flex items-center gap-2 px-6 py-3 rounded-[9px] bg-[#d16806] hover:bg-[#b55804] text-white text-xs font-semibold tracking-wider uppercase transition-colors shadow-sm">
+                                <span>PESAN KAMAR INI</span>
+                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                </svg>
                             </a>
                         </div>
 
                     </div>
 
-                </div>
+                </article>
             @endforeach
         </div>
+
     </section>
 
 </div>
@@ -165,9 +178,9 @@
                 btn.addEventListener('click', function () {
                     tabButtons.forEach(b => {
                         b.classList.remove('bg-[#d16806]', 'text-white', 'shadow-sm');
-                        b.classList.add('text-[#606060]');
+                        b.classList.add('text-[#606060]', 'hover:text-[#1a1a1a]');
                     });
-                    this.classList.remove('text-[#606060]');
+                    this.classList.remove('text-[#606060]', 'hover:text-[#1a1a1a]');
                     this.classList.add('bg-[#d16806]', 'text-white', 'shadow-sm');
 
                     const newSrc = this.getAttribute('data-video-src');
@@ -179,7 +192,7 @@
                     if (caption) caption.textContent = 'Tur Video: Kamar ' + roomName + ' — JW Marriott Jakarta';
 
                     player.load();
-                    player.play().catch(() => {});
+                    player.play().catch(function() {});
                 });
             });
         }
